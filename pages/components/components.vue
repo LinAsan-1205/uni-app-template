@@ -1,6 +1,6 @@
 <template>
-	<view class="content">
-
+	<view>
+		components
 		<sakura-navigation></sakura-navigation>
 	</view>
 </template>
@@ -8,19 +8,14 @@
 <script>
 	export default {
 		data() {
-			return {}
-		},
-		onLoad() {
+			return {
 
-		},
-		methods: {
-
+			};
 		}
 	}
 
 </script>
 
-<style>
-
+<style lang="scss">
 
 </style>
