@@ -61,11 +61,12 @@
 		position: fixed;
 		bottom: 0;
 		left: 0;
+		right: 0;
 		z-index: 999;
 		padding: 0 20rpx 20rpx;
-		right: 0;
-
-
+		padding-bottom: 20rpx;
+		padding-bottom: constant(safe-area-inset-bottom);
+		padding-bottom: env(safe-area-inset-bottom);
 
 		&-list {
 			height: 70rpx;

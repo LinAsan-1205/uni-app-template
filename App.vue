@@ -14,7 +14,8 @@
 
 </script>
 
-<style>
+<style lang="scss">
 	/*每个页面公共css */
+	@import '@/uni_modules/sakura-ui/libs/styles/index.scss';
 
 </style>

@@ -1,6 +1,5 @@
 <template>
 	<view class="content">
-
 		<sakura-navigation></sakura-navigation>
 	</view>
 </template>

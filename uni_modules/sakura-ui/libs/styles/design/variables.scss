@@ -1,0 +1,122 @@
+@use 'sass:color';
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:math';
+$namespace: 'sakura' !default;
+
+@function to-css-var-name($name-units...) {
+	$name: '--sakura';
+	@each $unit in $name-units {
+		@if $unit != '' {
+			$name: $name + '-' + $unit;
+		}
+	}
+	@return $name;
+}
+
+@function get-css-var($name-units...) {
+	@return var(#{to-css-var-name($name-units...)});
+}
+
+@mixin define-css-var($name-units, $value) {
+	#{to-css-var-name($name-units...)}: #{$value};
+}
+
+@mixin define-preset-values($base-name, $style-map, $inspect: false) {
+	@each $name in map.keys($style-map) {
+		@include define-css-var(($base-name, $name), if($inspect, #{meta.inspect(map.get($style-map, $name))}, map.get($style-map, $name)));
+	}
+}
+
+@mixin define-preset-style($base-name, $style-map) {
+	@each $name in map.keys($style-map) {
+		$style-units: map.get($style-map, $name);
+
+		@if list.length($style-units) != 0 {
+			@include define-css-var(($base-name, $name), get-css-var($style-units...));
+		}
+	}
+}
+
+@mixin define-level-colors($type, $max-lavel, $mode, $mixed-color) {
+	@for $i from 1 through $max-lavel {
+		$color-map: map.deep-merge(
+			(
+				$type: (
+					'#{$mode}-#{$i}': color.mix($mixed-color, map.get($color-map, $type, 'base'), math.percentage(math.div($i, 10)))
+				)
+			),
+			$color-map
+		) !global;
+	}
+}
+
+@mixin define-opacity-colors($type, $max-lavel) {
+	@for $i from 1 through $max-lavel {
+		$color-map: map.deep-merge(
+			(
+				$type: (
+					'opacity-#{$i}': rgba(map.get($color-map, $type, 'base'), math.percentage(math.div(10 - $i, 10)))
+				)
+			),
+			$color-map
+		) !global;
+	}
+}
+
+$color-map: () !default;
+$color-map: map.deep-merge(
+	(
+		primary: (
+			base: #1a5cff
+		),
+		info: (
+			base: #a4b0be
+		),
+		success: (
+			base: #46c93a
+		),
+		warning: (
+			base: #ffba00
+		),
+		danger: (
+			base: #ff4757
+		),
+		dark: (
+			base: #1e1e1e
+		),
+		purple: (
+			base: #6831ff
+		),
+		black: (
+			base: #000000
+		),
+		white: (
+			base: #ffffff
+		),
+		link: (
+			base: #3742fa
+		)
+	),
+	$color-map
+);
+
+$types: primary, info, success, warning, danger, dark;
+
+$color-black: #000000 !default;
+$color-white: #ffffff !default;
+
+@each $type in $types {
+	@include define-level-colors($type, 9, 'light', $color-white);
+	@include define-level-colors($type, 2, 'dark', $color-black);
+	@include define-opacity-colors($type, 9);
+}
+
+@mixin define-type-color($type) {
+	$colors: map.get($color-map, $type);
+
+	@each $name in map.keys($colors) {
+		@include define-css-var(('color', $type, $name), map.get($colors, $name));
+	}
+}

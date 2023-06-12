@@ -1,0 +1,7 @@
+@use './design' as *;
+$secondary: black, purple, white, link;
+page {
+	@each $type in join($types, $secondary) {
+		@include define-type-color($type);
+	}
+}

@@ -1,0 +1,95 @@
+@use "sass:map";
+@use "sass:color";
+@use "../../libs/styles/design" as *;
+$button: () !default;
+$button: map.merge(
+	(
+		color: get-css-var('color-black-base'),
+		color-plain: get-css-var('color-black-base'),
+		bg-color: get-css-var('color-white-base'),
+		border-color-base: get-css-var('border-color-base')
+	),
+	$button
+);
+
+.#{$namespace}-button {
+	position: relative;
+	margin: 0px;
+	border-radius: 0;
+	overflow: visible;
+	color: get-css-var('button-color');
+	background-color: get-css-var('button-bg-color');
+	&--vars {
+		--#{$namespace}-border-color-base: #e5e5e5;
+		@include define-preset-values('button', $button);
+	}
+
+	@mixin define-button-style($style-map) {
+		@include define-preset-style('button', $style-map);
+	}
+
+	@each $type in $types {
+		&--#{$type} {
+			@include define-button-style(
+				(
+					color: 'color-white-base',
+					bg-color: 'color' $type 'base',
+					border-color-base: 'color' $type 'base',
+					color-plain: 'color' $type 'base',
+					shadow: 'color' $type 'base-opacity-8'
+				)
+			);
+		}
+	}
+	&[disabled]:not([type]) {
+		background: get-css-var('button-bg-color');
+		color: get-css-var('button-color');
+		opacity: 0.8;
+	}
+
+	&::after {
+		content: ' ';
+		width: 200%;
+		height: 200%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 0;
+		transform: scale(0.5) translateZ(0);
+		transform-origin: 0 0;
+		box-sizing: border-box;
+		border: 1px solid get-css-var('button-border-color-base');
+	}
+	&--shadow {
+		box-shadow: 6rpx 6rpx 8rpx get-css-var('button-shadow');
+		&:after {
+			opacity: 0;
+		}
+	}
+	&--plain {
+		background-color: transparent !important;
+		overflow: visible;
+		color: get-css-var('button-color-plain');
+	}
+	&--round {
+		border-radius: 24rpx;
+		overflow: hidden;
+		&:after {
+			border-radius: 24rpx;
+		}
+		&--border {
+			overflow: visible;
+		}
+		&--size {
+			&:after {
+				// border-radius: 0;
+				// border: none;
+			}
+		}
+	}
+	&--border {
+		&:after {
+			display: none;
+		}
+	}
+}
