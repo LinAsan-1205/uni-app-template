@@ -17,8 +17,16 @@ $button: map.merge(
 	margin: 0px;
 	border-radius: 0;
 	overflow: visible;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	color: get-css-var('button-color');
 	background-color: get-css-var('button-bg-color');
+	&-content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 	&--vars {
 		--#{$namespace}-border-color-base: #e5e5e5;
 		@include define-preset-values('button', $button);
@@ -36,7 +44,7 @@ $button: map.merge(
 					bg-color: 'color' $type 'base',
 					border-color-base: 'color' $type 'base',
 					color-plain: 'color' $type 'base',
-					shadow: 'color' $type 'base-opacity-8'
+					shadow: 'color' $type 'base'
 				)
 			);
 		}
@@ -61,7 +69,7 @@ $button: map.merge(
 		border: 1px solid get-css-var('button-border-color-base');
 	}
 	&--shadow {
-		box-shadow: 6rpx 6rpx 8rpx get-css-var('button-shadow');
+		box-shadow: 0 8px 20px -6px get-css-var('button-shadow');
 		&:after {
 			opacity: 0;
 		}
@@ -70,6 +78,15 @@ $button: map.merge(
 		background-color: transparent !important;
 		overflow: visible;
 		color: get-css-var('button-color-plain');
+	}
+	&--disabled {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		opacity: 0.5;
+		background-color: rgba(255, 255, 255, 0.5);
 	}
 	&--round {
 		border-radius: 24rpx;
@@ -85,6 +102,15 @@ $button: map.merge(
 				// border-radius: 0;
 				// border: none;
 			}
+		}
+	}
+	&--block {
+		width: 100%;
+	}
+	&--icon {
+		padding: 16rpx;
+		&::after {
+			display: none;
 		}
 	}
 	&--border {

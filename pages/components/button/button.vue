@@ -2,7 +2,7 @@
 	<view class="sakura-page pb-4">
 		<view class="sakura-page--title">默认按钮</view>
 		<sakura-space vertical :size="20">
-			<sakura-button type="primary"> 页面主操作 </sakura-button>
+			<sakura-button type="primary"> 页面次要操作</sakura-button>
 			<sakura-button type="default"> 页面次要操作 </sakura-button>
 			<sakura-button type="success"> 页面辅助按钮 </sakura-button>
 			<sakura-button type="warning"> 页面辅助按钮 </sakura-button>
@@ -36,9 +36,20 @@
 			<sakura-button type="info" round> 页面辅助按钮 </sakura-button>
 			<sakura-button type="primary" round :roundSize="100"> 自定义圆角 </sakura-button>
 		</sakura-space>
+		<view class="sakura-page--title">icon按钮</view>
+		<sakura-space :size="20">
+			<sakura-button type="primary" shadow round icon>
+				<icon-imbalance /></sakura-button>
+			<sakura-button type="danger" shadow round icon>
+				<icon-imbalance /></sakura-button>
+			<sakura-button type="warning" shadow round icon>
+				<icon-imbalance /></sakura-button>
+			<sakura-button type="success" shadow round icon>
+				<icon-imbalance /></sakura-button>
+		</sakura-space>
 		<view class="sakura-page--title">loading按钮</view>
 		<sakura-space vertical :size="20">
-			<sakura-button type="primary" round loading> 页面次要操作 </sakura-button>
+			<sakura-button type="primary" disabled round loading> 页面次要操作 </sakura-button>
 		</sakura-space>
 		<view class="sakura-page--title">自定义颜色</view>
 		<sakura-space vertical :size="20">
@@ -53,6 +64,10 @@
 	.sakura {
 		&-page {
 			padding: 20rpx;
+		}
+
+		.icon {
+			display: flex;
 		}
 	}
 
