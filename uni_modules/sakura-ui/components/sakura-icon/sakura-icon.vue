@@ -56,7 +56,7 @@
 		if (customPrefix.value) {
 			return [customPrefix.value, customPrefix.value + name.value];
 		}
-		return ["l-icons", "l-" + name.value];
+		return ["sakura-icon", "sakura-" + name.value];
 	});
 
 	const styleName = computed(() => ({
@@ -69,13 +69,13 @@
 	@import "./sakura-icon.css";
 
 	@font-face {
-		font-family: l;
+		font-family: sakura;
 		src: url("./sakura-icon.ttf") format("truetype");
 	}
 
 	/* #endif */
 	.sakura-icon {
-		font-family: l;
+		font-family: sakura;
 		text-decoration: none;
 		text-align: center;
 	}

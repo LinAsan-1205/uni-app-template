@@ -11,6 +11,7 @@
 				</view>
 			</view>
 		</view>
+		<view class="placeholder"></view>
 	</view>
 </template>
 <script setup>
@@ -19,7 +20,7 @@
 			pagePath: 'pages/index/index',
 			iconPath: '/static/image/navigation/home.png',
 			selectedIconPath: '/static/image/navigation/home-active.png',
-			text: '首页'
+			text: '元素'
 		},
 		{
 			pagePath: 'pages/components/components',
@@ -56,17 +57,25 @@
 
 </script>
 <style scoped lang="scss">
+	.placeholder {
+		height: 70rpx;
+		padding: 20rpx;
+	}
+
 	.navigation {
+		background-color: #fff;
 		box-sizing: content-box;
 		position: fixed;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		z-index: 999;
-		padding: 0 20rpx 20rpx;
+		padding: 20rpx;
 		padding-bottom: 20rpx;
+		/* #ifndef H5 */
 		padding-bottom: constant(safe-area-inset-bottom);
 		padding-bottom: env(safe-area-inset-bottom);
+		/* #endif */
 
 		&-list {
 			height: 70rpx;
@@ -100,7 +109,7 @@
 
 				&-active {
 					justify-content: space-between;
-					background-color: #000000;
+					background-color: #1a5cff;
 
 					text {
 						color: #ffffff;
