@@ -1,21 +1,29 @@
 <template>
-	<button :class="className" :style="stylesName" :openType="openType" :loading="loading" @tap="handleClick"
-		@getphonenumber="handleGetPhoneNumber" @getuserinfo="handleGetUserInfo" @contact="handleContact"
-		@error="handleError">
+	<button :class="className" :style="stylesName" :openType="openType" @tap="bindClick"
+		@getphonenumber="bindGetPhoneNumber" @getuserinfo="bindGetuserinfo" @contact="bindContact" @error="bindError">
 		<view class="sakura-button-content" :style="contentStyle">
 			<template v-if="slots.default">
 				<slot />
 			</template>
-			<view v-else class=""></view>
+			<template v-else>
+				{{text}}
+			</template>
+		</view>
+		<view v-if="loading" @click.stop class="sakura-button--loading">
+			<sakura-loading :size="loadingSize" type="white"></sakura-loading>
 		</view>
 		<view v-if="disabled" :style="disabledStyle" @click.stop class="sakura-button--disabled"></view>
 	</button>
 </template>
 <script lang="ts" setup>
-	import { computed, PropType, toRefs, useSlots } from 'vue';
+	import { ref, computed, onMounted, PropType, toRefs, useSlots } from 'vue';
 	import { getVal } from '../../libs/utils';
 	const emit = defineEmits(['click', 'tap', 'getPhoneNumber', 'getUserInfo', 'contact', 'error']);
 	const props = defineProps({
+		text: {
+			type: String as PropType<string>,
+			default: null
+		},
 		/**
 		 * 类型
 		 * @desc primary / success / warning / danger / info / text
@@ -93,6 +101,10 @@
 			type: Boolean as PropType<boolean>,
 			default: false
 		},
+		loadingSize: {
+			type: Number as PropType<number>,
+			default: 45
+		},
 		//高度
 		height: {
 			type: [String, Number] as PropType<string | number>,
@@ -114,9 +126,15 @@
 			type: Boolean as PropType<boolean>,
 			default: false
 		},
+		//icon圆角
 		iconRadius: {
 			type: [String, Number] as PropType<string | number>,
 			default: 30
+		},
+		//icon大小
+		iconSize: {
+			type: [String, Number] as PropType<string | number>,
+			default: 60
 		},
 		//开放能力
 		openType: {
@@ -130,7 +148,7 @@
 		}
 	});
 	const slots = useSlots();
-	const { type: buttonType, plain, disabled, disabledBackground, disabledColor, fontSize, round, roundSize, loading, height, width, block, icon, iconRadius, openType, bgColor, color, shadow, shadowColor } = toRefs(props);
+	const { text, type: buttonType, plain, disabled, disabledBackground, disabledColor, fontSize, round, roundSize, loading, loadingSize, height, width, block, icon, iconRadius, iconSize, openType, bgColor, color, shadow, shadowColor } = toRefs(props);
 
 	const buttonRadius = computed(() => round.value && roundSize.value);
 	const borderRadiusSize = computed(() => buttonRadius.value && getVal(roundSize.value));
@@ -148,10 +166,10 @@
 		['sakura-button--block']: block.value,
 		['sakura-button--icon']: icon.value
 	}));
-	const heightStyle = computed(() => {
+	const getHeight = computed(() => {
 		if (icon.value) {
 			return {
-				height: 'auto',
+				height: getVal(iconSize.value),
 				lineHeight: 'normal'
 			}
 		}
@@ -160,9 +178,15 @@
 			lineHeight: getVal(height.value),
 		}
 	})
+	const getWidth = computed(() => {
+		if (icon.value) {
+			return getVal(iconSize.value)
+		}
+		return width.value ? getVal(width.value) : null
+	})
 	const stylesName = computed(() => ({
-		...heightStyle.value,
-		width: width.value ? getVal(width.value) : null,
+		...getHeight.value,
+		width: getWidth.value,
 		borderRadius: icon.value ? getVal(iconRadius.value) : borderRadiusSize.value,
 		background: bgColor.value,
 		boxShadow: shadow.value && shadowColor.value && !plain.value
@@ -174,22 +198,27 @@
 	const disabledStyle = computed(() => ({
 		backgroundColor: disabledBackground.value
 	}))
-	const handleClick = (e : Event) => {
+	const bindClick = (e : Event) => {
 		emit('click', e);
 		emit('tap', e);
 	};
-	const handleGetPhoneNumber = ({ detail = {} } = {}) => {
+	const bindGetPhoneNumber = ({ detail = {} } = {}) => {
 		emit('getPhoneNumber', detail);
 	};
-	const handleGetUserInfo = ({ detail = {} } = {}) => {
+	const bindGetuserinfo = ({ detail = {} } = {}) => {
 		emit('getUserInfo', detail);
 	};
-	const handleContact = ({ detail = {} } = {}) => {
+	const bindContact = ({ detail = {} } = {}) => {
 		emit('contact', detail);
 	};
-	const handleError = (e : any) => {
+	const bindError = (e : any) => {
 		emit('error', e);
 	};
+	onMounted(() => {
+		if (icon.value) {
+
+		}
+	})
 </script>
 <style lang="scss" scoped>
 	@import './sakura-button.scss';

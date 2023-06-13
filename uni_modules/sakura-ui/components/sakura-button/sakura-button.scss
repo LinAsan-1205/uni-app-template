@@ -26,6 +26,8 @@ $button: map.merge(
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		width: 100%;
+		height: 100%;
 	}
 	&--vars {
 		--#{$namespace}-border-color-base: #e5e5e5;
@@ -47,6 +49,10 @@ $button: map.merge(
 					shadow: 'color' $type 'base'
 				)
 			);
+			.#{$namespace}-button--loading {
+				$colors: map.get($color-map, $type, 'base');
+				background: color.change($colors, $alpha: 0.8);
+			}
 		}
 	}
 	&[disabled]:not([type]) {
@@ -117,5 +123,17 @@ $button: map.merge(
 		&:after {
 			display: none;
 		}
+	}
+	&--loading {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: inherit;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 999;
 	}
 }

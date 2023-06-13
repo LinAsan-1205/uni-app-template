@@ -11,7 +11,7 @@
 		</sakura-space>
 		<view class="sakura-page--title">大小</view>
 		<sakura-space vertical :size="20">
-			<sakura-button type="primary" :width="200" :height="80"> 页面主操作 </sakura-button>
+			<sakura-button type="primary" :width="260" :height="80"> 页面主操作 </sakura-button>
 		</sakura-space>
 		<view class="sakura-page--title">阴影</view>
 		<sakura-space vertical :size="20">
@@ -28,19 +28,19 @@
 		</sakura-space>
 		<view class="sakura-page--title">加载按钮</view>
 		<sakura-space vertical :size="20">
-			<sakura-button type="primary" round> 页面主操作 </sakura-button>
-			<sakura-button type="default" round> 页面次要操作 </sakura-button>
-			<sakura-button type="success" round> 页面辅助按钮 </sakura-button>
-			<sakura-button type="warning" round> 页面辅助按钮 </sakura-button>
-			<sakura-button type="danger" round> 页面辅助按钮 </sakura-button>
-			<sakura-button type="info" round> 页面辅助按钮 </sakura-button>
-			<sakura-button type="primary" round :roundSize="100"> 自定义圆角 </sakura-button>
+			<sakura-button type="primary" loading round> 页面主操作 </sakura-button>
+			<sakura-button type="default" loading round> 页面次要操作 </sakura-button>
+			<sakura-button type="success" loading round> 页面辅助按钮 </sakura-button>
+			<sakura-button type="warning" loading round> 页面辅助按钮 </sakura-button>
+			<sakura-button type="danger" loading round> 页面辅助按钮 </sakura-button>
+			<sakura-button type="info" loading round> 页面辅助按钮 </sakura-button>
+			<sakura-button type="primary" loading round :roundSize="100"> 自定义圆角 </sakura-button>
 		</sakura-space>
 		<view class="sakura-page--title">icon按钮</view>
 		<sakura-space :size="20">
-			<sakura-button type="primary" shadow round icon>
+			<sakura-button type="primary" loading :iconSize="75" :loadingSize="20" shadow round icon>
 				<icon-imbalance /></sakura-button>
-			<sakura-button type="danger" shadow round icon>
+			<sakura-button type="danger" loading :loadingSize="20" shadow round icon>
 				<icon-imbalance /></sakura-button>
 			<sakura-button type="warning" shadow round icon>
 				<icon-imbalance /></sakura-button>

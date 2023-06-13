@@ -1,0 +1,102 @@
+@use "sass:map";
+@use "sass:color";
+@use "../../libs/styles/design" as *;
+.#{$namespace}-loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	&--vars {
+		@include define-preset-values(
+			'loading',
+			(
+				color: get-css-var('color-primary-base')
+			)
+		);
+	}
+
+	@mixin define-button-style($style-map) {
+		@include define-preset-style('loading', $style-map);
+	}
+
+	@each $type in $types {
+		&-type--#{$type} {
+			@include define-button-style(
+				(
+					color: 'color' $type 'base'
+				)
+			);
+		}
+	}
+	&-type--white {
+		@include define-button-style(
+			(
+				color: 'color' 'white' 'base'
+			)
+		);
+	}
+	&--animation {
+		width: 70rpx;
+		height: 70rpx;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&--percent {
+		position: relative;
+		font-size: 16rpx;
+		font-weight: 700;
+		color: get-css-var('loading-color');
+		margin-top: 1rpx;
+		z-index: 200;
+	}
+
+	&--default {
+		.#{$namespace}-loading--animation {
+			border-radius: 50%;
+			&--1,
+			&--2 {
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: inherit;
+			}
+			&--1 {
+				border: 6rpx solid get-css-var('loading-color');
+				border-top: 6rpx solid transparent;
+				border-left: 6rpx solid transparent;
+				border-right: 6rpx solid transparent;
+				animation: rotate 0.8s ease infinite;
+				top: 0;
+			}
+			&--2 {
+				border: 6rpx dashed get-css-var('loading-color');
+				border-top: 6rpx solid transparent;
+				border-left: 6rpx solid transparent;
+				border-right: 6rpx solid transparent;
+				-webkit-animation: rotate 0.8s linear infinite;
+				animation: rotate 0.8s linear infinite;
+				opacity: 0.2;
+			}
+			&--3 {
+				display: none;
+			}
+			@keyframes rotate {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(1turn);
+				}
+			}
+		}
+	}
+	&--text {
+		font-size: 28rpx;
+		color: get-css-var('loading-color');
+		margin-top: 20rpx;
+	}
+}
