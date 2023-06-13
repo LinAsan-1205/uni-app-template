@@ -1,0 +1,82 @@
+@use "../../styles/design" as *;
+
+.#{$namespace}-navbar {
+	&--header {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		height: $nav-height;
+		font-size: 12px;
+		padding: 0 10px;
+		flex-direction: row;
+	}
+
+	&--border {
+		border-bottom-width: 1rpx;
+		border-bottom-style: solid;
+		border-bottom-color: get-css-var('border-color-navbar');
+	}
+
+	&--left,
+	&--right {
+		/* #ifndef APP-NVUE */
+		overflow: hidden;
+		display: flex;
+		/* #endif */
+		flex-wrap: nowrap;
+		flex-direction: row;
+		// width: 120rpx;
+		justify-content: center;
+		align-items: center;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
+
+		&--icon {
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	&--title {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		font-weight: 700;
+		text-overflow: ellipsis;
+		/* #ifndef APP-PLUS-NVUE */
+		white-space: nowrap;
+		display: flex;
+		overflow: hidden;
+		/* #endif */
+		/* #ifdef APP-PLUS-NVUE */
+		lines: 1;
+
+		/* #endif */
+		&--center {
+			justify-content: center;
+		}
+
+		&--text {
+			/* #ifdef APP-PLUS */
+			font-size: 34rpx;
+			/* #endif */
+			/* #ifndef APP-PLUS */
+			font-size: 14px;
+			/* #endif */
+		}
+	}
+	&--fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	&--placeholder {
+		width: 100%;
+		&--view {
+			width: 100%;
+		}
+	}
+}

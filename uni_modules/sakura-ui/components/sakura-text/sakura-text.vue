@@ -1,5 +1,5 @@
 <template>
-	<view class="l-text" :style="styleName" :class="className" @click="handleClick">
+	<view class="sakura-text" :style="styleName" :class="className" @click="handleClick">
 		<template v-if="slot.default">
 			<slot />
 		</template>
