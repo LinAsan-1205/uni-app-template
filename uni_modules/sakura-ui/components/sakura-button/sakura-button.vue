@@ -182,7 +182,7 @@
 		if (icon.value) {
 			return getVal(iconSize.value)
 		}
-		return width.value ? getVal(width.value) : null
+		return getVal(width.value)
 	})
 	const stylesName = computed(() => ({
 		...getHeight.value,
