@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "../../styles/design" as *;
+$text: () !default;
+$text: map.merge(
+	(
+		color: get-css-var('color-black-base')
+	),
+	$text
+);
+.#{$namespace}-text {
+	color: get-css-var('text-color');
+	font-size: get-css-var('font-size-base');
+	&--vars {
+		@include define-preset-values('text', $text);
+	}
+
+	@mixin define-text-style($style-map) {
+		@include define-preset-style('text', $style-map);
+	}
+
+	@each $type in $types {
+		@at-root {
+			&--#{$type} {
+				@include define-text-style(
+					(
+						color: 'color' $type 'base'
+					)
+				);
+			}
+		}
+	}
+	display: inline-block;
+	&--block {
+		width: 100%;
+		display: block;
+	}
+}

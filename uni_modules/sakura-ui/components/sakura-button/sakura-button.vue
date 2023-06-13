@@ -108,7 +108,7 @@
 		//高度
 		height: {
 			type: [String, Number] as PropType<string | number>,
-			default: 100
+			default: 84
 		},
 		//宽度
 		width: {
