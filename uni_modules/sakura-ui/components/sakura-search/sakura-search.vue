@@ -24,7 +24,6 @@
 
 <script setup lang="ts">
 	import { computed, toRefs, watch, ref, type PropType, nextTick } from 'vue'
-	import { getVal } from '../../libs/utils'
 	const props = defineProps({
 		//占位符
 		placeholder: {
@@ -139,7 +138,7 @@
 		color
 	}))
 	const searchStyle = computed(() => ({
-		height: getVal(height.value),
+		height: uni.$sakura.utils.getVal(height.value),
 		borderRadius: radius.value + 'px',
 		backgroundColor: bgColor.value
 	}))

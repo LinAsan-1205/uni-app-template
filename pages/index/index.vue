@@ -60,6 +60,7 @@
 			url
 		})
 	}
+	console.log(uni.$sakura, 'uni.sakura')
 </script>
 <style lang="scss" scoped>
 	@use 'sass:color';

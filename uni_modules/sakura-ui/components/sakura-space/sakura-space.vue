@@ -5,7 +5,6 @@
 </template>
 <script lang="ts" setup>
 	import { computed, CSSProperties, PropType, toRefs } from "vue";
-	import { getVal } from "../../libs/utils";
 	const props = defineProps({
 		size: {
 			type: [Number, String] as PropType<number | string>,
@@ -84,10 +83,10 @@
 			: justify.value,
 		flexWrap: !wrap.value || vertical.value ? "nowrap" : "wrap",
 		alignItems: align.value,
-		gap: getVal(size.value),
-		marginBottom: getVal(marginBottom.value),
-		marginTop: getVal(marginTop.value),
-		marginLeft: getVal(marginLeft.value),
-		marginRight: getVal(marginRight.value)
+		gap: uni.$sakura.utils.getVal(size.value),
+		marginBottom: uni.$sakura.utils.getVal(marginBottom.value),
+		marginTop: uni.$sakura.utils.getVal(marginTop.value),
+		marginLeft: uni.$sakura.utils.getVal(marginLeft.value),
+		marginRight: uni.$sakura.utils.getVal(marginRight.value)
 	}));
 </script>

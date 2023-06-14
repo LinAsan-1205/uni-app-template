@@ -15,8 +15,7 @@
 </template>
 
 <script setup lang="ts">
-	import { ref, computed, toRefs, PropType } from 'vue'
-	import { getVal } from '../../libs/utils';
+	import { computed, toRefs, PropType } from 'vue'
 	const props = defineProps({
 		type: {
 			type: String as PropType<string>,
@@ -43,8 +42,8 @@
 		[`sakura-loading-type--${type.value}`]: true
 	}))
 	const animationStlye = computed(() => ({
-		width: getVal(size.value),
-		height: getVal(size.value),
+		width: uni.$sakura.utils.getVal(size.value),
+		height: uni.$sakura.utils.getVal(size.value),
 	}))
 </script>
 

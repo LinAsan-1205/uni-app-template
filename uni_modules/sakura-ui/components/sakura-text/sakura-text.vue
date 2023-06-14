@@ -13,7 +13,6 @@
 </template>
 <script lang="ts" setup>
 	import { type PropType, toRefs, computed, useSlots } from "vue";
-	import { getVal } from "../../utils";
 
 	const props = defineProps({
 		/**
@@ -112,7 +111,7 @@
 		copyFail
 	} = toRefs(props);
 	const slot = useSlots();
-	const fontSize = computed(() => getVal(size.value))
+	const fontSize = computed(() => uni.$sakura.utils.getVal(size.value))
 	const styleName = computed(() => ({
 		fontSize: fontSize.value,
 		color: color.value,

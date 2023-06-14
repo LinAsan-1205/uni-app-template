@@ -17,7 +17,6 @@
 </template>
 <script lang="ts" setup>
 	import { ref, computed, onMounted, PropType, toRefs, useSlots } from 'vue';
-	import { getVal } from '../../libs/utils';
 	const emit = defineEmits(['click', 'tap', 'getPhoneNumber', 'getUserInfo', 'contact', 'error']);
 	const props = defineProps({
 		text: {
@@ -151,7 +150,7 @@
 	const { text, type: buttonType, plain, disabled, disabledBackground, disabledColor, fontSize, round, roundSize, loading, loadingSize, height, width, block, icon, iconRadius, iconSize, openType, bgColor, color, shadow, shadowColor } = toRefs(props);
 
 	const buttonRadius = computed(() => round.value && roundSize.value);
-	const borderRadiusSize = computed(() => buttonRadius.value && getVal(roundSize.value));
+	const borderRadiusSize = computed(() => buttonRadius.value && uni.$sakura.utils.getVal(roundSize.value));
 	const className = computed(() => ({
 		'sakura-button': true,
 		[`sakura-button--${buttonType.value}`]: buttonType.value && true,
@@ -169,31 +168,31 @@
 	const getHeight = computed(() => {
 		if (icon.value) {
 			return {
-				height: getVal(iconSize.value),
+				height: uni.$sakura.utils.getVal(iconSize.value),
 				lineHeight: 'normal'
 			}
 		}
 		return {
-			height: getVal(height.value),
-			lineHeight: getVal(height.value),
+			height: uni.$sakura.utils.getVal(height.value),
+			lineHeight: uni.$sakura.utils.getVal(height.value),
 		}
 	})
 	const getWidth = computed(() => {
 		if (icon.value) {
-			return getVal(iconSize.value)
+			return uni.$sakura.utils.getVal(iconSize.value)
 		}
-		return getVal(width.value)
+		return uni.$sakura.utils.getVal(width.value)
 	})
 	const stylesName = computed(() => ({
 		...getHeight.value,
 		width: getWidth.value,
-		borderRadius: icon.value ? getVal(iconRadius.value) : borderRadiusSize.value,
+		borderRadius: icon.value ? uni.$sakura.utils.getVal(iconRadius.value) : borderRadiusSize.value,
 		background: bgColor.value,
 		boxShadow: shadow.value && shadowColor.value && !plain.value
 	}));
 	const contentStyle = computed(() => ({
 		color: disabled.value ? disabledColor.value : color.value,
-		fontSize: icon.value ? 'auto' : getVal(fontSize.value),
+		fontSize: icon.value ? 'auto' : uni.$sakura.utils.getVal(fontSize.value),
 	}))
 	const disabledStyle = computed(() => ({
 		backgroundColor: disabledBackground.value

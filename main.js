@@ -14,6 +14,7 @@ app.$mount()
 // #ifdef VUE3
 import { createSSRApp } from 'vue'
 import * as Pinia from 'pinia';
+import './uni_modules/sakura-ui/index'
 export function createApp() {
 	const app = createSSRApp(App)
 	app.use(Pinia.createPinia());

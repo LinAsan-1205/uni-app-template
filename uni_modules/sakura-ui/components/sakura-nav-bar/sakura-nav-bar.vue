@@ -41,7 +41,6 @@
 
 <script setup lang="ts">
 	import { computed, toRefs, onMounted, type PropType } from "vue";
-	import { getVal } from '../../libs/utils'
 
 	const whiteList = ['#FFF', '#fff', '#FFFFFF', '#ffffff', 'white', 'rgb(255,255,255)', 'rgba(255,255,255,1)'];
 	const props = defineProps({
@@ -186,17 +185,17 @@
 		isBack
 	} = toRefs(props);
 	const leftStyle = computed(() => ({
-		minWidth: getVal(leftWidth.value),
+		minWidth: uni.$sakura.utils.getVal(leftWidth.value),
 		color: leftColor.value || color.value,
 	}))
 	const rightStyle = computed(() => ({
-		minWidth: getVal(rightWidth.value),
+		minWidth: uni.$sakura.utils.getVal(rightWidth.value),
 		color: rightColor.value || color.value,
 	}))
 	const showTitle = computed(() => title.value && title.value.length > 0)
 	const showBorder = computed(() => whiteList.includes(bgColor.value))
-	const fontSize = computed(() => getVal(size.value))
-	const navbarHeight = computed(() => getVal(height.value))
+	const fontSize = computed(() => uni.$sakura.utils.getVal(size.value))
+	const navbarHeight = computed(() => uni.$sakura.utils.getVal(height.value))
 	const statusBarHeight = computed(() => uni.getSystemInfoSync()['statusBarHeight'])
 	const firstPage = computed(() => getCurrentPages().length === 1)
 	const handleLeft = () => {
