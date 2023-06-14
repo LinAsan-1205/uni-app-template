@@ -47,6 +47,8 @@
 		/* #ifdef H5 */
 		cursor: pointer;
 		/* #endif */
-		line-height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }
