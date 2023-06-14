@@ -1,0 +1,52 @@
+@use "../../libs/styles/design" as *;
+
+.#{$namespace}-search {
+	display: flex;
+	justify-content: space-between;
+	&--box {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		box-sizing: border-box;
+		/* #endif */
+		overflow: hidden;
+		position: relative;
+		flex: 1;
+		//justify-content: center;
+		flex-direction: row;
+		align-items: center;
+		height: 36px;
+		padding: 0 8px 0 0px;
+		&--icon {
+			/* #ifndef APP-NVUE */
+			display: flex;
+			/* #endif */
+			flex-direction: row;
+			padding: 0 8px;
+			justify-content: center;
+			align-items: center;
+			color: #b3b3b3;
+			&--icon--clear {
+				align-items: center;
+				line-height: 24px;
+				padding-left: 8px;
+				/* #ifdef H5 */
+				cursor: pointer;
+				/* #endif */
+			}
+		}
+	}
+	&--input {
+		flex: 1;
+		font-size: 14px;
+		color: #333;
+	}
+	&--action {
+		padding-left: 10px;
+		font-size: 14px;
+		color: #333333;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
+		line-height: 36px;
+	}
+}

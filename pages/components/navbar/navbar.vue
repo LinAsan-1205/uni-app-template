@@ -1,7 +1,7 @@
 <template>
 	<view>
-		<sakura-nav-bar title="测试导航" fontSize="14px" :fixed="true"></sakura-nav-bar>
-		<sakura-space :marginLeft="20" :marginRight="20" vertical :size="40">
+		<sakura-nav-bar title="NavBar导航" fontSize="14px" :fixed="true"></sakura-nav-bar>
+		<sakura-space :marginTop="20" vertical :size="40">
 			<sakura-nav-bar title="渐变色" bgColor="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)"
 				color="#fff"></sakura-nav-bar>
 			<sakura-nav-bar title="渐变色" bgColor="linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)"

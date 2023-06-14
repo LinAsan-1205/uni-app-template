@@ -25,33 +25,6 @@
 			"navigationBarTitleText": "我的"
 		}
 
-	}, {
-		"path": "pages/components/button/button",
-		"style": {
-			"navigationBarTitleText": "按钮",
-			"enablePullDownRefresh": false
-		}
-
-	}, {
-		"path": "pages/components/loading/loading",
-		"style": {
-			"navigationBarTitleText": "loading"
-		}
-
-	}, {
-		"path": "pages/components/navbar/navbar",
-		"style": {
-			"navigationBarTitleText": "navbar导航",
-			"navigationStyle": "custom"
-		}
-
-	}, {
-		"path": "pages/components/search/search",
-		"style": {
-			"navigationBarTitleText": "",
-			"enablePullDownRefresh": false
-		}
-
 	}],
 	"tabBar": {
 		"list": [{
@@ -67,6 +40,38 @@
 			}
 		]
 	},
+	"subPackages": [{
+		"root": "pages/components",
+		"pages": [{
+				"path": "/button/button",
+				"style": {
+					"navigationBarTitleText": "按钮",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "/loading/loading",
+				"style": {
+					"navigationBarTitleText": "loading"
+				}
+
+			},
+			{
+				"path": "/navbar/navbar",
+				"style": {
+					"navigationBarTitleText": "Navbar导航",
+					"navigationStyle": "custom"
+				}
+
+			}, {
+				"path": "/search/search",
+				"style": {
+					"navigationBarTitleText": "Search搜索"
+				}
+
+			}
+		]
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "sakura-ui",
