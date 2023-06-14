@@ -60,7 +60,7 @@
 			url
 		})
 	}
-	console.log(uni.$sakura, 'uni.sakura')
+	console.log(uni.$sakura.utils.dayjs(new Date()), 'uni.sakura')
 </script>
 <style lang="scss" scoped>
 	@use 'sass:color';
