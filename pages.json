@@ -38,6 +38,20 @@
 			"navigationBarTitleText": "loading"
 		}
 
+	}, {
+		"path": "pages/components/navbar/navbar",
+		"style": {
+			"navigationBarTitleText": "navbar导航",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/components/search/search",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
 	}],
 	"tabBar": {
 		"list": [{

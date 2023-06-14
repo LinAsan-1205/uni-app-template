@@ -1,5 +1,5 @@
 <template>
-	<view class="sakura-navbar">
+	<view class="sakura-navbar sakura-navbar--var">
 		<view
 			:class="{ 'sakura-navbar--fixed': fixed, 'sakura-navbar--header': true, 'sakura-navbar--border': showBorder && border }"
 			:style="{ background: bgColor, 'font-size': fontSize, height: navbarHeight, paddingTop: fixed && statusBarHeight + 'px' }">
@@ -40,7 +40,7 @@
 
 <script setup lang="ts">
 	import { ref, computed, toRefs, onMounted, type PropType } from "vue";
-	import { getVal } from '../../utils'
+	import { getVal } from '../../libs/utils'
 
 	const whiteList = ['#FFF', '#fff', '#FFFFFF', '#ffffff', 'white', 'rgb(255,255,255)', 'rgba(255,255,255,1)'];
 	const props = defineProps({

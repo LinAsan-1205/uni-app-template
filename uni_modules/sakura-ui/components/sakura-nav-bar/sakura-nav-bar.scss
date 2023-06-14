@@ -1,4 +1,4 @@
-@use "../../styles/design" as *;
+@use "../../libs/styles/design" as *;
 
 .#{$namespace}-navbar {
 	&--header {
@@ -10,11 +10,14 @@
 		padding: 0 10px;
 		flex-direction: row;
 	}
+	&--var {
+		@include define-css-var(('navbar', 'border', 'color'), '#eef');
+	}
 
 	&--border {
 		border-bottom-width: 1rpx;
 		border-bottom-style: solid;
-		border-bottom-color: get-css-var('border-color-navbar');
+		border-bottom-color: get-css-var('navbar-border-color');
 	}
 
 	&--left,

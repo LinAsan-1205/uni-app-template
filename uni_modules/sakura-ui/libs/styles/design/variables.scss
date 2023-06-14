@@ -107,6 +107,8 @@ $types: primary, info, success, warning, danger, dark;
 $color-black: #000000 !default;
 $color-white: #ffffff !default;
 
+$nav-height: 44px !default;
+
 @each $type in $types {
 	@include define-level-colors($type, 9, 'light', $color-white);
 	@include define-level-colors($type, 2, 'dark', $color-black);
