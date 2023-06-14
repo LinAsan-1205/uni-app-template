@@ -5,13 +5,14 @@
 		/* #ifndef APP-NVUE */
 		display: flex;
 		/* #endif */
-		height: $nav-height;
+		height: get-css-var('navbar-height');
 		font-size: 12px;
 		padding: 0 10px;
 		flex-direction: row;
 	}
 	&--var {
 		@include define-css-var(('navbar', 'border', 'color'), '#eef');
+		@include define-css-var(('navbar', 'height'), '44px');
 	}
 
 	&--border {

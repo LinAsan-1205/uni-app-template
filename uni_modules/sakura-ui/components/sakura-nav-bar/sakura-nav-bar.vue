@@ -5,12 +5,13 @@
 			:style="{ background: bgColor, 'font-size': fontSize, height: navbarHeight, paddingTop: fixed && statusBarHeight + 'px' }">
 			<view class="sakura-navbar--left" :style="leftStyle" @tap="handleLeft">
 				<slot name="left">
-					<view class="sakura-navbar--left--icon" v-if="showLeftIcon && leftIcon.length > 0 && !firstPage">
+					<view class="sakura-navbar--left--icon"
+						v-if="showLeftIcon && leftIcon&&leftIcon.length > 0 && !firstPage">
 						<sakura-icon :color="leftColor || color" :name="leftIcon" :size="leftIconSize"></sakura-icon>
 					</view>
 					<view class="sakura-navbar--left--icon" v-else><sakura-icon :color="leftColor || color"
 							:name="homeIcon" :size="leftIconSize" v-if="showHomeIcon"></sakura-icon></view>
-					<view class="sakura-navbar--left--text" v-if="leftText.length > 0">
+					<view class="sakura-navbar--left--text" v-if="leftText&&leftText.length > 0">
 						<text :style="{ fontSize: '12px' }">{{ leftText }}</text>
 					</view>
 				</slot>
@@ -82,7 +83,7 @@
 		//下边框
 		border: {
 			type: Boolean as PropType<boolean>,
-			default: true,
+			default: false,
 		},
 		//首页图标
 		homeIcon: {

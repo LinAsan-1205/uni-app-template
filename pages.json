@@ -42,7 +42,7 @@
 		"path": "pages/components/navbar/navbar",
 		"style": {
 			"navigationBarTitleText": "navbar导航",
-			"enablePullDownRefresh": false
+			"navigationStyle": "custom"
 		}
 
 	}, {

@@ -54,6 +54,14 @@
 			type: [String, Number] as PropType<string | number>,
 			default: 20,
 		},
+		marginLeft: {
+			type: [String, Number] as PropType<string | number>,
+			default: 0,
+		},
+		marginRight: {
+			type: [String, Number] as PropType<string | number>,
+			default: 0,
+		},
 	});
 	const {
 		size,
@@ -64,6 +72,8 @@
 		justify,
 		marginBottom,
 		marginTop,
+		marginLeft,
+		marginRight
 	} = toRefs(props);
 	const className = computed(() => ({}));
 	const styleName = computed<CSSProperties>(() => ({
@@ -77,5 +87,7 @@
 		gap: getVal(size.value),
 		marginBottom: getVal(marginBottom.value),
 		marginTop: getVal(marginTop.value),
+		marginLeft: getVal(marginLeft.value),
+		marginRight: getVal(marginRight.value)
 	}));
 </script>
