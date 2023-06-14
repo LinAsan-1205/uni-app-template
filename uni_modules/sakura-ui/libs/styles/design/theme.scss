@@ -1,0 +1,37 @@
+@use 'sass:map';
+$color-map: () !default;
+$color-map: map.deep-merge(
+	(
+		primary: (
+			base: #1a5cff
+		),
+		info: (
+			base: #a4b0be
+		),
+		success: (
+			base: #46c93a
+		),
+		warning: (
+			base: #ffba00
+		),
+		danger: (
+			base: #ff4757
+		),
+		dark: (
+			base: #1e1e1e
+		),
+		purple: (
+			base: #6831ff
+		),
+		black: (
+			base: #000000
+		),
+		white: (
+			base: #ffffff
+		),
+		link: (
+			base: #3742fa
+		)
+	),
+	$color-map
+);

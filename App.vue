@@ -16,7 +16,7 @@
 
 <style lang="scss">
 	/*每个页面公共css */
-	@import '@/uni_modules/sakura-ui/libs/styles/index.scss';
+	@import '@/uni_modules/sakura-ui/index.scss';
 
 	page {
 		background: #f3f4f6;
