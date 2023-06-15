@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use './variables.scss';
+$font: () !default;
+$font: map.merge(
+	(
+		size: (
+			xs: '24rpx',
+			sm: '28rpx',
+			md: '32rpx',
+			lg: '36rpx'
+		)
+	),
+	$font
+);
+$fontSizeName: 'font-size-' !default;
+$fontSizeXs: $fontSizeName + 'xs';
+$fontSizeSm: $fontSizeName + 'sm';
+$fontSizeMd: $fontSizeName + 'md';
+$fontSizeSm: $fontSizeName + 'sm';
+$fontSizeLg: $fontSizeName + 'lg';

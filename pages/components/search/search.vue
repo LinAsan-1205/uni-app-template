@@ -1,4 +1,5 @@
 <template>
+	<sakura-nav-bar fixed title="Search"></sakura-nav-bar>
 	<view class="sakura-page">
 		<sakura-space vertical :size="30" :marginTop="20" :marginRight="20" :marginLeft="20">
 			<sakura-search placeholder="请输入关键词" v-model="search" showAction />

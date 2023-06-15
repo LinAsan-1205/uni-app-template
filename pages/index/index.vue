@@ -1,63 +1,70 @@
 <template>
 	<view class="home">
+		<sakura-nav-bar fixed :showLeftIcon="false" :showHomeIcon="false" title="sakura-ui"></sakura-nav-bar>
 		<view class="home__list">
-			<view class="home__list__item" @click="onPage(item.path)" :style="{backgroundColor:item.bg}"
-				v-for="(item,index) in listData" :key="index">
-				<sakura-icon color="#fff" :size="item.iconSize" :name="item.icon"></sakura-icon>
-				<text>{{item.title}}</text>
+			<view class="home__list__item" @click="onPage(item.path)" v-for="(item,index) in listData" :key="index">
+				<view class="title">
+					<sakura-text size="md">{{item.title}}</sakura-text>
+				</view>
 			</view>
 		</view>
 		<sakura-navigation></sakura-navigation>
 	</view>
 </template>
 <script setup lang="ts">
+	const navData = [
+		{
+			title: 'Search 搜索',
+			path: '/search/search'
+		},
+		{
+			title: 'NavBar 导航',
+			path: '/navbar/navbar'
+		}
+	]
 	const listData = [
 		{
-			title: 'Flex布局',
-			bg: '#1a5cff',
-			icon: 'all',
-			iconSize: 32
+			title: 'Flex 布局',
 		},
 		{
-			title: 'Grid布局',
-			bg: '#F24C3D',
-			icon: 'grid',
-			iconSize: 22
+			title: 'Grid 布局',
 		},
 		{
-			title: '图标',
-			bg: '#F2BE22',
-			iconSize: 32
+			title: 'Icon 图标',
+			path: "/icon/icon"
 		},
 		{
-			title: '按钮',
-			bg: '#E15FED',
-			icon: 'anniu',
-			iconSize: 24,
-			path: "/pages/components/button/button"
+			title: 'Button 按钮',
+			path: "/button/button"
 		},
 		{
-			title: '标签',
-			bg: '#22A699',
-			icon: 'tag',
-			iconSize: 24
+			title: 'Tag 标签',
+			path: "/tag/tag"
 		},
 		{
-			title: '微标',
-			bg: '#50D890',
-			icon: 'tag',
-			iconSize: 24
+			title: 'Badge 微标',
+			path: "/badge/badge"
 		},
 		{
-			title: '头像',
-			bg: '#8DCBE6',
-			icon: 'people',
-			iconSize: 24
-		}
+			title: 'Avatar 头像',
+			path: "/avatar/avatar"
+		},
+		{
+			title: 'Loading 加载',
+			path: '/loading/loading'
+		},
+
+		...navData
 	]
 	const onPage = (url : string) => {
 		uni.navigateTo({
-			url
+			url: '/pages/components' + url,
+			fail() {
+				uni.showToast({
+					icon: 'none',
+					title: '该组件未完成'
+				})
+			}
 		})
 	}
 	console.log(uni.$sakura.utils.dayjs(new Date()), 'uni.sakura')
@@ -67,34 +74,18 @@
 
 	.home {
 		&__list {
-			display: grid;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			gap: 40rpx;
-			padding: 24rpx 32rpx;
+			display: flex;
+			padding: 24rpx;
+			flex-direction: column;
 
 			&__item {
-				text-align: center;
-				font-size: 28rpx;
-				padding: 40rpx 32rpx;
-				border-radius: 8rpx;
-				color: #000000;
+				padding: 24rpx 32rpx;
 				display: flex;
 				align-items: center;
-				background: #307DF1;
-				box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
-				color: #fff;
+				background: #fff;
 
-				text {
+				.title {
 					font-size: 32rpx;
-
-					&:first-child {
-						font-size: 48rpx;
-						margin-right: 27rpx;
-					}
-
-					&:last-child {
-						margin-bottom: 0;
-					}
 				}
 			}
 		}

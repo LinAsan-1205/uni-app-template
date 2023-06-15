@@ -4,7 +4,7 @@
 			<slot />
 		</template>
 		<template v-else-if="mode === 'link'">
-			<l-link :text="text" :href="href" :size="fontSize" :showUnderLine="true" />
+			<sakura-link :text="text" :href="href" :size="fontSize" :showUnderLine="true" />
 		</template>
 		<template v-else>
 			{{ getText }}
@@ -59,10 +59,10 @@
 			type: Number as PropType<number>,
 			default: null
 		},
-		//文字大小
+		//文字大小 xs sm md lg
 		size: {
 			type: [String, Number] as PropType<string | number>,
-			default: 32,
+			default: null,
 		},
 		fontWeight: {
 			type: String as PropType<string>,
@@ -111,7 +111,13 @@
 		copyFail
 	} = toRefs(props);
 	const slot = useSlots();
-	const fontSize = computed(() => uni.$sakura.utils.getVal(size.value))
+	const fontSizeType = ['xs', 'sm', 'md', 'lg']
+	const fontSize = computed(() => {
+		if (fontSizeType.includes(size.value)) {
+			return null
+		}
+		return uni.$sakura.utils.getVal(size.value)
+	})
 	const styleName = computed(() => ({
 		fontSize: fontSize.value,
 		color: color.value,
@@ -122,7 +128,9 @@
 	const className = computed(() => ({
 		[`sakura-text--${type.value}`]: type.value && true,
 		[`sakura-text--block`]: block.value,
-		[`sakura-text--vars`]: true
+		[`sakura-text--vars`]: true,
+		[`sakura-text--${size.value}`]: fontSizeType.includes(size.value)
+
 	}));
 	const isMobile = computed(
 		() =>
@@ -172,6 +180,6 @@
 	};
 </script>
 <style lang="scss" scoped>
-	@import "./sarkura-text.scss";
+	@import "./sakura-text.scss";
 
 </style>

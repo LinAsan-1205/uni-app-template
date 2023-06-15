@@ -66,7 +66,7 @@ $namespace: 'sakura' !default;
 	}
 }
 
-$types: primary, info, success, warning, danger, dark;
+$types: primary, info, success, warning, danger, dark, text;
 
 $color-black: #000000 !default;
 $color-white: #ffffff !default;
@@ -79,8 +79,18 @@ $color-white: #ffffff !default;
 
 @mixin define-type-color($type) {
 	$colors: map.get($color-map, $type);
-
 	@each $name in map.keys($colors) {
 		@include define-css-var(('color', $type, $name), map.get($colors, $name));
 	}
+}
+
+@mixin define-map-base($data, $base, $type) {
+	$one: map.get($data, $type);
+	@each $name in map.keys($one) {
+		@include define-css-var(($base, $type, $name), map.get($one, $name));
+	}
+}
+
+@function get-base-color-var($type) {
+	@return get-css-var('color-' + $type + '-base');
 }

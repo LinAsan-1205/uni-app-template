@@ -18,22 +18,21 @@
 	import { computed, ref } from "vue";
 	const navigationList = ref([{
 			pagePath: 'pages/index/index',
-			iconPath: '/static/image/navigation/home.png',
-			selectedIconPath: '/static/image/navigation/home-active.png',
-			text: '元素'
-		},
-		{
-			pagePath: 'pages/components/components',
 			iconPath: '/static/image/navigation/components.png',
 			selectedIconPath: '/static/image/navigation/components-active.png',
 			text: '组件'
 		},
-
 		{
 			pagePath: 'pages/template/template',
 			iconPath: '/static/image/navigation/template.png',
 			selectedIconPath: '/static/image/navigation/template-active.png',
 			text: '模版'
+		},
+		{
+			pagePath: 'pages/utils/utils',
+			iconPath: '/static/image/navigation/template.png',
+			selectedIconPath: '/static/image/navigation/template-active.png',
+			text: '工具'
 		},
 		{
 			pagePath: 'pages/user/user',

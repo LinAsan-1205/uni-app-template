@@ -4,9 +4,9 @@
 $button: () !default;
 $button: map.merge(
 	(
-		color: get-css-var('color-black-base'),
-		color-plain: get-css-var('color-black-base'),
-		bg-color: get-css-var('color-white-base'),
+		color: get-base-color-var('black'),
+		color-plain: get-base-color-var('black'),
+		bg-color: get-base-color-var('white'),
 		border-color-base: get-css-var('border-color-base')
 	),
 	$button

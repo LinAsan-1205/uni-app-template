@@ -1,15 +1,21 @@
 @use "sass:map";
-@use "../../styles/design" as *;
+@use "../../libs/styles/design" as *;
 $text: () !default;
 $text: map.merge(
 	(
-		color: get-css-var('color-black-base')
+		color: get-css-var('color-text-base'),
+		size-xs: get-css-var($fontSizeXs),
+		size-sm: get-css-var($fontSizeSm),
+		size-md: get-css-var($fontSizeMd),
+		size-lg: get-css-var($fontSizeLg)
 	),
 	$text
 );
+$textSize: 'text-size-' !default;
+$size: sx, sm, md, lg !default;
 .#{$namespace}-text {
 	color: get-css-var('text-color');
-	font-size: get-css-var('font-size-base');
+	font-size: get-css-var('text-size-md');
 	&--vars {
 		@include define-preset-values('text', $text);
 	}
@@ -30,6 +36,13 @@ $text: map.merge(
 		}
 	}
 	display: inline-block;
+
+	@each $name in $size {
+		&--#{$name} {
+			font-size: get-css-var($textSize + #{$name});
+		}
+	}
+
 	&--block {
 		width: 100%;
 		display: block;

@@ -1,4 +1,5 @@
 <template>
+	<sakura-nav-bar fixed title="Button"></sakura-nav-bar>
 	<view class="sakura-page pb-4">
 		<view class="sakura-page--title">默认按钮</view>
 		<sakura-space vertical :size="20">

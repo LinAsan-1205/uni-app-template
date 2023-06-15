@@ -3,16 +3,7 @@
 		"^sakura-(.*)": "@/components/sakura-$1/sakura-$1.vue"
 	},
 	"pages": [{
-		"path": "pages/index/index",
-		"style": {
-			"navigationBarTitleText": "元素"
-		}
-	}, {
-		"path": "pages/components/components",
-		"style": {
-			"navigationBarTitleText": "组件"
-		}
-
+		"path": "pages/index/index"
 	}, {
 		"path": "pages/template/template",
 		"style": {
@@ -76,7 +67,8 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "sakura-ui",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"navigationStyle": "custom"
 	},
 	"uniIdRouter": {}
 }

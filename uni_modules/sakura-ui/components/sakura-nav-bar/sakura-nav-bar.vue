@@ -3,10 +3,9 @@
 		<view
 			:class="{ 'sakura-navbar--fixed': fixed, 'sakura-navbar--header': true, 'sakura-navbar--border': showBorder && border }"
 			:style="{ background: bgColor, 'font-size': fontSize, height: navbarHeight, paddingTop: fixed && statusBarHeight + 'px' }">
-			<view class="sakura-navbar--left" :style="leftStyle" @tap="handleLeft">
+			<view class="sakura-navbar--left" v-if="showLeftIcon" :style="leftStyle" @tap="handleLeft">
 				<slot name="left">
-					<view class="sakura-navbar--left--icon"
-						v-if="showLeftIcon && leftIcon&&leftIcon.length > 0 && !firstPage">
+					<view class="sakura-navbar--left--icon" v-if="leftIcon&&leftIcon.length > 0 && !firstPage">
 						<sakura-icon :color="leftColor || color" :name="leftIcon" :size="leftIconSize"></sakura-icon>
 					</view>
 					<view class="sakura-navbar--left--icon" v-else><sakura-icon :color="leftColor || color"
@@ -22,12 +21,12 @@
 					<text :style="{ color }" class="sakura-navbar--title--text">{{ title }}</text>
 				</slot>
 			</view>
-			<view class="sakura-navbar--right" :style="rightStyle" @tap="handleRight">
+			<view class="sakura-navbar--right" v-if="showRightIcon" :style="rightStyle" @tap="handleRight">
 				<slot name="right">
-					<view class="sakura-navbar--right--text" v-if="showRightIcon && rightText.length > 0">
+					<view class="sakura-navbar--right--text" v-if="rightIcon&&rightText.length > 0">
 						<text :style="{ fontSize: '12px' }">{{ rightText }}</text>
 					</view>
-					<view class="sakura-navbar--right--icon" v-if="rightIcon.length > 0"><sakura-icon
+					<view class="sakura-navbar--right--icon" v-if="rightIcon&&rightIcon.length > 0"><sakura-icon
 							:color="rightColor || color" :name="rightIcon" :size="rightIconSize"></sakura-icon></view>
 				</slot>
 			</view>
@@ -62,17 +61,17 @@
 		//文字颜色
 		color: {
 			type: String as PropType<string>,
-			default: '#000000',
+			default: '#fff',
 		},
 		//高
 		height: {
 			type: [String, Number] as PropType<string | number>,
-			default: '44px',
+			default: null,
 		},
 		//背景颜色
 		bgColor: {
 			type: String as PropType<string>,
-			default: '#ffffff',
+			default: 'var(--sakura-navbar-background-color)',
 		},
 		//固定
 		fixed: {
@@ -88,6 +87,10 @@
 		homeIcon: {
 			type: String as PropType<string>,
 			default: 'home',
+		},
+		isClickHome: {
+			type: Boolean as PropType<boolean>,
+			default: uni.$sakura.config.navbar.isClickHome
 		},
 		isBack: {
 			type: Boolean as PropType<boolean>,
@@ -182,7 +185,8 @@
 		rightIconSize,
 		showHomeIcon,
 		homeIcon,
-		isBack
+		isBack,
+		isClickHome
 	} = toRefs(props);
 	const leftStyle = computed(() => ({
 		minWidth: uni.$sakura.utils.getVal(leftWidth.value),
@@ -200,6 +204,13 @@
 	const firstPage = computed(() => getCurrentPages().length === 1)
 	const handleLeft = () => {
 		if (firstPage.value && showHomeIcon.value) {
+			const { isClickHome: navbarClick, defaultNavBarPath } = uni.$sakura.config.navbar
+			if ((isClickHome.value && navbarClick) && defaultNavBarPath) {
+				uni.switchTab({
+					url: defaultNavBarPath
+				})
+				return
+			}
 			emit('clickHome')
 			return
 		}

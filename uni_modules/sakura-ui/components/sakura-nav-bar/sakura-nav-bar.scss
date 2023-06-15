@@ -1,24 +1,33 @@
+@use "sass:map";
 @use "../../libs/styles/design" as *;
-
+$navbar: () !default;
+$navbar: map.merge(
+	(
+		background-color: get-base-color-var('primary'),
+		font-size: get-css-var($fontSizeLg),
+		border-color: #eef,
+		height: 44px
+	),
+	$navbar
+);
 .#{$namespace}-navbar {
 	&--header {
 		/* #ifndef APP-NVUE */
 		display: flex;
 		/* #endif */
-		height: get-css-var('navbar-height');
+		height: map.get($navbar, 'height');
 		font-size: 12px;
 		padding: 0 10px;
 		flex-direction: row;
 	}
 	&--var {
-		@include define-css-var(('navbar', 'border', 'color'), '#eef');
-		@include define-css-var(('navbar', 'height'), '44px');
+		@include define-preset-values('navbar', $navbar);
 	}
 
 	&--border {
 		border-bottom-width: 1rpx;
 		border-bottom-style: solid;
-		border-bottom-color: get-css-var('navbar-border-color');
+		border-bottom-color: map.get($navbar, 'border-color');
 	}
 
 	&--left,
@@ -62,12 +71,7 @@
 		}
 
 		&--text {
-			/* #ifdef APP-PLUS */
-			font-size: 34rpx;
-			/* #endif */
-			/* #ifndef APP-PLUS */
-			font-size: 14px;
-			/* #endif */
+			font-size: map.get($navbar, 'font-size');
 		}
 	}
 	&--fixed {
@@ -79,6 +83,7 @@
 	}
 	&--placeholder {
 		width: 100%;
+		height: map.get($navbar, 'height');
 		&--view {
 			width: 100%;
 		}

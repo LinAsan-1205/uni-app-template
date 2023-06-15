@@ -19,7 +19,7 @@
 	@import '@/uni_modules/sakura-ui/index.scss';
 
 	page {
-		background: #f3f4f6;
+		background: #fff;
 	}
 
 </style>
