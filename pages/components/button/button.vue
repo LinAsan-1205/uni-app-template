@@ -41,7 +41,6 @@
 		<sakura-space :size="20">
 			<sakura-button type="primary" loading :iconSize="75" :loadingSize="20" shadow round icon>
 				<sakura-icon name="github"></sakura-icon>
-
 			</sakura-button>
 			<sakura-button type="danger" loading :loadingSize="20" shadow round icon>
 				<sakura-icon name="github" color="#fff"></sakura-icon></sakura-button>

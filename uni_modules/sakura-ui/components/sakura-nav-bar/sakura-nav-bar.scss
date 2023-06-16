@@ -90,6 +90,7 @@ $navbar: map.merge(
 		left: 0;
 		right: 0;
 		bottom: 0;
+		z-index: 100;
 	}
 	&--placeholder {
 		width: 100%;
