@@ -1,0 +1,52 @@
+@use "sass:map";
+@use "../../libs/styles/design" as *;
+
+$avatar: () !default;
+$avatar: map-merge(
+	(
+		size: (
+			mini: '46rpx',
+			small: '72rpx',
+			default: '96rpx',
+			large: '128rpx'
+		),
+		border: (
+			radius: '16rpx'
+		),
+		background: (
+			color: '#c0c4cc'
+		)
+	),
+	$avatar
+);
+.#{$namespace}-avatar {
+	overflow: hidden;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: get-css-var('avatar-border-radius');
+	background-color: get-css-var('avatar-background-color');
+	&--var {
+		@include define-map-all($avatar, 'avatar');
+	}
+	@each $name in map.keys(map.get($avatar, 'size')) {
+		$size: get-css-var('avatar-size-' + $name);
+		&--#{$name} {
+			height: $size;
+			width: $size;
+		}
+	}
+	&--round {
+		border-radius: 50%;
+	}
+	&--text {
+		padding: 0 8rpx;
+		white-space: nowrap;
+		font-size: 26rpx;
+		transform: scale(0.7);
+	}
+	image {
+		width: 100%;
+		height: 100%;
+	}
+}

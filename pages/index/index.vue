@@ -1,6 +1,6 @@
 <template>
 	<view class="home">
-		<sakura-nav-bar fixed :showLeftIcon="false" :showHomeIcon="false" title="sakura-ui"></sakura-nav-bar>
+		<sakura-nav-bar :showLeftIcon="false" :showHomeIcon="false" title="sakura-ui"></sakura-nav-bar>
 		<view class="home__list">
 			<view class="home__list__item" @click="onPage(item.path)" v-for="(item,index) in listData" :key="index">
 				<view class="title">

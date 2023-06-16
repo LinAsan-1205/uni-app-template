@@ -39,7 +39,6 @@ $navbar: map.merge(
 		/* #endif */
 		flex-wrap: nowrap;
 		flex-direction: row;
-		// width: 120rpx;
 		justify-content: center;
 		align-items: center;
 		/* #ifdef H5 */
@@ -85,14 +84,19 @@ $navbar: map.merge(
 		}
 	}
 	&--fixed {
+		bottom: 0;
+	}
+	&--fixed,
+	&--status {
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
-		bottom: 0;
-		z-index: 100;
+		z-index: 999;
 	}
-	&--placeholder {
+
+	&--placeholder,
+	&--status {
 		width: 100%;
 		height: map.get($navbar, 'height');
 		&--view {

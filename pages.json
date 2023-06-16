@@ -60,17 +60,20 @@
 					"navigationBarTitleText": "Search搜索"
 				}
 
+			}, {
+				"path": "icon/icon",
+				"style": {
+					"navigationBarTitleText": "icon 图标"
+				}
+
+			}, {
+				"path": "avatar/avatar",
+				"style": {
+					"navigationBarTitleText": "Avatar 头像"
+				}
+
 			}
-		    ,{
-                    "path" : "icon/icon",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "icon",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-            ]
+		]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

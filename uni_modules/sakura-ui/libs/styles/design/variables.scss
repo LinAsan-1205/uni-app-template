@@ -90,6 +90,11 @@ $color-white: #ffffff !default;
 		@include define-css-var(($base, $type, $name), map.get($one, $name));
 	}
 }
+@mixin define-map-all($data, $base) {
+	@each $name in map.keys($data) {
+		@include define-map-base($data, $base, $name);
+	}
+}
 
 @function get-base-color-var($type) {
 	@return get-css-var('color-' + $type + '-base');

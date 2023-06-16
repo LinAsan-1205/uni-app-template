@@ -1,14 +1,14 @@
 <template>
-	<sakura-nav-bar fixed title="Navbar"></sakura-nav-bar>
+	<sakura-nav-bar title="Navbar"></sakura-nav-bar>
 	<view>
 		<sakura-space :marginTop="20" vertical :size="40">
-			<sakura-nav-bar title="渐变色" bgColor="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)"
+			<sakura-nav-bar :fixed="false" title="渐变色" bgColor="linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)"
 				color="#fff"></sakura-nav-bar>
-			<sakura-nav-bar title="渐变色" bgColor="linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)"
+			<sakura-nav-bar :fixed="false" title="渐变色" bgColor="linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)"
 				color="#fff"></sakura-nav-bar>
-			<sakura-nav-bar title="个人中心" rightIcon="all" bgColor="#8338ec" color="#fff"></sakura-nav-bar>
-			<sakura-nav-bar title="购物车" rightIcon="all" bgColor="#2ec4b6" color="#fff"></sakura-nav-bar>
-			<sakura-nav-bar title="自定义插槽" rightIcon="all">
+			<sakura-nav-bar :fixed="false" title="个人中心" rightIcon="all" bgColor="#8338ec" color="#fff"></sakura-nav-bar>
+			<sakura-nav-bar :fixed="false" title="购物车" rightIcon="all" bgColor="#2ec4b6" color="#fff"></sakura-nav-bar>
+			<sakura-nav-bar :fixed="false" title="自定义插槽" rightIcon="all">
 				<template #left>
 					长沙市
 				</template>

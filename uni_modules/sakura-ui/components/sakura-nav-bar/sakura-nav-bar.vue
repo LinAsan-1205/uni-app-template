@@ -1,8 +1,10 @@
 <template>
 	<view class="sakura-navbar sakura-navbar--var">
+		<view class="sakura-navbar--status" v-if="fixed" :style="{height:statusBarHeight+'px',background:bgColor}">
+		</view>
 		<view
 			:class="{ 'sakura-navbar--fixed': fixed, 'sakura-navbar--header': true, 'sakura-navbar--border': showBorder && border }"
-			:style="{ background: bgColor, 'font-size': fontSize, height: navbarHeight, paddingTop: fixed && statusBarHeight + 'px' }">
+			:style="{ background: bgColor, 'font-size': fontSize, height: navbarHeight,top:fixed&&statusBarHeight+'px'}">
 			<view class="sakura-navbar--left" v-if="showLeftIcon" :style="leftStyle" @tap="handleLeft">
 				<slot name="left">
 					<view class="sakura-navbar--left--icon" v-if="leftIcon&&leftIcon.length > 0 && !firstPage">
@@ -31,16 +33,14 @@
 				</slot>
 			</view>
 		</view>
-		<view class="sakura-navbar--placeholder"
-			:style="{ height: navbarHeight, paddingTop: fixed && statusBarHeight + 'px' }" v-if="fixed">
-			<view class="sakura-navbar--placeholder--view" />
+		<view class="sakura-navbar--placeholder" v-if="placeholder&&fixed" :style="{ height: pdHeight+'px'}">
+			<view class=" sakura-navbar--placeholder--view" />
 		</view>
 	</view>
 </template>
 
 <script setup lang="ts">
 	import { computed, toRefs, onMounted, type PropType } from "vue";
-
 	const whiteList = ['#FFF', '#fff', '#FFFFFF', '#ffffff', 'white', 'rgb(255,255,255)', 'rgba(255,255,255,1)'];
 	const props = defineProps({
 		//标题
@@ -66,7 +66,7 @@
 		//高
 		height: {
 			type: [String, Number] as PropType<string | number>,
-			default: null,
+			default: null
 		},
 		//背景颜色
 		bgColor: {
@@ -76,7 +76,7 @@
 		//固定
 		fixed: {
 			type: Boolean as PropType<boolean>,
-			default: false,
+			default: true,
 		},
 		//下边框
 		border: {
@@ -90,7 +90,7 @@
 		},
 		isClickHome: {
 			type: Boolean as PropType<boolean>,
-			default: uni.$sakura.config.navbar.isClickHome
+			default: () => uni.$sakura.config.navbar.isClickHome
 		},
 		isBack: {
 			type: Boolean as PropType<boolean>,
@@ -160,6 +160,10 @@
 		rightIconSize: {
 			type: [String, Number] as PropType<string | number>,
 			default: '24px',
+		},
+		placeholder: {
+			type: Boolean as PropType<boolean>,
+			default: true,
 		}
 	});
 	const emit = defineEmits(['clickLeft', 'clickRight', 'clickTitle', 'clickHome'])
@@ -186,7 +190,8 @@
 		showHomeIcon,
 		homeIcon,
 		isBack,
-		isClickHome
+		isClickHome,
+		placeholder
 	} = toRefs(props);
 	const leftStyle = computed(() => ({
 		minWidth: uni.$sakura.utils.getVal(leftWidth.value),
@@ -201,6 +206,7 @@
 	const fontSize = computed(() => uni.$sakura.utils.getVal(size.value))
 	const navbarHeight = computed(() => uni.$sakura.utils.getVal(height.value))
 	const statusBarHeight = computed(() => uni.getSystemInfoSync()['statusBarHeight'])
+	const pdHeight = computed(() => uni.$sakura.utils.getPx(height.value || 44) + statusBarHeight.value)
 	const firstPage = computed(() => getCurrentPages().length === 1)
 	const handleLeft = () => {
 		if (firstPage.value && showHomeIcon.value) {
