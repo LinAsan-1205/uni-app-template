@@ -1,3 +1,11 @@
+.sakura-home:before {
+	content: "\e617";
+}
+
+.sakura-xiajiantoucu:before {
+	content: "\e605";
+}
+
 .sakura-grid:before {
 	content: "\e600";
 }
@@ -156,10 +164,6 @@
 
 .sakura-delete:before {
 	content: "\e6b4";
-}
-
-.sakura-home:before {
-	content: "\e6b8";
 }
 
 .sakura-link:before {

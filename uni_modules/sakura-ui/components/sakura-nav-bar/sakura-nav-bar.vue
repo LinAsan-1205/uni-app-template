@@ -23,7 +23,7 @@
 			</view>
 			<view class="sakura-navbar--right" v-if="showRightIcon" :style="rightStyle" @tap="handleRight">
 				<slot name="right">
-					<view class="sakura-navbar--right--text" v-if="rightIcon&&rightText.length > 0">
+					<view class="sakura-navbar--right--text" v-if="rightText&&rightText.length > 0">
 						<text :style="{ fontSize: '12px' }">{{ rightText }}</text>
 					</view>
 					<view class="sakura-navbar--right--icon" v-if="rightIcon&&rightIcon.length > 0"><sakura-icon
@@ -129,7 +129,7 @@
 		//左侧图标大小
 		leftIconSize: {
 			type: [String, Number] as PropType<string | number>,
-			default: '24px',
+			default: '32rpx',
 		},
 		//是否显示右侧图标
 		showRightIcon: {

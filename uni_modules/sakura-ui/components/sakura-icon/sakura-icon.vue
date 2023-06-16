@@ -9,11 +9,12 @@
 <script lang="ts" setup>
 	import { PropType, toRefs, computed } from "vue";
 	import icons from "./sakura-icon";
+
+	const iconUrl = 'https://at.alicdn.com/t/c/font_3519791_o35qtm0131.ttf'
 	// #ifdef APP-NVUE
 	var domModule = weex.requireModule("dom");
-	import iconUrl from "./sakura-icon.ttf";
 	domModule.addRule("fontFace", {
-		fontFamily: "l",
+		fontFamily: "sakura",
 		src: "url('" + iconUrl + "')",
 	});
 	// #endif
@@ -45,10 +46,9 @@
 		return typeof val === "number" || reg.test(val) ? val + "px" : val;
 	};
 	const unicode = computed(() => {
-		const code = (icons as Record<string, string>)[name.value];
-
-		if (code) {
-			return unescape(`%u${code}`);
+		const iconInfo = icons.glyphs.find(item => item.font_class === name.value)
+		if (iconInfo.unicode) {
+			return unescape(`%u${iconInfo.unicode}`);
 		}
 		return "";
 	});
@@ -70,7 +70,7 @@
 
 	@font-face {
 		font-family: sakura;
-		src: url("./sakura-icon.ttf") format("truetype");
+		src: url(https://at.alicdn.com/t/c/font_3519791_o35qtm0131.ttf) format("truetype");
 	}
 
 	/* #endif */

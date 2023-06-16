@@ -4,7 +4,7 @@ $navbar: () !default;
 $navbar: map.merge(
 	(
 		background-color: get-base-color-var('primary'),
-		font-size: get-css-var($fontSizeLg),
+		font-size: get-css-var($fontSizeMd),
 		border-color: #eef,
 		height: 44px
 	),
