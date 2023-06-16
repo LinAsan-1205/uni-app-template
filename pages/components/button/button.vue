@@ -40,13 +40,15 @@
 		<view class="sakura-page--title">icon按钮</view>
 		<sakura-space :size="20">
 			<sakura-button type="primary" loading :iconSize="75" :loadingSize="20" shadow round icon>
-				<icon-imbalance /></sakura-button>
+				<sakura-icon name="github"></sakura-icon>
+
+			</sakura-button>
 			<sakura-button type="danger" loading :loadingSize="20" shadow round icon>
-				<icon-imbalance /></sakura-button>
+				<sakura-icon name="github" color="#fff"></sakura-icon></sakura-button>
 			<sakura-button type="warning" shadow round icon>
-				<icon-imbalance /></sakura-button>
+				<sakura-icon name="github" color="#fff"></sakura-icon></sakura-button>
 			<sakura-button type="success" shadow round icon>
-				<icon-imbalance /></sakura-button>
+				<sakura-icon name="github" color="#fff"></sakura-icon></sakura-button>
 		</sakura-space>
 		<view class="sakura-page--title">loading按钮</view>
 		<sakura-space vertical :size="20">
