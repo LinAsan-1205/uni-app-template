@@ -61,7 +61,16 @@
 				}
 
 			}
-		]
+		    ,{
+                    "path" : "icon/icon",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "icon",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

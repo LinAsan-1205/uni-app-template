@@ -1,45 +1,73 @@
-.sakura-home:before {
-	content: "\e617";
+.sakura-link:before {
+	content: "\e7e2";
 }
 
-.sakura-xiajiantoucu:before {
-	content: "\e605";
+.sakura-search:before {
+	content: "\e66d";
+}
+
+.sakura-map:before {
+	content: "\e677";
+}
+
+.sakura-more:before {
+	content: "\e639";
+}
+
+.sakura-weibo-circle:before {
+	content: "\e648";
+}
+
+.sakura-zhifubao-circle:before {
+	content: "\e607";
+}
+
+.sakura-weixin-circle:before {
+	content: "\e608";
+}
+
+.sakura-github:before {
+	content: "\e741";
+}
+
+.sakura-github-circle-fill:before {
+	content: "\e66f";
+}
+
+.sakura-arrow-left:before {
+	content: "\e606";
+}
+
+.sakura-mobile:before {
+	content: "\e60b";
+}
+
+.sakura-phone:before {
+	content: "\e893";
+}
+
+.sakura-clear:before {
+	content: "\e643";
+}
+
+.sakura-back:before {
+	content: "\e647";
+}
+
+.sakura-home:before {
+	content: "\e617";
 }
 
 .sakura-grid:before {
 	content: "\e600";
 }
 
-.sakura-biaoqian:before {
+.sakura-tag:before {
 	content: "\e637";
 }
 
 .sakura-anniu:before {
 	content: "\e642";
-}
-
-.sakura-Clear-File:before {
-	content: "\e77e";
-}
-
-.sakura-clear1:before {
-	content: "\e648";
-}
-
-.sakura-left:before {
-	content: "\e628";
-}
-
-.sakura-back1:before {
-	content: "\e662";
-}
-
-.sakura-home1:before {
-	content: "\e69c";
-}
-
-.sakura-sousuo:before {
-	content: "\e603";
 }
 
 .sakura-appreciate:before {
@@ -62,24 +90,16 @@
 	content: "\e64c";
 }
 
-.sakura-location:before {
-	content: "\e651";
-}
-
 .sakura-roundcheck:before {
 	content: "\e657";
 }
 
-.sakura-roundclose:before {
+.sakura-arrow-round-close:before {
 	content: "\e659";
 }
 
-.sakura-roundright:before {
+.sakura-arrow-round-right:before {
 	content: "\e65b";
-}
-
-.sakura-search:before {
-	content: "\e65c";
 }
 
 .sakura-time:before {
@@ -106,16 +126,8 @@
 	content: "\e66b";
 }
 
-.sakura-back:before {
-	content: "\e679";
-}
-
 .sakura-list:before {
 	content: "\e682";
-}
-
-.sakura-more:before {
-	content: "\e684";
 }
 
 .sakura-scan:before {
@@ -142,7 +154,7 @@
 	content: "\e6a0";
 }
 
-.sakura-right:before {
+.sakura-arrow-right:before {
 	content: "\e6a3";
 }
 
@@ -158,7 +170,7 @@
 	content: "\e6af";
 }
 
-.sakura-qrcode:before {
+.sakura-qrCode:before {
 	content: "\e6b0";
 }
 
@@ -166,7 +178,7 @@
 	content: "\e6b4";
 }
 
-.sakura-link:before {
+.sakura-link-fill:before {
 	content: "\e6bf";
 }
 
@@ -180,10 +192,6 @@
 
 .sakura-friend:before {
 	content: "\e6cc";
-}
-
-.sakura-add:before {
-	content: "\e6da";
 }
 
 .sakura-fold:before {
@@ -202,10 +210,6 @@
 	content: "\e703";
 }
 
-.sakura-mobile:before {
-	content: "\e704";
-}
-
 .sakura-female:before {
 	content: "\e71a";
 }
@@ -222,10 +226,6 @@
 	content: "\e736";
 }
 
-.sakura-tag:before {
-	content: "\e752";
-}
-
 .sakura-post:before {
 	content: "\e759";
 }
@@ -238,11 +238,11 @@
 	content: "\e761";
 }
 
-.sakura-add1:before {
+.sakura-plus:before {
 	content: "\e767";
 }
 
-.sakura-move:before {
+.sakura-remove:before {
 	content: "\e768";
 }
 

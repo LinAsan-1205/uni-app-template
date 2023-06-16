@@ -99,7 +99,7 @@
 		//左侧图标
 		leftIcon: {
 			type: String as PropType<string>,
-			default: 'left',
+			default: 'arrow-left',
 		},
 		//左侧文字
 		leftText: {

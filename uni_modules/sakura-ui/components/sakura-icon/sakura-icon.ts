@@ -6,18 +6,109 @@ export default {
 	description: '',
 	glyphs: [
 		{
-			icon_id: '560769',
-			name: 'home',
-			font_class: 'home2',
-			unicode: 'e617',
-			unicode_decimal: 58903
+			icon_id: '4766965',
+			name: 'link',
+			font_class: 'link',
+			unicode: 'e7e2',
+			unicode_decimal: 59362
 		},
 		{
-			icon_id: '30070193',
-			name: '下箭头',
-			font_class: 'xiajiantoucu',
-			unicode: 'e605',
-			unicode_decimal: 58885
+			icon_id: '8003805',
+			name: '搜素',
+			font_class: 'search',
+			unicode: 'e66d',
+			unicode_decimal: 58989
+		},
+		{
+			icon_id: '15838499',
+			name: 'map',
+			font_class: 'map',
+			unicode: 'e677',
+			unicode_decimal: 58999
+		},
+		{
+			icon_id: '1350756',
+			name: '更多',
+			font_class: 'more',
+			unicode: 'e639',
+			unicode_decimal: 58937
+		},
+		{
+			icon_id: '15559706',
+			name: '微博',
+			font_class: 'weibo-circle',
+			unicode: 'e648',
+			unicode_decimal: 58952
+		},
+		{
+			icon_id: '15933089',
+			name: '支付宝',
+			font_class: 'zhifubao-circle',
+			unicode: 'e607',
+			unicode_decimal: 58887
+		},
+		{
+			icon_id: '15933094',
+			name: '微信',
+			font_class: 'weixin-circle',
+			unicode: 'e608',
+			unicode_decimal: 58888
+		},
+		{
+			icon_id: '400805',
+			name: 'github',
+			font_class: 'github',
+			unicode: 'e741',
+			unicode_decimal: 59201
+		},
+		{
+			icon_id: '14401714',
+			name: 'github',
+			font_class: 'github-circle-fill',
+			unicode: 'e66f',
+			unicode_decimal: 58991
+		},
+		{
+			icon_id: '13253776',
+			name: 'left',
+			font_class: 'arrow-left',
+			unicode: 'e606',
+			unicode_decimal: 58886
+		},
+		{
+			icon_id: '5643530',
+			name: '手机',
+			font_class: 'mobile',
+			unicode: 'e60b',
+			unicode_decimal: 58891
+		},
+		{
+			icon_id: '18808379',
+			name: 'phone',
+			font_class: 'phone',
+			unicode: 'e893',
+			unicode_decimal: 59539
+		},
+		{
+			icon_id: '433850',
+			name: 'clear',
+			font_class: 'clear',
+			unicode: 'e643',
+			unicode_decimal: 58947
+		},
+		{
+			icon_id: '993772',
+			name: '返回',
+			font_class: 'back',
+			unicode: 'e647',
+			unicode_decimal: 58951
+		},
+		{
+			icon_id: '560769',
+			name: 'home',
+			font_class: 'home',
+			unicode: 'e617',
+			unicode_decimal: 58903
 		},
 		{
 			icon_id: '1842104',
@@ -29,7 +120,7 @@ export default {
 		{
 			icon_id: '4251702',
 			name: '标签',
-			font_class: 'biaoqian',
+			font_class: 'tag',
 			unicode: 'e637',
 			unicode_decimal: 58935
 		},
@@ -39,48 +130,6 @@ export default {
 			font_class: 'anniu',
 			unicode: 'e642',
 			unicode_decimal: 58946
-		},
-		{
-			icon_id: '6802412',
-			name: 'Clear-File',
-			font_class: 'Clear-File',
-			unicode: 'e77e',
-			unicode_decimal: 59262
-		},
-		{
-			icon_id: '11132281',
-			name: 'clear',
-			font_class: 'clear1',
-			unicode: 'e648',
-			unicode_decimal: 58952
-		},
-		{
-			icon_id: '109753',
-			name: 'left',
-			font_class: 'left',
-			unicode: 'e628',
-			unicode_decimal: 58920
-		},
-		{
-			icon_id: '248923',
-			name: 'back',
-			font_class: 'back1',
-			unicode: 'e662',
-			unicode_decimal: 58978
-		},
-		{
-			icon_id: '8106227',
-			name: 'home',
-			font_class: 'home1',
-			unicode: 'e69c',
-			unicode_decimal: 59036
-		},
-		{
-			icon_id: '20000260',
-			name: '搜索',
-			font_class: 'sousuo',
-			unicode: 'e603',
-			unicode_decimal: 58883
 		},
 		{
 			icon_id: '29923',
@@ -118,13 +167,6 @@ export default {
 			unicode_decimal: 58956
 		},
 		{
-			icon_id: '29936',
-			name: 'location',
-			font_class: 'location',
-			unicode: 'e651',
-			unicode_decimal: 58961
-		},
-		{
 			icon_id: '29942',
 			name: 'round_check',
 			font_class: 'roundcheck',
@@ -134,23 +176,16 @@ export default {
 		{
 			icon_id: '29944',
 			name: 'round_close',
-			font_class: 'roundclose',
+			font_class: 'arrow-round-close',
 			unicode: 'e659',
 			unicode_decimal: 58969
 		},
 		{
 			icon_id: '29946',
 			name: 'round_right',
-			font_class: 'roundright',
+			font_class: 'arrow-round-right',
 			unicode: 'e65b',
 			unicode_decimal: 58971
-		},
-		{
-			icon_id: '29947',
-			name: 'search',
-			font_class: 'search',
-			unicode: 'e65c',
-			unicode_decimal: 58972
 		},
 		{
 			icon_id: '29950',
@@ -195,25 +230,11 @@ export default {
 			unicode_decimal: 58987
 		},
 		{
-			icon_id: '30441',
-			name: 'back',
-			font_class: 'back',
-			unicode: 'e679',
-			unicode_decimal: 59001
-		},
-		{
 			icon_id: '30450',
 			name: 'list',
 			font_class: 'list',
 			unicode: 'e682',
 			unicode_decimal: 59010
-		},
-		{
-			icon_id: '30452',
-			name: 'more',
-			font_class: 'more',
-			unicode: 'e684',
-			unicode_decimal: 59012
 		},
 		{
 			icon_id: '30479',
@@ -260,7 +281,7 @@ export default {
 		{
 			icon_id: '32305',
 			name: 'right',
-			font_class: 'right',
+			font_class: 'arrow-right',
 			unicode: 'e6a3',
 			unicode_decimal: 59043
 		},
@@ -288,7 +309,7 @@ export default {
 		{
 			icon_id: '32472',
 			name: 'qr_code',
-			font_class: 'qrcode',
+			font_class: 'qrCode',
 			unicode: 'e6b0',
 			unicode_decimal: 59056
 		},
@@ -302,7 +323,7 @@ export default {
 		{
 			icon_id: '34922',
 			name: 'link',
-			font_class: 'link',
+			font_class: 'link-fill',
 			unicode: 'e6bf',
 			unicode_decimal: 59071
 		},
@@ -326,13 +347,6 @@ export default {
 			font_class: 'friend',
 			unicode: 'e6cc',
 			unicode_decimal: 59084
-		},
-		{
-			icon_id: '38747',
-			name: 'add',
-			font_class: 'add',
-			unicode: 'e6da',
-			unicode_decimal: 59098
 		},
 		{
 			icon_id: '41957',
@@ -363,13 +377,6 @@ export default {
 			unicode_decimal: 59139
 		},
 		{
-			icon_id: '76371',
-			name: 'mobile',
-			font_class: 'mobile',
-			unicode: 'e704',
-			unicode_decimal: 59140
-		},
-		{
 			icon_id: '90846',
 			name: 'female',
 			font_class: 'female',
@@ -398,13 +405,6 @@ export default {
 			unicode_decimal: 59190
 		},
 		{
-			icon_id: '212331',
-			name: 'tag',
-			font_class: 'tag',
-			unicode: 'e752',
-			unicode_decimal: 59218
-		},
-		{
 			icon_id: '240130',
 			name: 'post',
 			font_class: 'post',
@@ -428,14 +428,14 @@ export default {
 		{
 			icon_id: '252290',
 			name: 'add',
-			font_class: 'add1',
+			font_class: 'plus',
 			unicode: 'e767',
 			unicode_decimal: 59239
 		},
 		{
 			icon_id: '252291',
 			name: 'move',
-			font_class: 'move',
+			font_class: 'remove',
 			unicode: 'e768',
 			unicode_decimal: 59240
 		},
