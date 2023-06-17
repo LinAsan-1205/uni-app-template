@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<sakura-nav-bar title="Loading"></sakura-nav-bar>
-		<sakura-space vertical :size="60">
+		<sakura-space vertical :margin="20" :size="60">
 			<sakura-loading text="loading"></sakura-loading>
 			<sakura-loading text="loading" type="danger"></sakura-loading>
 			<sakura-loading text="loading" type="info"></sakura-loading>

@@ -119,7 +119,7 @@
 		//左侧宽度
 		leftWidth: {
 			type: [String, Number] as PropType<string | number>,
-			default: '40px',
+			default: 0,
 		},
 		//左侧颜色
 		leftColor: {
@@ -149,7 +149,7 @@
 		//右侧宽度
 		rightWidth: {
 			type: [String, Number] as PropType<string | number>,
-			default: '40px',
+			default: 0,
 		},
 		//右侧颜色
 		rightColor: {

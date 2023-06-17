@@ -45,20 +45,8 @@
 			type: Boolean as PropType<boolean>,
 			default: true,
 		},
-		marginTop: {
-			type: [String, Number] as PropType<string | number>,
-			default: 0,
-		},
-		marginBottom: {
-			type: [String, Number] as PropType<string | number>,
-			default: 20,
-		},
-		marginLeft: {
-			type: [String, Number] as PropType<string | number>,
-			default: 0,
-		},
-		marginRight: {
-			type: [String, Number] as PropType<string | number>,
+		margin: {
+			type: [String, Number, Array] as PropType<string | number | number[]>,
 			default: 0,
 		},
 	});
@@ -69,12 +57,16 @@
 		align,
 		wrap,
 		justify,
-		marginBottom,
-		marginTop,
-		marginLeft,
-		marginRight
+		margin,
 	} = toRefs(props);
 	const className = computed(() => ({}));
+	const getMargin = computed(() => {
+		if (Array.isArray(margin.value)) {
+			return margin.value.map(num => uni.$sakura.utils.getVal(num).join(' '))
+		}
+		const num = uni.$sakura.utils.getVal(margin.value)
+		return `${num} ${num}`
+	})
 	const styleName = computed<CSSProperties>(() => ({
 		display: inline.value ? "inline-flex" : "flex",
 		"flex-direction": vertical.value ? "column" : "row",
@@ -84,9 +76,6 @@
 		flexWrap: !wrap.value || vertical.value ? "nowrap" : "wrap",
 		alignItems: align.value,
 		gap: uni.$sakura.utils.getVal(size.value),
-		marginBottom: uni.$sakura.utils.getVal(marginBottom.value),
-		marginTop: uni.$sakura.utils.getVal(marginTop.value),
-		marginLeft: uni.$sakura.utils.getVal(marginLeft.value),
-		marginRight: uni.$sakura.utils.getVal(marginRight.value)
+		margin: getMargin.value
 	}));
 </script>
