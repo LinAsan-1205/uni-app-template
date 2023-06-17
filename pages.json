@@ -89,6 +89,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "cell/cell",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {

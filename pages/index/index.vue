@@ -54,6 +54,10 @@
 			path: "/text/text"
 		},
 		{
+			title: 'Cell 单元格',
+			path: "/cell/cell"
+		},
+		{
 			title: 'Tag 标签',
 			path: "/tag/tag"
 		},
