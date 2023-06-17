@@ -31,6 +31,15 @@ $linkType: default, primary, info, success, warning, danger;
 	/* #ifndef APP-NVUE */
 	cursor: pointer;
 	/* #endif */
+	position: relative;
+	/* #ifdef H5 */
+	outline: none;
+	/* #endif */
+	overflow: hidden;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	white-space: nowrap;
 
 	&--var {
 		@include define-map-all($link, 'link');
