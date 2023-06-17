@@ -62,7 +62,7 @@
 	const className = computed(() => ({}));
 	const getMargin = computed(() => {
 		if (Array.isArray(margin.value)) {
-			return margin.value.map(num => uni.$sakura.utils.getVal(num).join(' '))
+			return margin.value.map(num => uni.$sakura.utils.getVal(num)).join(' ')
 		}
 		const num = uni.$sakura.utils.getVal(margin.value)
 		return `${num} ${num}`

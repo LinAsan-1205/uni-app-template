@@ -81,6 +81,12 @@
 		font-family: sakura;
 		text-decoration: none;
 		text-align: center;
+		position: relative;
+		display: inline-block;
+		font-size: inherit;
+		font-weight: 400;
+		font-style: normal;
+		line-height: 1;
 	}
 
 </style>

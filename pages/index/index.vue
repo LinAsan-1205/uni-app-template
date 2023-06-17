@@ -1,6 +1,14 @@
 <template>
 	<view class="home">
-		<sakura-nav-bar :showLeftIcon="false" :showHomeIcon="false" title="sakura-ui"></sakura-nav-bar>
+		<sakura-nav-bar height="50px" :showHomeIcon="false">
+			<template #left>
+				<sakura-icon name="github-circle-fill" color="#fff" :size="26"></sakura-icon>
+			</template>
+		</sakura-nav-bar>
+		<sakura-space :margin="[32,48,0]">
+			<view class="home__title">🌸 SAKURA</view>
+			<view class="home__desc">sakura-ui，全面兼容uni-app生态框架，拥有丰富的组件和便捷的工具模版</view>
+		</sakura-space>
 		<view class="home__list">
 			<view class="home__list__item" @click="onPage(item.path)" v-for="(item,index) in listData" :key="index">
 				<view class="title">
@@ -77,13 +85,22 @@
 	@use 'sass:color';
 
 	.home {
+		&__title {
+			font-size: var(--sakura-font-size-lg);
+		}
+
+		&__desc {
+			color: var(--sakura-color-text-sub-text);
+			font-size: var(--sakura-font-size-sm);
+		}
+
 		&__list {
 			display: flex;
-			padding: 24rpx;
+			padding: 0 24rpx;
 			flex-direction: column;
 
 			&__item {
-				padding: 24rpx 32rpx;
+				padding: 24rpx;
 				display: flex;
 				align-items: center;
 				background: #fff;
