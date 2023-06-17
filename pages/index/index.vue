@@ -50,6 +50,10 @@
 			path: "/link/link"
 		},
 		{
+			title: 'Text 文本',
+			path: "/text/text"
+		},
+		{
 			title: 'Tag 标签',
 			path: "/tag/tag"
 		},

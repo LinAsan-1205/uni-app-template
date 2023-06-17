@@ -81,6 +81,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "text/text",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "Text"
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {

@@ -1,10 +1,10 @@
 <template>
-	<view class="sakura-text" :style="styleName" :class="className" @click="handleClick">
+	<view :style="styleName" :class="className" @click="handleClick">
 		<template v-if="slot.default">
 			<slot />
 		</template>
 		<template v-else-if="mode === 'link'">
-			<sakura-link :text="text" :href="href" :size="fontSize" :showUnderLine="true" />
+			<sakura-link :text="text" :href="href" :size="fontSize" />
 		</template>
 		<template v-else>
 			{{ getText }}
@@ -111,13 +111,19 @@
 		copyFail
 	} = toRefs(props);
 	const slot = useSlots();
+
+	const { n, classes } = uni.$sakura.utils.createNamespace('text')
+
 	const fontSizeType = ['xs', 'sm', 'md', 'lg']
+
 	const fontSize = computed(() => {
 		if (fontSizeType.includes(size.value)) {
 			return null
 		}
 		return uni.$sakura.utils.getVal(size.value)
 	})
+
+
 	const styleName = computed(() => ({
 		fontSize: fontSize.value,
 		color: color.value,
@@ -125,13 +131,7 @@
 		textAlign: align.value,
 		textDecoration: decoration.value,
 	}));
-	const className = computed(() => ({
-		[`sakura-text--${type.value}`]: type.value && true,
-		[`sakura-text--block`]: block.value,
-		[`sakura-text--vars`]: true,
-		[`sakura-text--${size.value}`]: fontSizeType.includes(size.value)
-
-	}));
+	const className = computed(() => classes(n(), n('--var'), [type.value && true, n(`--${type.value}`)], [block.value, n('--block')], [fontSizeType.includes(size.value), n(`--${size.value}`)]));
 	const isMobile = computed(
 		() =>
 			mode.value === "phone" &&

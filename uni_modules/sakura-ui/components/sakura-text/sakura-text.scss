@@ -16,7 +16,7 @@ $size: sx, sm, md, lg !default;
 .#{$namespace}-text {
 	color: get-css-var('text-color');
 	font-size: get-css-var('text-size-md');
-	&--vars {
+	&--var {
 		@include define-preset-values('text', $text);
 	}
 
