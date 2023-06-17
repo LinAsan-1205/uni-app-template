@@ -1,5 +1,5 @@
 <template>
-	<view :class="classes(n(), [vertical, n('--column'), n('--row')])" :style="stylesName">
+	<view :class="classes(n(), n('--var'),[vertical, n('--column'), n('--row')])" :style="stylesName">
 
 		<slot></slot>
 	</view>
