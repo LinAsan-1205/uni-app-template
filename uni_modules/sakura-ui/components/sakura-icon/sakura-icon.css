@@ -1,3 +1,11 @@
+.sakura-sun:before {
+	content: "\e6a1";
+}
+
+.sakura-moon:before {
+	content: "\e6a2";
+}
+
 .sakura-link:before {
 	content: "\e7e2";
 }

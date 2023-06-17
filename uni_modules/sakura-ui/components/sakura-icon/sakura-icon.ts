@@ -6,6 +6,20 @@ export default {
 	description: '',
 	glyphs: [
 		{
+			icon_id: '15432422',
+			name: '太阳',
+			font_class: 'sun',
+			unicode: 'e6a1',
+			unicode_decimal: 59041
+		},
+		{
+			icon_id: '15432437',
+			name: '月亮',
+			font_class: 'moon',
+			unicode: 'e6a2',
+			unicode_decimal: 59042
+		},
+		{
 			icon_id: '4766965',
 			name: 'link',
 			font_class: 'link',

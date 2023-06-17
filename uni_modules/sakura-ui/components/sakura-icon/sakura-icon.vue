@@ -10,7 +10,7 @@
 	import { PropType, toRefs, computed } from "vue";
 	import icons from "./sakura-icon";
 
-	const iconUrl = 'https://at.alicdn.com/t/c/font_3519791_55afekrdwln.ttf'
+	const iconUrl = 'https://at.alicdn.com/t/c/font_3519791_1p998g6ett1.ttf'
 	// #ifdef APP-NVUE
 	var domModule = weex.requireModule("dom");
 	domModule.addRule("fontFace", {
@@ -73,7 +73,7 @@
 
 	@font-face {
 		font-family: sakura;
-		src: url(https://at.alicdn.com/t/c/font_3519791_55afekrdwln.ttf) format("truetype");
+		src: url(https://at.alicdn.com/t/c/font_3519791_1p998g6ett1.ttf) format("truetype");
 	}
 
 	/* #endif */

@@ -2,10 +2,10 @@
 	<view class="home">
 		<sakura-nav-bar height="50px" :showHomeIcon="false">
 			<template #left>
-				<sakura-icon name="github-circle-fill" color="#fff" :size="26"></sakura-icon>
+				<sakura-icon name="github-circle-fill" color="#fff" :size="26" @click="onGithub"></sakura-icon>
 			</template>
 		</sakura-nav-bar>
-		<sakura-space :margin="[32,48,0]">
+		<sakura-space :margin="[32,48,0]" vertical>
 			<view class="home__title">🌸 SAKURA</view>
 			<view class="home__desc">sakura-ui，全面兼容uni-app生态框架，拥有丰富的组件和便捷的工具模版</view>
 		</sakura-space>
@@ -79,7 +79,11 @@
 			}
 		})
 	}
-	console.log(uni.$sakura.utils.dayjs(new Date()), 'uni.sakura')
+	const onGithub = () => {
+		// #ifdef H5
+		window.open('https://github.com/LinAsan-1205')
+		// #endif
+	}
 </script>
 <style lang="scss" scoped>
 	@use 'sass:color';
