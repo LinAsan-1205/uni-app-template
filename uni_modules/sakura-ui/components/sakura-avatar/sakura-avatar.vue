@@ -1,5 +1,7 @@
 <template>
-	<view :class="className" :style="stylesName">
+	<view
+		:class="classes(n(), n('--var'), [sizeValidator, n(`--${size}`)], [round, n('--round')], [bordered, n('--bordered')])"
+		:style="stylesName">
 		<template v-if="src">
 			<image v-if="!imageError" :src="src" :mode="mode" :lazy-load="lazy" @error="onError"></image>
 			<image v-else :src="error" :mode="mode"></image>
@@ -86,22 +88,7 @@
 
 	const sizeValidator = computed(() => ['mini', 'small', 'default', 'large'].includes(size.value as any))
 
-	const className = computed(() => {
-		let name = ['sakura-avatar', 'sakura-avatar--var']
-		if (sizeValidator.value) {
-			name.push(`sakura-avatar--${size.value}`)
-		}
-
-		if (round.value) {
-			name.push('sakura-avatar--round')
-		}
-
-		if (bordered.value) {
-			name.push('sakura-avatar--bordered')
-		}
-
-		return name
-	})
+	const { n, classes } = uni.$sakura.utils.createNamespace('avatar')
 
 	const stylesName = computed(() => {
 		let styles = {}

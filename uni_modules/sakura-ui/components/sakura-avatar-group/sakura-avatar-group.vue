@@ -1,5 +1,5 @@
 <template>
-	<view :class="className" :style="stylesName">
+	<view :class="classes(n(), [vertical, n('--column'), n('--row')])" :style="stylesName">
 
 		<slot></slot>
 	</view>
@@ -17,22 +17,16 @@
 		},
 	})
 	const { offset, vertical } = toRefs(props)
-	const className = computed(() => {
-		let name = ['sakura-avatar-group', 'sakura-avatar-group--var']
-		if (vertical.value) {
-			name.push('sakura-avatar-group--column')
-		} else {
-			name.push('sakura-avatar-group--row')
-		}
-		return name
-	})
+
+	const { namespace, n, classes } = uni.$sakura.utils.createNamespace('avatar-group')
+
 	const stylesName = computed(() => {
 		if (offset.value == null) {
 			return {}
 		}
 
 		return {
-			'--sakura-avatar-group-offset': uni.$sakura.utils.getVal(offset.value),
+			[`--${namespace}-avatar-group-offset`]: uni.$sakura.utils.getVal(offset.value),
 		}
 	})
 </script>
