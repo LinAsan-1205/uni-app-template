@@ -1,6 +1,6 @@
 <template>
 	<!-- #ifdef APP-NVUE -->
-	<text :style="styleName" class="sakura-icon">{{ unicode }}</text>
+	<text :style="styleName" :class="classes(n())">{{ unicode }}</text>
 	<!-- #endif -->
 	<!-- #ifndef APP-NVUE -->
 	<text :style="styleName" :class="className"> </text>
@@ -41,6 +41,9 @@
 		},
 	});
 	const { color, size, name, customPrefix } = toRefs(props);
+
+	const { n, classes } = uni.$sakura.utils.createNamespace('icon')
+
 	const getFontSizeVal = (val : number | string) => {
 		const reg = /^[0-9]*$/g;
 		return typeof val === "number" || reg.test(val) ? val + "px" : val;
@@ -56,7 +59,7 @@
 		if (customPrefix.value) {
 			return [customPrefix.value, customPrefix.value + name.value];
 		}
-		return ["sakura-icon", "sakura-" + name.value];
+		return classes(n(), n(name.value))
 	});
 
 	const styleName = computed(() => ({
@@ -64,7 +67,7 @@
 		"font-size": getFontSizeVal(size.value),
 	}));
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 	/* #ifndef APP-NVUE */
 	@import "./sakura-icon.css";
 

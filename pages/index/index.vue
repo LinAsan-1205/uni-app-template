@@ -38,6 +38,10 @@
 			path: "/button/button"
 		},
 		{
+			title: 'Link 链接',
+			path: "/link/link"
+		},
+		{
 			title: 'Tag 标签',
 			path: "/tag/tag"
 		},

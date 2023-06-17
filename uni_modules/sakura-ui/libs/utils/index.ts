@@ -30,13 +30,16 @@ export const createNamespace = <C extends String>(name: C) => {
 	const namespace = `sakura` as const;
 	const componentName = `${namespace}-${name}` as const;
 
-	const createBEM = <S extends string | undefined = undefined>(suffix?: S) => {
+	const createBEM = <S extends string | undefined = undefined | any>(suffix?: S) => {
 		if (!suffix) {
 			return componentName as any;
 		}
 
 		if (suffix[0] === '$') {
 			return suffix.replace('$', namespace) as any;
+		}
+		if (!suffix.startsWith('-') || !suffix.startsWith('--')) {
+			return `${namespace}-${suffix}`;
 		}
 
 		return (suffix.startsWith('--') ? `${componentName}${suffix}` : `${componentName}__${suffix}`) as any;

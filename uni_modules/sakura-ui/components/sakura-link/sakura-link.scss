@@ -1,0 +1,69 @@
+@use "sass:map";
+@use "sass:color";
+@use "../../libs/styles/design" as *;
+
+$link: () !default;
+$link: map-merge(
+	(
+		default: (
+			color: get-base-color-var('text')
+		),
+		primary: (
+			color: get-base-color-var('primary')
+		),
+		info: (
+			color: get-base-color-var('info')
+		),
+		success: (
+			color: get-base-color-var('success')
+		),
+		warning: (
+			color: get-base-color-var('warning')
+		),
+		danger: (
+			color: get-base-color-var('danger')
+		)
+	),
+	$link
+);
+$linkType: default, primary, info, success, warning, danger;
+.#{$namespace}-link {
+	/* #ifndef APP-NVUE */
+	cursor: pointer;
+	/* #endif */
+
+	&--var {
+		@include define-map-all($link, 'link');
+	}
+	&--line {
+		text-decoration: underline;
+	}
+	&--hover {
+		text-decoration: none;
+		/* #ifdef H5 */
+		&:hover {
+			text-decoration: underline;
+		}
+		/* #endif */
+		/* #ifndef H5 */
+		&:active {
+			text-decoration: underline;
+		}
+		/* #endif */
+	}
+	&--none {
+		text-decoration: none;
+	}
+
+	@each $name in $linkType {
+		&--#{$name} {
+			color: get-css-var('link-' + $name + '-color');
+		}
+	}
+
+	&--disabled {
+		/* #ifndef APP-NVUE */
+		cursor: not-allowed;
+		/* #endif */
+	}
+}

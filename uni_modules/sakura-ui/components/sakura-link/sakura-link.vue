@@ -11,6 +11,11 @@
 <script lang="ts" setup>
 	import { computed, ref, toRefs, type PropType } from "vue";
 	const props = defineProps({
+		//类型，可选值为 default primary info success warning danger	
+		type: {
+			type: String as PropType<string>,
+			default: 'default',
+		},
 		//跳转地址
 		href: {
 			type: String as PropType<string>,
@@ -22,9 +27,9 @@
 			default: "",
 		},
 		//显示下划线
-		showUnderLine: {
-			type: Boolean as PropType<boolean>,
-			default: false,
+		underline: {
+			type: String as PropType<string | unknown>,
+			default: 'always',
 		},
 		//禁用
 		disabled: {
@@ -34,7 +39,7 @@
 		//文字颜色
 		color: {
 			type: String as PropType<string>,
-			default: 'var(--l-color-link-base)'
+			default: null
 		},
 		//文字大小
 		size: {
@@ -46,10 +51,16 @@
 			default: '已自动复制网址，请在手机浏览器里粘贴该网址'
 		},
 	});
-	const { text, color, showUnderLine, disabled, href, size, copyTips } = toRefs(props);
-	const isTel = computed(() => href.value.startsWith('tel:'))
-	const isMail = computed(() => href.value.startsWith('mailto:'))
+	const { type: mode, text, color, underline, disabled, href, size, copyTips } = toRefs(props);
+
+	const { n, classes } = uni.$sakura.utils.createNamespace('link')
+
+	const isTel = computed(() => href.value && href.value.startsWith('tel:'))
+
+	const isMail = computed(() => href.value && href.value.startsWith('mailto:'))
+
 	const isH5 = ref(false)
+
 	const isShowA = computed(() => {
 		// #ifdef H5
 		isH5.value = true
@@ -59,15 +70,14 @@
 		}
 		return false;
 	})
-	const className = computed(() => ({
-		'sakura-link': true,
-		'sakura-link--line': showUnderLine.value,
-		'sakura-link--disabled': disabled.value
-	}));
+
+	const className = computed(() => classes(n(), n('--var'), [!color.value, n(`--${mode.value}`)], [underline.value === 'always', n('--line')], [underline.value === 'hover', n('--hover')], [underline.value === 'none', n('--none')], [disabled.value, '--disabled']));
+
 	const styleName = computed(() => ({
 		fontSize: uni.$sakura.utils.getVal(size.value),
 		color: color.value
 	}));
+
 	const handleOpenUrl = () => {
 		// #ifdef APP-PLUS
 		if (isTel.value) {
@@ -80,7 +90,7 @@
 		// #endif
 
 		// #ifdef H5
-		window.open(href.value)
+		href.value && window.open(href.value)
 		// #endif
 
 		// #ifdef MP
@@ -95,20 +105,6 @@
 	}
 </script>
 <style lang="scss">
-	.sakura-link {
-		/* #ifndef APP-NVUE */
-		cursor: pointer;
-
-		/* #endif */
-		&--line {
-			text-decoration: underline;
-		}
-
-		&--disabled {
-			/* #ifndef APP-NVUE */
-			cursor: not-allowed;
-			/* #endif */
-		}
-	}
+	@import './sakura-link.scss';
 
 </style>
