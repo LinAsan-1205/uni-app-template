@@ -18,7 +18,7 @@
 	})
 	const { offset, vertical } = toRefs(props)
 
-	const { namespace, n, classes } = uni.$sakura.utils.createNamespace('avatar-group')
+	const { n, classes, getVar } = uni.$sakura.utils.createNamespace('avatar-group')
 
 	const stylesName = computed(() => {
 		if (offset.value == null) {
@@ -26,7 +26,7 @@
 		}
 
 		return {
-			[`--${namespace}-avatar-group-offset`]: uni.$sakura.utils.getVal(offset.value),
+			[getVar('offset')]: uni.$sakura.utils.getVal(offset.value),
 		}
 	})
 </script>

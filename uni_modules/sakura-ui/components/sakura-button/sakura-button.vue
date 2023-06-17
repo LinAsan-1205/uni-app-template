@@ -1,6 +1,17 @@
 <template>
-	<button :class="className" :style="stylesName" :openType="openType" @tap="bindClick"
-		@getphonenumber="bindGetPhoneNumber" @getuserinfo="bindGetuserinfo" @contact="bindContact" @error="bindError">
+	<button :class="classes(n(), n('--var'),
+		[buttonType && true, n(`--${buttonType}`)],
+		[round, n('--round')],
+		[buttonRadius, n('--round--size')],
+		[buttonType === 'default', n('round--border')],
+		[buttonType === 'text', n('--text')],
+		[plain || false, n('--plain')],
+		[bgColor, n('--border')],
+		[buttonType && shadow && !plain, n('--shadow')],
+		[block, n('--block')],
+		[icon, n('--icon')]
+	)" :style="stylesName" :openType="openType" @tap="bindClick" @getphonenumber="bindGetPhoneNumber"
+		@getuserinfo="bindGetuserinfo" @contact="bindContact" @error="bindError">
 		<view class="sakura-button-content" :style="contentStyle">
 			<template v-if="slots.default">
 				<slot />
@@ -16,7 +27,7 @@
 	</button>
 </template>
 <script lang="ts" setup>
-	import { ref, computed, onMounted, PropType, toRefs, useSlots } from 'vue';
+	import { computed, onMounted, PropType, toRefs, useSlots } from 'vue';
 	const emit = defineEmits(['click', 'tap', 'getPhoneNumber', 'getUserInfo', 'contact', 'error']);
 	const props = defineProps({
 		text: {
@@ -147,24 +158,15 @@
 		}
 	});
 	const slots = useSlots();
+
 	const { text, type: buttonType, plain, disabled, disabledBackground, disabledColor, fontSize, round, roundSize, loading, loadingSize, height, width, block, icon, iconRadius, iconSize, openType, bgColor, color, shadow, shadowColor } = toRefs(props);
 
+	const { n, classes } = uni.$sakura.utils.createNamespace('button')
+
 	const buttonRadius = computed(() => round.value && roundSize.value);
+
 	const borderRadiusSize = computed(() => buttonRadius.value && uni.$sakura.utils.getVal(roundSize.value));
-	const className = computed(() => ({
-		'sakura-button': true,
-		[`sakura-button--${buttonType.value}`]: buttonType.value && true,
-		['sakura-button--round']: round.value,
-		['sakura-button--round--size']: buttonRadius.value,
-		['sakura-button--round--border']: buttonType.value == 'default',
-		['sakura-button--text']: buttonType.value == 'text',
-		['sakura-button--plain']: plain.value || false,
-		['sakura-button--vars']: true,
-		['sakura-button--border']: bgColor.value,
-		['sakura-button--shadow']: buttonType.value && shadow.value && !plain.value,
-		['sakura-button--block']: block.value,
-		['sakura-button--icon']: icon.value
-	}));
+
 	const getHeight = computed(() => {
 		if (icon.value) {
 			return {

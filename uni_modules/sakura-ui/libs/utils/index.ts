@@ -24,22 +24,13 @@ export const getVar = (name: string) => {
 	return `var(--${uni.$sakura.config.className})-${name}`;
 };
 
-
-type ClassName = string | undefined | null
-type Classes = (ClassName | [any, ClassName, ClassName?])[]
-type BEM<S extends string | undefined, N extends string, NC extends string> = S extends undefined
-  ? NC
-  : S extends `$--${infer CM}`
-  ? `${N}--${CM}`
-  : S extends `--${infer M}`
-  ? `${NC}--${M}`
-  : `${NC}__${S}`
-
+type ClassName = string | undefined | null;
+type Classes = (ClassName | [any, ClassName, ClassName?])[];
 export const createNamespace = <C extends String>(name: C) => {
 	const namespace = `sakura` as const;
 	const componentName = `${namespace}-${name}` as const;
 
-	const createBEM = <S extends string | undefined = undefined>(suffix?: S): BEM<S, typeof namespace, typeof componentName> => {
+	const createBEM = <S extends string | undefined = undefined>(suffix?: S) => {
 		if (!suffix) {
 			return componentName as any;
 		}
@@ -50,23 +41,28 @@ export const createNamespace = <C extends String>(name: C) => {
 
 		return (suffix.startsWith('--') ? `${componentName}${suffix}` : `${componentName}__${suffix}`) as any;
 	};
-	
-		const classes = (...classes: Classes): any[] => {
-	    return classes.map((className) => {
-	      if (Array.isArray(className)) {
-	        const [condition, truthy, falsy = null] = className
-	        return condition ? truthy : falsy
-	      }
-	
-	      return className
-	    })
-		
-	  }
+
+	const classes = (...classes: Classes): any[] => {
+		return classes
+			.map((className) => {
+				if (Array.isArray(className)) {
+					const [condition, truthy, falsy = null] = className;
+					return condition ? truthy : falsy;
+				}
+
+				return className;
+			})
+			.filter((name) => name);
+	};
+	const getVar = (name: string) => {
+		return `--${componentName}${name.startsWith('-') ? name : `-${name}`}`;
+	};
 	return {
-	namespace,
-    n: createBEM,
-    classes,
-  }
+		namespace,
+		n: createBEM,
+		classes,
+		getVar
+	};
 };
 
 export { number };

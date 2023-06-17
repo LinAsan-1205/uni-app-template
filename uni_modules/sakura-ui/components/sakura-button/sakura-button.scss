@@ -27,7 +27,7 @@ $button: map.merge(
 		align-items: center;
 		justify-content: center;
 	}
-	&--vars {
+	&--var {
 		--#{$namespace}-border-color-base: #e5e5e5;
 		@include define-preset-values('button', $button);
 	}
