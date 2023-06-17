@@ -98,6 +98,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "badge/badge",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "badge",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {
