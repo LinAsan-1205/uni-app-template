@@ -1,5 +1,5 @@
 <template>
-	<view :class="className">
+	<view :class="className" :style="stylesName">
 		<template v-if="src">
 			<image v-if="!imageError" :src="src" :mode="mode" :lazy-load="lazy" @error="onError"></image>
 			<image v-else :src="error" :mode="mode"></image>
@@ -14,6 +14,9 @@
 
 <script lang="ts" setup>
 	import { computed, PropType, ref, toRefs } from 'vue'
+
+	const emit = defineEmits(['onError'])
+
 	const props = defineProps({
 		//头像是否为圆形	
 		round: {
@@ -37,6 +40,16 @@
 		},
 		//文字头像
 		text: {
+			type: String as PropType<string | null>,
+			default: null
+		},
+		//文字颜色
+		textColor: {
+			type: String as PropType<string | null>,
+			default: null
+		},
+		//文字大小
+		textSize: {
 			type: String as PropType<string | null>,
 			default: null
 		},
@@ -67,7 +80,7 @@
 		}
 	})
 
-	const { size, round, src, mode, lazy, text } = toRefs(props)
+	const { size, round, color, src, mode, lazy, text, textColor, textSize, bordered, borderedColor } = toRefs(props)
 
 	const imageError = ref(false)
 
@@ -83,12 +96,33 @@
 			name.push('sakura-avatar--round')
 		}
 
+		if (bordered.value) {
+			name.push('sakura-avatar--bordered')
+		}
+
 		return name
 	})
 
-	const onError = (event) => {
+	const stylesName = computed(() => {
+		let styles = {}
+		if (!src.value && color.value) {
+			styles['backgroundColor'] = color.value
+		}
+		if (!src.value && textColor.value) {
+			styles['color'] = textColor.value
+		}
+		if (bordered.value && borderedColor.value) {
+			styles['borderColor'] = borderedColor.value
+		}
+		if (!src.value && textSize.value) {
+			styles['fontSize'] = uni.$sakura.utils.getVal(textSize.value)
+		}
+		return styles
+	})
+
+	const onError = (event : any) => {
 		imageError.value = true
-		console.log(event, 'event')
+		emit('onError', event)
 	}
 </script>
 

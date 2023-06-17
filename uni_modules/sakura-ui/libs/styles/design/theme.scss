@@ -33,8 +33,11 @@ $color-map: map.deep-merge(
 			base: #3742fa
 		),
 		text: (
-			base: #555
+			base: #555,
+			sub-text: #888
 		)
 	),
 	$color-map
 );
+
+$secondary: black, purple, white, link, text;

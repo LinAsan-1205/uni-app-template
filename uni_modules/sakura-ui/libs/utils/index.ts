@@ -17,5 +17,11 @@ export const getPx = (value: any, unit = false) => {
 	}
 	return unit ? `${parseInt(value)}px` : parseInt(value);
 };
+/**
+ * 获取var
+ */
+export const getVar = (name: string) => {
+	return `var(--${uni.$sakura.config.className})-${name}`;
+};
 
 export { number };

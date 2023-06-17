@@ -1,0 +1,33 @@
+@use "sass:map";
+@use "../../libs/styles/design" as *;
+
+$avatarGroup: () !default;
+$avatarGroup: map-merge(
+	(
+		group: (
+			offset: -20rpx
+		)
+	),
+	$avatarGroup
+);
+.#{$namespace}-avatar-group {
+	display: inline-flex;
+	flex-wrap: wrap;
+	&--var {
+		@include define-map-all($avatarGroup, 'avatar');
+	}
+	&--row {
+		margin-left: calc(get-css-var('avatar-group-offset') * -1);
+		:deep(.#{$namespace}-avatar) {
+			margin-left: get-css-var('avatar-group-offset');
+		}
+	}
+	&--column {
+		flex-direction: column;
+		margin-top: calc(get-css-var('avatar-group-offset') * -1);
+
+		:deep(.#{$namespace}-avatar) {
+			margin-top: get-css-var('avatar-group-offset');
+		}
+	}
+}
