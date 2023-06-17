@@ -71,7 +71,7 @@
 		return false;
 	})
 
-	const className = computed(() => classes(n(), n('--var'), [!color.value, n(`--${mode.value}`)], [underline.value === 'always', n('--line')], [underline.value === 'hover', n('--hover')], [underline.value === 'none', n('--none')], [disabled.value, '--disabled']));
+	const className = computed(() => classes(n(), n('--var'), [!color.value, n(`--${mode.value}`)], [underline.value === 'always', n('--line')], [underline.value === 'hover', n('--hover')], [underline.value === 'none', n('--none')], [disabled.value, n('--disabled')]));
 
 	const styleName = computed(() => ({
 		fontSize: uni.$sakura.utils.getVal(size.value),

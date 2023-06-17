@@ -3,7 +3,7 @@
 		<sakura-nav-bar title="Link"></sakura-nav-bar>
 		<sakura-space :margin="20">
 			<sakura-link>默认链接</sakura-link>
-			<sakura-link type="primary">主要链接</sakura-link>
+			<sakura-link type="primary" disabled>主要链接</sakura-link>
 			<sakura-link type="info">信息链接</sakura-link>
 			<sakura-link type="success">成功链接</sakura-link>
 			<sakura-link type="warning">警告链接</sakura-link>

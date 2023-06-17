@@ -34,7 +34,8 @@ $color-map: map.deep-merge(
 		),
 		text: (
 			base: #555,
-			sub-text: #888
+			sub-text: #888,
+			disabled: #aaa
 		)
 	),
 	$color-map
