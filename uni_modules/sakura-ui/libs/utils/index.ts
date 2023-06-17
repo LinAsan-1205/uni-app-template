@@ -50,6 +50,7 @@ export const createNamespace = <C extends String>(name: C) => {
 
 		return (suffix.startsWith('--') ? `${componentName}${suffix}` : `${componentName}__${suffix}`) as any;
 	};
+	
 		const classes = (...classes: Classes): any[] => {
 	    return classes.map((className) => {
 	      if (Array.isArray(className)) {
@@ -61,8 +62,8 @@ export const createNamespace = <C extends String>(name: C) => {
 	    })
 		
 	  }
-  return {
-	  namespace,
+	return {
+	namespace,
     n: createBEM,
     classes,
   }
