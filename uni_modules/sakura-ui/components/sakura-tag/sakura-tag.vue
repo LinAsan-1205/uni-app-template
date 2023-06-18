@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-	import { computed, toRefs } from "vue";
+	import { computed, toRefs, PropType } from "vue";
 
 	const emit = defineEmits(['click'])
 
@@ -53,8 +53,12 @@
 			default: '8rpx'
 		},
 		padding: {
-			type: [String, Array],
-			default: []
+			type: [String, Array] as PropType<string | string[]>,
+			default: () => []
+		},
+		margin: {
+			type: [String, Array] as PropType<string | string[]>,
+			default: () => []
 		},
 		index: {
 			type: Number,
@@ -62,7 +66,7 @@
 		}
 	})
 
-	const { text, type, plain, color, size, radius, background, borderColor, light, padding, index } = toRefs(props)
+	const { text, type, plain, color, size, radius, background, borderColor, light, padding, margin, index } = toRefs(props)
 
 	const { n, classes } = uni.$sakura.utils.createNamespace('tag')
 
@@ -71,7 +75,10 @@
 		[!background.value && light.value, n(`--${type.value}--light`)]
 
 	))
-	const getPadding = computed(() => Array.isArray(padding.value) ? padding.value.filter(name => name).map(name => uni.$sakura.utils.getVal(name)).join(' ') : `${padding.value}`)
+	const distance = (data : string | string[]) => {
+		if (!data) return null
+		return Array.isArray(data) ? data.filter(name => name).map(name => uni.$sakura.utils.getVal(name)).join(' ') : `${data}`
+	}
 
 	const stylesName = computed(() => ({
 		borderRadius: uni.$sakura.utils.getVal(radius.value),
@@ -79,7 +86,8 @@
 		background: background.value,
 		fontSize: uni.$sakura.utils.getVal(size.value),
 		borderColor: !borderColor.value ? background.value : borderColor.value,
-		padding: getPadding.value
+		padding: distance(padding.value),
+		margin: distance(margin.value)
 	}))
 	const onClick = () => {
 		emit('click', index.value)
