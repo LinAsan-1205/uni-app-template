@@ -1,0 +1,61 @@
+@use "sass:map";
+@use "../../libs/styles/design" as *;
+
+$tag: () !default;
+$tag: map-merge(
+	(
+		type: (
+			primary: get-css-var('color-primary-base'),
+			primary-light: get-css-var('color-primary-light-9'),
+			success: get-css-var('color-success-base'),
+			success-light: get-css-var('color-success-light-9'),
+			warning: get-css-var('color-warning-base'),
+			warning-light: get-css-var('color-warning-light-9'),
+			danger: get-css-var('color-danger-base'),
+			danger-light: get-css-var('color-danger-light-9'),
+			purples: get-css-var('color-purple-base'),
+			purples-light: get-css-var('color-purple-light-9')
+		),
+		font: (
+			color: get-css-var('color-white-base'),
+			size: get-css-var('font-size-sm')
+		)
+	),
+	$tag
+);
+.#{$namespace}-tag {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: get-css-var('tag-font-size');
+	padding: get-css-var('tag-padding');
+	border-width: 2rpx;
+	border-style: solid;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	&--var {
+		@include define-css-var('tag-padding', 16rpx 34rpx);
+		@include define-map-all($tag, 'tag');
+	}
+
+	@each $name in map.keys(map.get($tag, 'type')) {
+		$bg: get-css-var('tag-type-' + $name);
+		$light: get-css-var('tag-type-' + $name + '-light');
+		&--#{$name} {
+			background-color: $bg;
+			border-color: $bg;
+			color: get-css-var('tag-font-color');
+
+			&--plain {
+				background-color: transparent;
+				color: $bg;
+			}
+			&--light {
+				color: $bg;
+				background-color: $light;
+				border-color: $light;
+			}
+		}
+	}
+}

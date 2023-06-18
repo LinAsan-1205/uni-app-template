@@ -107,6 +107,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "tag/tag",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "Tag"
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {
