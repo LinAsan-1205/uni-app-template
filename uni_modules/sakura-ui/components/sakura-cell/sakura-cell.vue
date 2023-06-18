@@ -20,7 +20,7 @@
 		<view :class="classes(n('--right'))">
 			<slot name="right">
 				<slot name="value">
-					<text :class="classes(n('--value'))">{{value}}</text>
+					<text :class="classes(n('--value'))" v-if="value">{{value}}</text>
 				</slot>
 				<sakura-icon :name="rightIcon" v-if="props.rightIcon||arrow" @click.stop="onRightIcon"></sakura-icon>
 			</slot>
@@ -52,7 +52,7 @@
 		//是否显示下边框	
 		border: {
 			type: Boolean as PropType<boolean>,
-			default: false
+			default: true
 		},
 		//左侧icon
 		leftIcon: {
@@ -120,6 +120,7 @@
 </script>
 
 <style lang="scss">
+	@import '../sakura-cell-group/sakura-cell-group.scss';
 	@import './sakura-cell.scss';
 
 </style>

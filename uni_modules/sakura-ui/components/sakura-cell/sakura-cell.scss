@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "../../libs/styles/design" as *;
 $cell: () !default;
 $cell: map-merge(
@@ -12,11 +11,7 @@ $cell: map-merge(
 		icon: (
 			right: 16rpx
 		),
-		border: (
-			right: 24rpx,
-			left: 24rpx,
-			color: #bcc2cb
-		),
+		border: $cellBorder,
 		description: (
 			top: 8rpx,
 			color: rgba(0, 0, 0, 0.6),
@@ -54,7 +49,7 @@ $cell: map-merge(
 			bottom: 0;
 			right: get-css-var('cell-border-right');
 			left: get-css-var('cell-border-left');
-			border-bottom: 1px solid get-css-var('cell-border-color');
+			border-bottom: 1rpx solid get-css-var('cell-border-color');
 			transform: scaleY(0.5);
 		}
 	}

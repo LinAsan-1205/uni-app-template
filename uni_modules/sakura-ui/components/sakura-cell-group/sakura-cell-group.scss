@@ -1,0 +1,47 @@
+@use "../../libs/styles/design" as *;
+
+$cellBorder: (
+	right: 24rpx,
+	left: 24rpx,
+	color: #bcc2cb
+) !default;
+
+$cellGroup: () !default;
+$cellGroup: map-merge(
+	(
+		font: (
+			size: get-css-var('font-size-md')
+		),
+		border: $cellBorder
+	),
+	$cellGroup
+);
+.#{$namespace}-cell-group {
+	width: 100%;
+	position: relative;
+	padding: 0.5rpx 0;
+	&--var {
+		@include define-css-var('cell-group-color', get-css-var('color-text-base'));
+		@include define-css-var('cell-group-title', 20rpx 24rpx 0);
+		@include define-map-all($cellGroup, 'cell-group');
+	}
+	&--title {
+		font-size: get-css-var('cell-group-font-size');
+		color: get-css-var('cell-group-color');
+		padding: get-css-var('cell-group-title');
+	}
+	&--border {
+		border: 1rpx solid get-css-var('cell-group-border-color');
+		:deep(.#{$namespace}-cell--border) {
+			&::after {
+				left: 0;
+				right: 0;
+			}
+		}
+		:deep(.#{$namespace}-cell--border:last-child) {
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
