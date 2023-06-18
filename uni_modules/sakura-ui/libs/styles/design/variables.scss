@@ -91,7 +91,8 @@ $color-white: #ffffff !default;
 	}
 }
 @mixin define-map-all($data, $base) {
-	@each $name in map.keys($data) {
+	$keys: map.keys($data);
+	@each $name in $keys {
 		@include define-map-base($data, $base, $name);
 	}
 }

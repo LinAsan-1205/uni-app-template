@@ -1,0 +1,91 @@
+@use "sass:map";
+@use "../../libs/styles/design" as *;
+$cell: () !default;
+$cell: map-merge(
+	(
+		font: (
+			size: get-css-var('font-size-md')
+		),
+		min: (
+			height: 84rpx
+		),
+		icon: (
+			right: 16rpx
+		),
+		border: (
+			right: 24rpx,
+			left: 24rpx,
+			color: #bcc2cb
+		),
+		description: (
+			top: 8rpx,
+			color: rgba(0, 0, 0, 0.6),
+			size: get-css-var('font-size-sm')
+		),
+		right: (
+			icon: 16rpx
+		)
+	),
+	$cell
+);
+.#{$namespace}-cell {
+	display: flex;
+	width: 100%;
+	min-height: get-css-var('cell-min-height');
+	padding: get-css-var('cell-padding');
+	position: relative;
+	box-sizing: border-box;
+	font-size: get-css-var('cell-font-size');
+	color: get-css-var('cell-color');
+	/* #ifdef H5 */
+	cursor: pointer;
+	/* #endif */
+	&--var {
+		@include define-css-var('cell-color', get-css-var('color-text-base'));
+		@include define-css-var('cell-padding', 20rpx 24rpx);
+		@include define-map-all($cell, 'cell');
+	}
+	&--border {
+		&::after {
+			position: absolute;
+			box-sizing: border-box;
+			content: ' ';
+			pointer-events: none;
+			bottom: 0;
+			right: get-css-var('cell-border-right');
+			left: get-css-var('cell-border-left');
+			border-bottom: 1px solid get-css-var('cell-border-color');
+			transform: scaleY(0.5);
+		}
+	}
+	&--icon {
+		margin-right: get-css-var('cell-icon-right');
+		flex: 0;
+	}
+	&--content {
+		flex: 1;
+		overflow: hidden;
+	}
+	&--title {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	&--description {
+		font-size: get-css-var('cell-description-size');
+		color: get-css-var('cell-description-color');
+		margin-top: get-css-var('cell-description-top');
+	}
+	&--center {
+		align-items: center;
+	}
+	&--right {
+		display: inline-block;
+		:deep(.#{$namespace}-icon) {
+			margin-left: get-css-var('cell-right-icon');
+		}
+	}
+	&--value {
+		text-align: center;
+	}
+}
