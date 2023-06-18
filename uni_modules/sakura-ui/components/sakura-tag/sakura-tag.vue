@@ -71,13 +71,14 @@
 		[!background.value && light.value, n(`--${type.value}--light`)]
 
 	))
-	const getPadding = computed(() => Array.isArray(padding.value) ? padding.value.filter(name => name).map(name => uni.$sakura.utils.getVal(name)).join(' ') : `${padding.value} ${padding.value}`)
+	const getPadding = computed(() => Array.isArray(padding.value) ? padding.value.filter(name => name).map(name => uni.$sakura.utils.getVal(name)).join(' ') : `${padding.value}`)
 
 	const stylesName = computed(() => ({
 		borderRadius: uni.$sakura.utils.getVal(radius.value),
 		color: color.value,
+		background: background.value,
 		fontSize: uni.$sakura.utils.getVal(size.value),
-		borderColor: borderColor.value,
+		borderColor: !borderColor.value ? background.value : borderColor.value,
 		padding: getPadding.value
 	}))
 	const onClick = () => {
