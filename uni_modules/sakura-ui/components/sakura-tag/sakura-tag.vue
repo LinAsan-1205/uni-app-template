@@ -1,5 +1,5 @@
 <template>
-	<view :class="className" :style="stylesName">
+	<view :class="className" :style="stylesName" @click="onClick">
 		<slot>
 			{{text}}
 		</slot>
@@ -8,6 +8,9 @@
 
 <script lang="ts" setup>
 	import { computed, toRefs } from "vue";
+
+	const emit = defineEmits(['click'])
+
 	const props = defineProps({
 		//标签文本	
 		text: {
@@ -59,7 +62,7 @@
 		}
 	})
 
-	const { text, type, plain, color, size, radius, background, borderColor, light, padding } = toRefs(props)
+	const { text, type, plain, color, size, radius, background, borderColor, light, padding, index } = toRefs(props)
 
 	const { n, classes } = uni.$sakura.utils.createNamespace('tag')
 
@@ -77,6 +80,9 @@
 		borderColor: borderColor.value,
 		padding: getPadding.value
 	}))
+	const onClick = () => {
+		emit('click', index.value)
+	}
 </script>
 
 <style lang="scss">
