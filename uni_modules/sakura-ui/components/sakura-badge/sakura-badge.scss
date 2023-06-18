@@ -1,0 +1,57 @@
+@use "sass:map";
+@use "../../libs/styles/design" as *;
+$badge: () !default;
+$badge: map.merge(
+	(
+		type: (
+			primary: get-css-var('color-primary-base'),
+			success: get-css-var('color-success-base'),
+			warning: get-css-var('color-warning-base'),
+			danger: get-css-var('color-danger-base'),
+			info: get-css-var('color-info-base')
+		),
+		font: (
+			color: get-css-var('color-white-base'),
+			size: get-css-var('font-size-sm')
+		)
+	),
+	$badge
+);
+
+.#{$namespace}-badge {
+	position: relative;
+	border-radius: 100rpx;
+	padding: get-css-var('badge-content-padding');
+	color: get-css-var('badge-font-color');
+	font-size: get-css-var('badge-font-size');
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	z-index: 10;
+	&--var {
+		@include define-css-var('badge-content-padding', 4rpx 12rpx);
+		@include define-css-var('badge-type-purple', get-css-var('color-purple-base'));
+		@include define-map-all($badge, 'badge');
+	}
+
+	@each $name in map.keys(map.get($badge, 'type')) {
+		$bg: get-css-var('badge-type-' + $name);
+		&--#{$name} {
+			background-color: $bg;
+		}
+	}
+	&--purple {
+		background-color: get-css-var('badge-type-purple');
+	}
+	&--absolute {
+		position: absolute;
+	}
+	&--dot {
+		height: 16rpx;
+		width: 16rpx;
+		border-radius: 50%;
+		padding: 0;
+	}
+}
