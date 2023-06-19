@@ -123,6 +123,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "popup/popup",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "Popup"
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {

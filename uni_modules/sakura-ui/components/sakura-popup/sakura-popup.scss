@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "../../libs/styles/design" as *;
+.#{$namespace}-popup {
+	position: fixed;
+	/* #ifndef APP-NVUE */
+	z-index: 1000;
+	/* #endif */
+	&--center {
+	}
+	&--bottom {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	&--pc {
+		/* #ifndef APP-NVUE */
+		z-index: 10000;
+		/* #endif */
+	}
+}

@@ -30,6 +30,24 @@
 			path: '/navbar/navbar'
 		}
 	]
+
+	const feedbackData = [
+		{
+			title: 'Popup 弹出层',
+			path: '/popup/popup'
+		},
+	]
+
+	const formData = [
+		{
+			title: 'Picker 选择器',
+			path: '/search/search'
+		},
+		{
+			title: 'DatetimePicker 选择器',
+			path: '/navbar/navbar'
+		}
+	]
 	const listData = [
 		{
 			title: 'Flex 布局',
@@ -77,6 +95,9 @@
 			title: 'Loading 加载',
 			path: '/loading/loading'
 		},
+		...formData,
+
+		...feedbackData,
 
 		...navData
 	]
