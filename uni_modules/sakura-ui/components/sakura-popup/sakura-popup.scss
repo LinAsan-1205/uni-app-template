@@ -18,6 +18,10 @@
 			border-bottom-right-radius: 20rpx;
 		}
 	}
+	&--top,
+	&--bottom {
+		width: 100% !important;
+	}
 	&--left,
 	&--right {
 		position: fixed;

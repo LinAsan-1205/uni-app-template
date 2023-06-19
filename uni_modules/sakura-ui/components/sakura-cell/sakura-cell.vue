@@ -84,14 +84,20 @@
 		//
 		url: {
 			type: String as PropType<string | any>,
+		},
+		borderFull: {
+			type: Boolean as PropType<boolean>,
+			default: false
 		}
 	})
 
-	const { title, description, value, border, leftIcon, center, arrow, rightIconClick, isLink, url } = toRefs(props)
+	const { title, description, value, border, leftIcon, center, arrow, rightIconClick, isLink, url, borderFull } = toRefs(props)
 
 	const { n, classes } = uni.$sakura.utils.createNamespace('cell')
 
-	const className = computed(() => classes(n(), n('--var'), [border.value, n('--border')], [center.value, n('--center')]))
+	const className = computed(() => classes(n(), n('--var'), [border.value, n('--border')], [center.value, n('--center')],
+		[borderFull.value, n('--border--full')]
+	))
 
 	const rightIcon = computed(() => {
 		if (arrow.value) {

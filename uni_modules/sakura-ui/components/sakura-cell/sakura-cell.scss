@@ -52,6 +52,12 @@ $cell: map-merge(
 			border-bottom: 1rpx solid get-css-var('cell-border-color');
 			transform: scaleY(0.5);
 		}
+		&--full {
+			&::after {
+				left: 0;
+				right: 0;
+			}
+		}
 	}
 	&--icon {
 		margin-right: get-css-var('cell-icon-right');
