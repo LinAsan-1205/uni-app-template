@@ -40,12 +40,12 @@
 
 	const formData = [
 		{
-			title: 'Picker 选择器',
+			title: 'Picker 多列选择器',
 			path: '/picker/picker'
 		},
 		{
 			title: 'DatetimePicker 选择器',
-			path: '/navbar/navbar'
+			path: '/dateTime/dateTime'
 		}
 	]
 	const listData = [

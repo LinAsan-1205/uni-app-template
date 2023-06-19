@@ -139,6 +139,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "dateTime/dateTime",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "DateTime"
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {
