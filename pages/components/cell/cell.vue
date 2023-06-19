@@ -1,14 +1,14 @@
 <template>
 	<view>
 		<sakura-nav-bar title="Cell"></sakura-nav-bar>
-		<sakura-space :margin="[24,32]">
-			<sakura-cell title="这是单元格" value="内容" leftIcon="github"></sakura-cell>
-			<sakura-cell title="这是单元格" value="内容" leftIcon="github"></sakura-cell>
+		<sakura-space :margin="[24,0]">
+			<sakura-cell title="这是单元格" borderFull value="内容" leftIcon="github"></sakura-cell>
+			<sakura-cell title="这是单元格" borderFull value="内容" leftIcon="github"></sakura-cell>
 		</sakura-space>
 
-		<sakura-space :margin="[24,32]">
-			<sakura-cell title="这是边框单元格" value="内容" leftIcon="github" border></sakura-cell>
-			<sakura-cell title="这是边框单元格" value="内容" leftIcon="github" border></sakura-cell>
+		<sakura-space :margin="[24,0]">
+			<sakura-cell title="这是边框单元格" borderFull value="内容" leftIcon="github" border></sakura-cell>
+			<sakura-cell title="这是边框单元格" borderFull value="内容" leftIcon="github" border></sakura-cell>
 		</sakura-space>
 
 		<sakura-space :margin="[24,32]">
