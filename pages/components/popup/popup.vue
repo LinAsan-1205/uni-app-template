@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<sakura-nav-bar title="Popup"></sakura-nav-bar>
-		<sakura-space :margin="0">
+		<sakura-space>
 			<sakura-cell title="顶部弹出" @click="showPopup('top')" borderFull></sakura-cell>
 			<sakura-cell title="右侧弹出" @click="showPopup('right')" borderFull></sakura-cell>
 			<sakura-cell title="左侧弹出" @click="showPopup('left')" borderFull></sakura-cell>

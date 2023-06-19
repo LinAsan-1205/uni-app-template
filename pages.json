@@ -131,6 +131,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "picker/picker",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "Picker"
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {

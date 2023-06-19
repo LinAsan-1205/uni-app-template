@@ -41,7 +41,7 @@
 	const formData = [
 		{
 			title: 'Picker 选择器',
-			path: '/search/search'
+			path: '/picker/picker'
 		},
 		{
 			title: 'DatetimePicker 选择器',
