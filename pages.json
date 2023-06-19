@@ -115,6 +115,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "swiper/swiper",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "Swiper"
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {

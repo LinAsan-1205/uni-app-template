@@ -1,5 +1,5 @@
 <template>
-	<view :style="styleName" :class="className" @click="handleClick">
+	<view v-if="show" :style="styleName" :class="className" @tap="handleClick">
 		<template v-if="slot.default">
 			<slot />
 		</template>
@@ -15,6 +15,10 @@
 	import { type PropType, toRefs, computed, useSlots } from "vue";
 
 	const props = defineProps({
+		show: {
+			type: Boolean as PropType<boolean>,
+			default: true
+		},
 		/**
 		 * 类型
 		 * @desc primary / success / warning / danger / info / text
@@ -96,6 +100,7 @@
 	});
 	const emit = defineEmits(['click'])
 	const {
+		show,
 		type,
 		mode,
 		text,

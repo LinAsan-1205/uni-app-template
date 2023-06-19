@@ -64,7 +64,7 @@
 	))
 
 	const text = computed(() => {
-		if (max.value !== '-1' && +value.value > +max.value) {
+		if (!dot.value && max.value !== '-1' && +value.value > +max.value) {
 			return '99+'
 		}
 		return value.value

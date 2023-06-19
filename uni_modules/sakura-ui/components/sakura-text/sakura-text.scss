@@ -25,16 +25,15 @@ $size: sx, sm, md, lg !default;
 	}
 
 	@each $type in $types {
-		@at-root {
-			&--#{$type} {
-				@include define-text-style(
-					(
-						color: 'color' $type 'base'
-					)
-				);
-			}
+		&--#{$type} {
+			@include define-text-style(
+				(
+					color: 'color' $type 'base'
+				)
+			);
 		}
 	}
+
 	display: inline-block;
 
 	@each $name in $size {

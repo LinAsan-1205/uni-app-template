@@ -32,7 +32,7 @@ $badge: map.merge(
 	z-index: 10;
 	&--var {
 		@include define-css-var('badge-content-padding', 4rpx 12rpx);
-		@include define-css-var('badge-type-purple', get-css-var('color-purple-base'));
+		@include define-css-var('badge-type-purple', get-css-var('color-purples-base'));
 		@include define-map-all($badge, 'badge');
 	}
 
@@ -43,7 +43,7 @@ $badge: map.merge(
 		}
 	}
 	&--purple {
-		background-color: get-css-var('badge-type-purple');
+		background-color: get-css-var('badge-type-purples');
 	}
 	&--absolute {
 		position: absolute;

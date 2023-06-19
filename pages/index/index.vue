@@ -38,6 +38,10 @@
 			title: 'Grid 布局',
 		},
 		{
+			title: 'Swiper 轮播图',
+			path: '/swiper/swiper'
+		},
+		{
 			title: 'Icon 图标',
 			path: "/icon/icon"
 		},
