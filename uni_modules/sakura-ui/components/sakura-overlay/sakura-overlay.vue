@@ -1,11 +1,14 @@
 <template>
-	<sakura-transition name="mask" mode-class="fade" :show="show" :styles="maskClass" :duration="duration">
+	<sakura-transition @click="onClick" name="mask" mode-class="fade" :show="show" :styles="maskClass"
+		:duration="duration">
 		<slot></slot>
 	</sakura-transition>
 </template>
 
 <script lang="ts" setup>
 	import { computed, PropType, toRefs } from "vue";
+
+	const emit = defineEmits(['click'])
 
 	const props = defineProps({
 		show: {
@@ -37,6 +40,10 @@
 		backgroundColor: `rgba(0, 0, 0, ${opacity.value})`,
 		zIndex: zIndex.value,
 	}))
+
+	const onClick = () => {
+		emit('click')
+	}
 </script>
 
 <style lang="scss">

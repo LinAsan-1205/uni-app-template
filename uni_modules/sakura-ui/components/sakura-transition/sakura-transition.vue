@@ -19,7 +19,6 @@
 	/**
 	 * Transition 过渡动画
 	 * @description 简单过渡动画组件
-	 * @tutorial https://ext.dcloud.net.cn/plugin?id=985
 	 * @property {Boolean} show = [false|true] 控制组件显示或隐藏
 	 * @property {Array|String} modeClass = [fade|slide-top|slide-right|slide-bottom|slide-left|zoom-in|zoom-out] 过渡动画类型
 	 *  @value fade 渐隐渐出过渡

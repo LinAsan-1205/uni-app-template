@@ -5,13 +5,50 @@
 	/* #ifndef APP-NVUE */
 	z-index: 1000;
 	/* #endif */
+	&--content {
+		transition: all 0.25s;
+	}
+	&--top {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		&--round {
+			border-bottom-left-radius: 20rpx;
+			border-bottom-right-radius: 20rpx;
+		}
+	}
+	&--left,
+	&--right {
+		position: fixed;
+		bottom: 0;
+		top: 0;
+		.#{$namespace}-popup--content {
+			width: 400rpx;
+		}
+	}
+	&--left {
+		left: 0;
+	}
 	&--center {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		top: 0;
+	}
+	&--right {
+		right: 0;
 	}
 	&--bottom {
 		position: fixed;
 		left: 0;
 		right: 0;
 		bottom: 0;
+		&--round {
+			border-top-left-radius: 20rpx;
+			border-top-right-radius: 20rpx;
+		}
 	}
 	&--pc {
 		/* #ifndef APP-NVUE */
