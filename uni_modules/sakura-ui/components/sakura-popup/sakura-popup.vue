@@ -63,18 +63,12 @@
 
 	const { n, classes } = uni.$sakura.utils.createNamespace('popup')
 
-	const isDesktop = computed(() => popup.width >= 500 && popup.height >= 500)
-
-
 	const className = computed(() => classes(
 		n(),
-		n('--var'),
-		[isDesktop.value, n('--pc')]
+		n('--var')
 	))
 
 	const popup = reactive({
-		width: 0,
-		height: 0,
 		safeAreaInsets: 0,
 		showPopup: false
 	})
@@ -136,16 +130,10 @@
 
 	onMounted(() => {
 		const {
-			windowWidth,
-			windowHeight,
-			windowTop,
 			safeArea,
 			screenHeight,
 			safeAreaInsets
 		} = uni.getSystemInfoSync()
-		popup.width = windowWidth
-		popup.height = windowHeight + (windowTop || 0)
-		// TODO fix by mehaotian 是否适配底部安全区 ,目前微信ios 、和 app ios 计算有差异，需要框架修复
 		if (safeArea && props.safeArea) {
 			// #ifdef MP-WEIXIN
 			popup.safeAreaInsets = screenHeight - safeArea.bottom
