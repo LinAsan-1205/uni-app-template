@@ -1,5 +1,5 @@
 <template>
-	<sakura-transition @click="onClick" name="mask" mode-class="fade" :show="show" :styles="maskClass"
+	<sakura-transition @click="onClick" name="mask" mode-class="fade" :show="show" :styles="maskStyle"
 		:duration="duration">
 		<slot></slot>
 	</sakura-transition>
@@ -26,18 +26,22 @@
 		opacity: {
 			type: [String, Number] as PropType<string | number>,
 			default: 0.5
+		},
+		background: {
+			type: String as PropType<string>,
 		}
+
 	})
 
-	const { show, zIndex, duration, opacity } = toRefs(props)
+	const { show, zIndex, duration, opacity, background } = toRefs(props)
 
-	const maskClass = computed(() => ({
+	const maskStyle = computed(() => ({
 		position: 'fixed',
 		bottom: 0,
 		top: 0,
 		left: 0,
 		right: 0,
-		backgroundColor: `rgba(0, 0, 0, ${opacity.value})`,
+		backgroundColor: !background.value ? `rgba(0, 0, 0, ${opacity.value})` : background.value,
 		zIndex: zIndex.value,
 	}))
 

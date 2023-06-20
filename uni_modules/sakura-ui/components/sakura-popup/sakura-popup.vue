@@ -1,7 +1,7 @@
 <template>
 	<view :class="className">
-		<sakura-overlay @click="onOverlay" :show="popup.showPopup" :zIndex="zIndex" :duration="duration"
-			v-if="overlay"></sakura-overlay>
+		<sakura-overlay :background="maskBackground" @click="onOverlay" :show="popup.showPopup" :zIndex="zIndex"
+			:duration="duration" v-if="overlay"></sakura-overlay>
 		<sakura-transition name="content" key="2" @change="onChange" :show="popup.showPopup" :mode-class="modeClass"
 			:styles="transClass" :duration="duration" :custom-class="customClass">
 			<view :class="classes(n('--content'))">
@@ -56,16 +56,21 @@
 		safeArea: {
 			type: Boolean as PropType<boolean>,
 			default: false
+		},
+		maskBackground: {
+			type: String as PropType<string>,
+			default: 'rgba(0,0,0,.6)'
 		}
 	})
 
-	const { show, overlay, position, duration, zIndex, background, closeOnClickOverlay, round, width } = toRefs(props)
+	const { show, overlay, position, duration, zIndex, background, closeOnClickOverlay, round, width, maskBackground } = toRefs(props)
 
 	const { n, classes } = uni.$sakura.utils.createNamespace('popup')
 
 	const className = computed(() => classes(
 		n(),
-		n('--var')
+		n('--var'),
+		n(`--wrapper-${position.value}`)
 	))
 
 	const popup = reactive({

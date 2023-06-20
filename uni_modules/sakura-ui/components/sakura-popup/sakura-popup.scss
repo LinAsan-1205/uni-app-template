@@ -3,8 +3,13 @@
 .#{$namespace}-popup {
 	position: fixed;
 	/* #ifndef APP-NVUE */
-	z-index: 1000;
+	z-index: 99;
 	/* #endif */
+	&--wrapper-top,
+	&--wrapper-left,
+	&--wrapper-right {
+		top: var(--window-top);
+	}
 	&--content {
 		transition: all 0.25s;
 	}
@@ -12,7 +17,6 @@
 		position: fixed;
 		left: 0;
 		right: 0;
-		top: 0;
 		&--round {
 			border-bottom-left-radius: 20rpx;
 			border-bottom-right-radius: 20rpx;

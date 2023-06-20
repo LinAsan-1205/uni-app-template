@@ -72,82 +72,64 @@
 					"navigationBarTitleText": "Avatar 头像"
 				}
 
+			}, {
+				"path": "link/link",
+				"style": {
+					"navigationBarTitleText": "Link"
+				}
+
+			}, {
+				"path": "text/text",
+				"style": {
+					"navigationBarTitleText": "Text"
+				}
+
+			}, {
+				"path": "cell/cell",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "badge/badge",
+				"style": {
+					"navigationBarTitleText": "badge",
+					"enablePullDownRefresh": false
+				}
+
+			}, {
+				"path": "tag/tag",
+				"style": {
+					"navigationBarTitleText": "Tag"
+				}
+
+			}, {
+				"path": "swiper/swiper",
+				"style": {
+					"navigationBarTitleText": "Swiper"
+				}
+
+			}, {
+				"path": "popup/popup",
+				"style": {
+					"navigationBarTitleText": "Popup"
+				}
+
+			}, {
+				"path": "picker/picker",
+				"style": {
+					"navigationBarTitleText": "Picker"
+				}
+
+			}, {
+				"path": "dateTime/dateTime",
+				"style": {
+					"navigationBarTitleText": "DateTime"
+				}
+
 			}
-		    ,{
-                    "path" : "link/link",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "Link"
-                }
-                
-                }
-                ,{
-                    "path" : "text/text",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "Text"
-                }
-                
-                }
-                ,{
-                    "path" : "cell/cell",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "badge/badge",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "badge",
-                    "enablePullDownRefresh": false
-                }
-                
-                }
-                ,{
-                    "path" : "tag/tag",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "Tag"
-                }
-                
-                }
-                ,{
-                    "path" : "swiper/swiper",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "Swiper"
-                }
-                
-                }
-                ,{
-                    "path" : "popup/popup",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "Popup"
-                }
-                
-                }
-                ,{
-                    "path" : "picker/picker",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "Picker"
-                }
-                
-                }
-                ,{
-                    "path" : "dateTime/dateTime",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "DateTime"
-                }
-                
-                }
-            ]
+		]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
