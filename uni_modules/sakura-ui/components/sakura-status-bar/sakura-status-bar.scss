@@ -1,0 +1,6 @@
+@use "../../libs/styles/design" as *;
+.#{$namespace}-status {
+	/* #ifndef APP-NVUE */
+	width: 100%;
+	/* #endif */
+}

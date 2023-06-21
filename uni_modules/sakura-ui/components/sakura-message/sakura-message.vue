@@ -75,6 +75,7 @@
 	}
 
 	const timerOut = () => {
+		if (duration.value === 0) return
 		clearTimeout(timer.value)
 		timer.value = setTimeout(() => {
 			showMessage.value = false

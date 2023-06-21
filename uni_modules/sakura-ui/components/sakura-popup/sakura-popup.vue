@@ -2,8 +2,10 @@
 	<view :class="className">
 		<sakura-overlay :background="maskBackground" @click="onOverlay" :show="popup.showPopup" :zIndex="zIndex"
 			:duration="duration" v-if="overlay"></sakura-overlay>
-		<sakura-transition name="content" @change="onChange" :show="popup.showPopup" :mode-class="modeClass"
-			:styles="transClass" :duration="duration" :custom-class="customClass">
+		<sakura-transition name="content" @change="onChange" :show="popup.showPopup" :mode-class="modeClass" :styles="{
+				...transClass,
+				...customNavTop,
+			}" :duration="duration" :custom-class="customClass">
 			<view :class="classes(n('--content'))">
 				<slot></slot>
 			</view>
@@ -60,10 +62,22 @@
 		maskBackground: {
 			type: String as PropType<string>,
 			default: 'rgba(0,0,0,.6)'
+		},
+		//适配自定义导航
+		customNavBar: {
+			type: Boolean as PropType<boolean>,
+			default: true
+		},
+		//自定义导航高度
+		customNavBarHeight: {
+			type: Number as PropType<number>,
+			default: () => {
+				return uni.$sakura.config.navbar.height
+			}
 		}
 	})
 
-	const { show, overlay, position, duration, zIndex, background, closeOnClickOverlay, round, width, maskBackground } = toRefs(props)
+	const { show, overlay, position, duration, zIndex, background, closeOnClickOverlay, round, width, maskBackground, customNavBar, customNavBarHeight } = toRefs(props)
 
 	const { n, classes } = uni.$sakura.utils.createNamespace('popup')
 
@@ -118,6 +132,14 @@
 		}
 	}
 
+	const customNavTop = computed(() => {
+		const isbottom = position.value !== 'bottom'
+		if (!isbottom || !customNavBar.value) return {}
+		return {
+			top: uni.$sakura.utils.getCustomNavTop(customNavBarHeight.value)
+		}
+	})
+
 
 	watch(() => show.value, () => {
 		if (!show.value) {
@@ -137,7 +159,8 @@
 		const {
 			safeArea,
 			screenHeight,
-			safeAreaInsets
+			safeAreaInsets,
+			statusBarHeight
 		} = uni.getSystemInfoSync()
 		if (safeArea && props.safeArea) {
 			// #ifdef MP-WEIXIN

@@ -68,4 +68,15 @@ export const createNamespace = <C extends String>(name: C) => {
 	};
 };
 
+export const getStatusBarHeight = () => {
+	const { statusBarHeight } = uni.getSystemInfoSync();
+	return statusBarHeight;
+};
+
+export const getCustomNavTop = (val: number) => {
+	const statusBarHeight = getStatusBarHeight();
+	const height = val || uni.$sakura.config.navbar.height;
+	return statusBarHeight + height + 'px';
+};
+
 export { number };
