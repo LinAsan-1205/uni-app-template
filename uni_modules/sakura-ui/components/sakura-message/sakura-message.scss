@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "../../libs/styles/design" as *;
+$message: () !default;
+$message: map.merge(
+	(
+		type: (
+			primary: get-css-var('color-primary-base'),
+			success: get-css-var('color-success-base'),
+			warning: get-css-var('color-warning-base'),
+			error: get-css-var('color-danger-base'),
+			info: get-css-var('color-info-base')
+		)
+	),
+	$message
+);
+.#{$namespace}-message {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	&--var {
+		@include define-map-all($message, 'message');
+	}
+	@each $name in map.keys(map.get($message, 'type')) {
+		$bg: get-css-var('message-type-' + $name);
+		&--#{$name} {
+			background-color: $bg;
+		}
+	}
+	&--content {
+		padding: 20rpx;
+		color: #fff;
+		text-align: center;
+	}
+}

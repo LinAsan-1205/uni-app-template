@@ -36,6 +36,10 @@
 			title: 'Popup 弹出层',
 			path: '/popup/popup'
 		},
+		{
+			title: 'Message 消息提示',
+			path: '/message/message'
+		},
 	]
 
 	const formData = [

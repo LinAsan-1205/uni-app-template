@@ -2,7 +2,7 @@
 	<view :class="className">
 		<sakura-overlay :background="maskBackground" @click="onOverlay" :show="popup.showPopup" :zIndex="zIndex"
 			:duration="duration" v-if="overlay"></sakura-overlay>
-		<sakura-transition name="content" key="2" @change="onChange" :show="popup.showPopup" :mode-class="modeClass"
+		<sakura-transition name="content" @change="onChange" :show="popup.showPopup" :mode-class="modeClass"
 			:styles="transClass" :duration="duration" :custom-class="customClass">
 			<view :class="classes(n('--content'))">
 				<slot></slot>

@@ -129,7 +129,15 @@
 				}
 
 			}
-		]
+		    ,{
+                    "path" : "message/message",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "Message"
+                }
+                
+                }
+            ]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
