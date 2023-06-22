@@ -9,7 +9,8 @@
 			<sakura-text text="红色" type="danger" block align="center"></sakura-text>
 			<sakura-text text="信息" type="info" block align="center"></sakura-text>
 			<sakura-text text="17243124789" type="primary" call mode="phone" block align="center"></sakura-text>
-			<sakura-text text="link" mode="link" type="primary" block align="center"></sakura-text>
+			<sakura-text text="link" href="https://www.baidy.com" mode="link" type="primary" block
+				align="center"></sakura-text>
 			<sakura-text text="点我复制" mode="copy" type="primary" block align="center"></sakura-text>
 		</sakura-space>
 	</view>
