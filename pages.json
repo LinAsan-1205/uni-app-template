@@ -16,12 +16,18 @@
 			"navigationBarTitleText": "我的"
 		}
 
+	}, {
+		"path": "pages/module/module",
+		"style": {
+			"navigationBarTitleText": "module"
+		}
+
 	}],
 	"tabBar": {
 		"list": [{
 				"pagePath": "pages/index/index"
 			}, {
-				"pagePath": "pages/components/components"
+				"pagePath": "pages/module/module"
 			},
 			{
 				"pagePath": "pages/template/template"
@@ -34,28 +40,28 @@
 	"subPackages": [{
 		"root": "pages/components",
 		"pages": [{
-				"path": "/button/button",
+				"path": "button/button",
 				"style": {
 					"navigationBarTitleText": "按钮",
 					"enablePullDownRefresh": false
 				}
 
 			}, {
-				"path": "/loading/loading",
+				"path": "loading/loading",
 				"style": {
 					"navigationBarTitleText": "loading"
 				}
 
 			},
 			{
-				"path": "/navbar/navbar",
+				"path": "navbar/navbar",
 				"style": {
 					"navigationBarTitleText": "Navbar导航",
 					"navigationStyle": "custom"
 				}
 
 			}, {
-				"path": "/search/search",
+				"path": "search/search",
 				"style": {
 					"navigationBarTitleText": "Search搜索"
 				}
@@ -128,16 +134,14 @@
 					"navigationBarTitleText": "DateTime"
 				}
 
+			}, {
+				"path": "message/message",
+				"style": {
+					"navigationBarTitleText": "Message"
+				}
+
 			}
-		    ,{
-                    "path" : "message/message",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "Message"
-                }
-                
-                }
-            ]
+		]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

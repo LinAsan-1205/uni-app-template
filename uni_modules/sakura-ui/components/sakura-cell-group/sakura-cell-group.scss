@@ -32,16 +32,20 @@ $cellGroup: map-merge(
 	}
 	&--border {
 		border: 1rpx solid get-css-var('cell-group-border-color');
-		:deep(.#{$namespace}-cell--border) {
-			&::after {
-				left: 0;
-				right: 0;
+		.#{$namespace}-cell-group--content {
+			:deep(.#{$namespace}-cell--border) {
+				&::after {
+					left: 0 !important;
+					right: 0 !important;
+				}
+			}
+			:deep(.#{$namespace}-cell--border:last-child) {
+				&::after {
+					display: none;
+				}
 			}
 		}
-		:deep(.#{$namespace}-cell--border:last-child) {
-			&::after {
-				display: none;
-			}
-		}
+	}
+	&--content {
 	}
 }

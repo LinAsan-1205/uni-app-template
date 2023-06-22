@@ -122,8 +122,7 @@
 		},
 		//宽度
 		width: {
-			type: [String, Number] as PropType<string | number>,
-			default: null
+			type: [String, Number] as PropType<string | number>
 		},
 		//将组件的宽度更改为父元素确定的可能总数。	
 		block: {
@@ -180,14 +179,21 @@
 		}
 	})
 	const getWidth = computed(() => {
-		if (icon.value) {
-			return uni.$sakura.utils.getVal(iconSize.value)
+		if (iconSize.value && !iconSize.value || !width.value) {
+			return {}
 		}
-		return uni.$sakura.utils.getVal(width.value)
+		if (icon.value) {
+			return {
+				width: uni.$sakura.utils.getVal(iconSize.value)
+			}
+		}
+		return {
+			width: uni.$sakura.utils.getVal(width.value)
+		}
 	})
 	const stylesName = computed(() => ({
 		...getHeight.value,
-		width: getWidth.value,
+		...getWidth.value,
 		borderRadius: icon.value ? uni.$sakura.utils.getVal(iconRadius.value) : borderRadiusSize.value,
 		background: bgColor.value,
 		boxShadow: shadow.value && shadowColor.value && !plain.value

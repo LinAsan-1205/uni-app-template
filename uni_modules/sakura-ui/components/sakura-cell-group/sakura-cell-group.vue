@@ -5,10 +5,16 @@
 				{{title}}
 			</view>
 		</slot>
-		<slot></slot>
+		<view :class="classes(n('--content'))">
+			<slot></slot>
+		</view>
 	</view>
 </template>
-
+<script lang="ts">
+	export default {
+		options: { styleIsolation: 'shared' }
+	}
+</script>
 <script lang="ts" setup>
 	import { toRefs } from "vue";
 	const props = defineProps({

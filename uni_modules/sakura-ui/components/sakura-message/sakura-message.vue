@@ -1,5 +1,5 @@
 <template>
-	<view :class="className" :style="customNavTop">
+	<view :class="className" :style="stylesName">
 		<sakura-transition :zIndex="1000" :duration="300" mode-class="slide-top" :show="showMessage">
 			<view :class="classes(n('--wrapper'))">
 				<view :style="contentStyle" :class="classes(n('--content'),[classType,n(`--${classType}`)])">
@@ -46,15 +46,16 @@
 
 	const className = computed(() => classes(n(), n('--var')))
 
-
-	const contentStyle = ref({})
-
-	const customNavTop = computed(() => {
+	const stylesName = computed(() => {
 		if (!props.customNavBar) return {}
 		return {
 			top: uni.$sakura.utils.getCustomNavTop(props.customNavBarHeight)
 		}
 	})
+
+
+	const contentStyle = ref({})
+
 
 	const open = (text : string, val : string) => {
 		if (!val || !type.includes(val)) {

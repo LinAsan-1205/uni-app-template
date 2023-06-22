@@ -3,6 +3,7 @@ import { number } from './test';
 export { default as dayjs } from './dayjs.js';
 
 export const getVal = (val: number | string) => {
+	if (!val) return null;
 	const reg = /^[0-9]*$/g;
 	return typeof val === 'number' || reg.test(val) ? val + 'rpx' : val;
 };

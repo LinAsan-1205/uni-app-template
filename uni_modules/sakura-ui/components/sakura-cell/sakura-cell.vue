@@ -27,7 +27,11 @@
 		</view>
 	</view>
 </template>
-
+<script lang="ts">
+	export default {
+		options: { virtualHost: true }
+	}
+</script>
 <script lang="ts" setup>
 	import { computed, toRefs, PropType } from "vue";
 
@@ -98,6 +102,7 @@
 	const className = computed(() => classes(n(), n('--var'), [border.value, n('--border')], [center.value, n('--center')],
 		[borderFull.value, n('--border--full')]
 	))
+
 
 	const rightIcon = computed(() => {
 		if (arrow.value) {

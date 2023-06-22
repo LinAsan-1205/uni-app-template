@@ -11,8 +11,7 @@
 </template>
 
 <script setup lang="ts">
-	import icons from '@/uni_modules/sakura-ui/components/sakura-icon/sakura-icon'
-	console.log(icons, 'icons')
+	import icons from '@/uni_modules/sakura-ui/components/sakura-icon/icon'
 </script>
 
 <style lang="scss" scoped>
