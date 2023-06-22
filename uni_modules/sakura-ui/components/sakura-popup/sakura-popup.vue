@@ -95,7 +95,7 @@
 
 	const popup = reactive({
 		safeAreaInsets: 0,
-		showPopup: true,
+		showPopup: false,
 		showTrans: false
 	})
 

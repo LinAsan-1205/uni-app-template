@@ -105,7 +105,6 @@
 		[borderFull.value, n('--border--full')]
 	))
 
-
 	const rightIcon = computed(() => {
 		if (arrow.value) {
 			return 'arrow-right';
