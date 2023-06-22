@@ -21,7 +21,13 @@
 		</view>
 	</view>
 </template>
-
+<!-- #ifdef MP-WEIXIN -->
+<script lang="ts">
+	export default {
+		options: { virtualHost: true }
+	}
+</script>
+<!-- #endif -->
 <script setup lang="ts">
 	import { computed, toRefs, watch, ref, type PropType, nextTick } from 'vue'
 	const props = defineProps({

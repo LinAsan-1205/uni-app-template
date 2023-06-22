@@ -1,7 +1,13 @@
 <template>
 	<view :class="classes(n())" :style="styles"></view>
 </template>
-
+<!-- #ifdef MP-WEIXIN -->
+<script lang="ts">
+	export default {
+		options: { virtualHost: true }
+	}
+</script>
+<!-- #endif -->
 <script lang="ts" setup>
 	import { computed } from "vue";
 

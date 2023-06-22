@@ -17,12 +17,7 @@ $button: map.merge(
 	margin: 0px;
 	border-radius: 0;
 	overflow: visible;
-	/* #ifndef MP-WEIXIN */
 	display: inline-flex;
-	/* #endif */
-	/* #ifdef MP-WEIXIN */
-	display: flex;
-	/* #endif */
 	align-items: center;
 	justify-content: center;
 	color: get-css-var('button-color');

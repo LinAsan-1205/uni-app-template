@@ -3,6 +3,13 @@
 		<slot />
 	</view>
 </template>
+<!-- #ifdef MP-WEIXIN -->
+<script lang="ts">
+	export default {
+		options: { virtualHost: true }
+	}
+</script>
+<!-- #endif -->
 <script lang="ts" setup>
 	import { computed, CSSProperties, PropType, toRefs } from "vue";
 	const props = defineProps({

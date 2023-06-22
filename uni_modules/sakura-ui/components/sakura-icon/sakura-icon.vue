@@ -6,6 +6,14 @@
 	<text :style="styleName" :class="className"> </text>
 	<!-- #endif -->
 </template>
+
+<!-- #ifdef MP-WEIXIN -->
+<script lang="ts">
+	export default {
+		options: { virtualHost: true }
+	}
+</script>
+<!-- #endif -->
 <script lang="ts" setup>
 	import { PropType, toRefs, computed } from "vue";
 	import icons from "./icon";

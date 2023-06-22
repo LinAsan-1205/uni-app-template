@@ -31,7 +31,7 @@
 				justify-content: center;
 				flex-direction: column;
 
-				view {
+				:deep(view) {
 					width: 100%;
 					/* #ifndef APP-NVUE */
 					word-wrap: break-word;

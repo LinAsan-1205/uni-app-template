@@ -38,7 +38,13 @@
 		</view>
 	</view>
 </template>
-
+<!-- #ifdef MP-WEIXIN -->
+<script lang="ts">
+	export default {
+		options: { virtualHost: true }
+	}
+</script>
+<!-- #endif -->
 <script setup lang="ts">
 	import { computed, toRefs, onMounted, type PropType } from "vue";
 	const whiteList = ['#FFF', '#fff', '#FFFFFF', '#ffffff', 'white', 'rgb(255,255,255)', 'rgba(255,255,255,1)'];

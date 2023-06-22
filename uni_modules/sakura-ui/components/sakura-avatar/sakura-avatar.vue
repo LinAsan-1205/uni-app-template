@@ -13,7 +13,13 @@
 		</template>
 	</view>
 </template>
-
+<!-- #ifdef MP-WEIXIN -->
+<script lang="ts">
+	export default {
+		options: { virtualHost: true }
+	}
+</script>
+<!-- #endif -->
 <script lang="ts" setup>
 	import { computed, PropType, ref, toRefs } from 'vue'
 

@@ -26,6 +26,13 @@
 		<view v-if="disabled" :style="disabledStyle" @click.stop class="sakura-button--disabled"></view>
 	</button>
 </template>
+<!-- #ifdef MP-WEIXIN -->
+<script lang="ts">
+	export default {
+		options: { virtualHost: true }
+	}
+</script>
+<!-- #endif -->
 <script lang="ts" setup>
 	import { computed, onMounted, PropType, toRefs, useSlots } from 'vue';
 	const emit = defineEmits(['click', 'tap', 'getPhoneNumber', 'getUserInfo', 'contact', 'error']);
@@ -122,7 +129,7 @@
 		},
 		//宽度
 		width: {
-			type: [String, Number] as PropType<string | number>
+			type: [String, Number] as PropType<string | number>,
 		},
 		//将组件的宽度更改为父元素确定的可能总数。	
 		block: {

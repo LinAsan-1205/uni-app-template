@@ -13,7 +13,7 @@
 <!-- #ifdef MP-WEIXIN -->
 <script lang="ts">
 	export default {
-		options: { styleIsolation: 'shared' }
+		options: { styleIsolation: 'shared', virtualHost: true }
 	}
 </script>
 <!-- #endif -->
