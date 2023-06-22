@@ -59,6 +59,11 @@
 	.placeholder {
 		height: 70rpx;
 		padding: 20rpx;
+
+		/* #ifndef H5 */
+		padding-bottom: constant(safe-area-inset-bottom);
+		padding-bottom: env(safe-area-inset-bottom);
+		/* #endif */
 	}
 
 	.navigation {

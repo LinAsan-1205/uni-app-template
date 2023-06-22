@@ -126,6 +126,7 @@
 	@use 'sass:color';
 
 	.home {
+
 		&__title {
 			font-size: var(--sakura-font-size-lg);
 		}
