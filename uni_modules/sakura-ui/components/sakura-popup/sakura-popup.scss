@@ -17,6 +17,8 @@
 	}
 	&--content {
 		transition: all 0.25s;
+		background-color: #fff;
+		height: 100%;
 	}
 	&--top {
 		position: fixed;
@@ -37,7 +39,7 @@
 		bottom: 0;
 		top: 0;
 		.#{$namespace}-popup--content {
-			width: 400rpx;
+			width: 100%;
 		}
 	}
 	&--left {
@@ -45,10 +47,16 @@
 	}
 	&--center {
 		position: fixed;
-		bottom: 0;
 		left: 0;
 		right: 0;
-		top: 0;
+		top: 50% !important;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.#{$namespace}-popup--content {
+			height: auto;
+		}
 	}
 	&--right {
 		right: 0 !important;

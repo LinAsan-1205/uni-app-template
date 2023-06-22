@@ -6,7 +6,7 @@
 				...transClass,
 				...customNavTop,
 			}" :duration="duration" :custom-class="customClass">
-			<view :class="classes(n('--content'))">
+			<view :class="classes(n('--content'))" :style="{background: background}" @click="onClose">
 				<slot></slot>
 			</view>
 		</sakura-transition>
@@ -159,7 +159,6 @@
 		transClass.value = {
 			position: "fixed",
 			paddingBottom: popup.safeAreaInsets + 'px',
-			backgroundColor: background.value,
 			zIndex: zIndex.value,
 			width: (position.value === 'left' || position.value === 'right') && width.value
 		}
