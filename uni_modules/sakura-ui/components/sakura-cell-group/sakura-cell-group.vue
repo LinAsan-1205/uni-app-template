@@ -10,11 +10,13 @@
 		</view>
 	</view>
 </template>
+<!-- #ifdef MP-WEIXIN -->
 <script lang="ts">
 	export default {
 		options: { styleIsolation: 'shared' }
 	}
 </script>
+<!-- #endif -->
 <script lang="ts" setup>
 	import { toRefs } from "vue";
 	const props = defineProps({

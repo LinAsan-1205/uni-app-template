@@ -1,8 +1,8 @@
 <template>
-	<view :class="className">
-		<sakura-overlay :background="maskBackground" @click="onOverlay" :show="popup.showPopup" :zIndex="zIndex"
+	<view :class="className" v-if="popup.showPopup">
+		<sakura-overlay :background="maskBackground" @click="onOverlay" :show="popup.showTrans" :zIndex="zIndex"
 			:duration="duration" v-if="overlay"></sakura-overlay>
-		<sakura-transition name="content" @change="onChange" :show="popup.showPopup" :mode-class="modeClass" :styles="{
+		<sakura-transition @change="onChange" :show="popup.showTrans" :mode-class="modeClass" :styles="{
 				...transClass,
 				...customNavTop,
 			}" :duration="duration" :custom-class="customClass">
@@ -12,7 +12,13 @@
 		</sakura-transition>
 	</view>
 </template>
-
+<!-- #ifdef MP-WEIXIN -->
+<script lang="ts">
+	export default {
+		options: { styleIsolation: 'shared' }
+	}
+</script>
+<!-- #endif -->
 <script lang="ts" setup>
 	import { ref, computed, toRefs, PropType, watch, onMounted, reactive } from "vue";
 
@@ -89,7 +95,8 @@
 
 	const popup = reactive({
 		safeAreaInsets: 0,
-		showPopup: false
+		showPopup: true,
+		showTrans: false
 	})
 
 
@@ -102,11 +109,11 @@
 
 	const modeClass = computed(() => {
 		return {
-			bottom: 'slide-bottom',
-			top: 'slide-top',
+			bottom: ['slide-bottom'],
+			top: ['slide-top'],
 			center: ['zoom-out', 'fade'],
-			left: 'slide-left',
-			right: 'slide-right'
+			left: ['slide-left'],
+			right: ['slide-right']
 		}[position.value]
 	})
 
@@ -118,8 +125,12 @@
 
 
 	const onClose = () => {
-		popup.showPopup = false
-		emit('close')
+		popup.showTrans = false
+		//根据动画时间延迟隐藏popup
+		setTimeout(() => {
+			popup.showPopup = false
+			emit('close')
+		}, duration.value)
 	}
 
 	const onChange = () => {
@@ -143,24 +154,26 @@
 
 	watch(() => show.value, () => {
 		if (!show.value) {
-			popup.showPopup = false
 			return
 		}
 		transClass.value = {
+			position: "fixed",
 			paddingBottom: popup.safeAreaInsets + 'px',
 			backgroundColor: background.value,
 			zIndex: zIndex.value,
-			width: position.value === 'left' || position.value === 'right' && width.value
+			width: (position.value === 'left' || position.value === 'right') && width.value
 		}
 		popup.showPopup = true
+		popup.showTrans = true
+	}, {
+		deep: true
 	})
 
 	onMounted(() => {
 		const {
 			safeArea,
 			screenHeight,
-			safeAreaInsets,
-			statusBarHeight
+			safeAreaInsets
 		} = uni.getSystemInfoSync()
 		if (safeArea && props.safeArea) {
 			// #ifdef MP-WEIXIN

@@ -8,7 +8,12 @@
 	&--wrapper-top,
 	&--wrapper-left,
 	&--wrapper-right {
+		/* #ifdef H5 */
 		top: var(--window-top);
+		/* #endif */
+		/* #ifndef H5 */
+		top: 0;
+		/* #endif */
 	}
 	&--content {
 		transition: all 0.25s;
@@ -36,7 +41,7 @@
 		}
 	}
 	&--left {
-		left: 0;
+		left: 0 !important;
 	}
 	&--center {
 		position: fixed;
@@ -46,7 +51,7 @@
 		top: 0;
 	}
 	&--right {
-		right: 0;
+		right: 0 !important;
 	}
 	&--bottom {
 		position: fixed;

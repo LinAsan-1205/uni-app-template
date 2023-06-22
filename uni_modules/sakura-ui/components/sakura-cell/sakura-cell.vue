@@ -27,11 +27,13 @@
 		</view>
 	</view>
 </template>
+<!-- #ifdef MP-WEIXIN -->
 <script lang="ts">
 	export default {
 		options: { virtualHost: true }
 	}
 </script>
+<!-- #endif -->
 <script lang="ts" setup>
 	import { computed, toRefs, PropType } from "vue";
 
