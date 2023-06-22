@@ -81,45 +81,44 @@
 			}, {
 				"path": "link/link",
 				"style": {
-					"navigationBarTitleText": "Link"
+					"navigationBarTitleText": "Link 链接"
 				}
 
 			}, {
 				"path": "text/text",
 				"style": {
-					"navigationBarTitleText": "Text"
+					"navigationBarTitleText": "Text 文本"
 				}
 
 			}, {
 				"path": "cell/cell",
 				"style": {
-					"navigationBarTitleText": "",
-					"enablePullDownRefresh": false
+					"navigationBarTitleText": "Cell 单元格"
 				}
 
 			}, {
 				"path": "badge/badge",
 				"style": {
-					"navigationBarTitleText": "badge",
+					"navigationBarTitleText": "Badge",
 					"enablePullDownRefresh": false
 				}
 
 			}, {
 				"path": "tag/tag",
 				"style": {
-					"navigationBarTitleText": "Tag"
+					"navigationBarTitleText": "Tag 标签"
 				}
 
 			}, {
 				"path": "swiper/swiper",
 				"style": {
-					"navigationBarTitleText": "Swiper"
+					"navigationBarTitleText": "Swiper 轮播图"
 				}
 
 			}, {
 				"path": "popup/popup",
 				"style": {
-					"navigationBarTitleText": "Popup"
+					"navigationBarTitleText": "Popup 弹出层"
 				}
 
 			}, {
@@ -137,7 +136,13 @@
 			}, {
 				"path": "message/message",
 				"style": {
-					"navigationBarTitleText": "Message"
+					"navigationBarTitleText": "Message 消息"
+				}
+
+			}, {
+				"path": "divider/divider",
+				"style": {
+					"navigationBarTitleText": "Divider 分割线"
 				}
 
 			}

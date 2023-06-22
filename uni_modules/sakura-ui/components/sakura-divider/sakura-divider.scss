@@ -1,0 +1,80 @@
+@use "../../libs/styles/design" as *;
+$divider: () !default;
+$divider: map-merge(
+	(
+		border: (
+			color: rgba(0, 0, 0, 0.12)
+		),
+		text: (
+			color: get-css-var('color-text-sub-text'),
+			margin: 16rpx 0,
+			padding: 0 16rpx
+		)
+	),
+	$divider
+);
+
+.#{$namespace}-divider {
+	position: relative;
+	width: 100%;
+	height: 0;
+	border: none;
+	border-top: 2rpx solid get-css-var('divider-border-color');
+	margin: get-css-var('divider-text-margin');
+	color: get-css-var('divider-text-color');
+	&--var {
+		@include define-map-all($divider, 'divider');
+	}
+	&--vertical {
+		width: 0;
+		height: 80%;
+		margin: auto get-css-var('divider-text-margin');
+		padding: get-css-var('divider-text-margin');
+		border-top: none !important;
+		border-left: 2rpx solid get-css-var('divider-border-color');
+	}
+	&--text {
+		display: inline-block;
+		padding: get-css-var('divider-text-padding');
+	}
+	&--dashed &--vertical {
+		border-top: none;
+		border-left-style: dashed;
+	}
+	&--with--text {
+		background-color: transparent;
+		height: fit-content;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none !important;
+
+		&::before,
+		&::after {
+			display: inline-block;
+			content: '';
+			flex: 1;
+			height: 0;
+			border-top: 2rpx solid get-css-var('divider-border-color');
+		}
+	}
+
+	&--dashed {
+		&::before,
+		&::after {
+			border-top-style: dashed;
+		}
+	}
+
+	&--hairline {
+		border-top-width: 1rpx;
+		&::after,
+		&:before {
+			border-top-width: 1rpx;
+		}
+	}
+
+	&--dashed {
+		border-top-style: dashed;
+	}
+}

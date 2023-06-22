@@ -84,6 +84,10 @@
 			path: "/cell/cell"
 		},
 		{
+			title: 'Divider 分割线',
+			path: "/divider/divider"
+		},
+		{
 			title: 'Tag 标签',
 			path: "/tag/tag"
 		},

@@ -80,4 +80,12 @@ export const getCustomNavTop = (val: number) => {
 	return statusBarHeight + height + 'px';
 };
 
+export const getCustomDistance = (val: string | Array<string | number>) => {
+	if (!val) return null;
+	if (Array.isArray(val)) {
+		return val.map((num) => getVal(num)).join(' ');
+	}
+	return getVal(val);
+};
+
 export { number };
