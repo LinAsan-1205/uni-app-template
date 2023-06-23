@@ -11,41 +11,26 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { computed, CSSProperties, PropType, toRefs } from "vue";
+	import { computed, PropType, toRefs } from "vue";
 	const props = defineProps({
 		size: {
-			type: [Number, String] as PropType<number | string>,
+			type: [Number, String],
 			default: 16,
 		},
 		inline: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		vertical: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		align: {
-			type: String as PropType<
-				| "stretch"
-				| "baseline"
-				| "start"
-				| "end"
-				| "center"
-				| "flex-end"
-				| "flex-start"
-			>,
+			type: String,
 			default: "",
 		},
 		justify: {
-			type: String as PropType<
-				| "start"
-				| "end"
-				| "center"
-				| "space-around"
-				| "space-between"
-				| "space-evenly"
-			>,
+			type: String,
 			default: "start",
 		},
 		wrap: {
@@ -74,7 +59,7 @@
 		const num = uni.$sakura.utils.getVal(margin.value)
 		return `${num} ${num}`
 	})
-	const styleName = computed<CSSProperties>(() => ({
+	const styleName = computed(() => ({
 		display: inline.value ? "inline-flex" : "flex",
 		"flex-direction": vertical.value ? "column" : "row",
 		justifyContent: ["start", "end"].includes(justify.value)

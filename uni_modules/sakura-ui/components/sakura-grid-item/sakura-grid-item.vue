@@ -15,7 +15,7 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { ref, computed, inject, Ref, toRefs, onMounted } from 'vue'
+	import { computed, inject, Ref, toRefs } from 'vue'
 
 	const grid = inject<{
 		width : Ref<string>,

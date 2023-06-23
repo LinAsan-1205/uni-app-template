@@ -21,69 +21,67 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { computed, PropType, ref, toRefs } from 'vue'
+	import { computed, ref, toRefs } from 'vue'
 
 	const emit = defineEmits(['onError'])
 
 	const props = defineProps({
 		//头像是否为圆形	
 		round: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//头像的尺寸，可选值为 mini small normal large	
 		size: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 'default'
 		},
 		//头像的背景颜色	
 		color: {
-			type: String as PropType<string | null>,
+			type: String,
 			default: null
 		},
 		//头像的地址	
 		src: {
-			type: String as PropType<string | null>,
+			type: String,
 			default: null
 		},
 		//文字头像
 		text: {
-			type: String as PropType<string | null>,
+			type: String,
 			default: null
 		},
 		//文字颜色
 		textColor: {
-			type: String as PropType<string | null>,
-			default: null
+			type: String
 		},
 		//文字大小
 		textSize: {
-			type: String as PropType<string | null>,
-			default: null
+			type: String
 		},
 		//头像是否带边框	
 		bordered: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		//头像边框颜色
 		borderedColor: {
-			type: String as PropType<string | null>,
+			type: String,
 			default: null
 		},
 		//头像图片的裁剪类型
 		mode: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'scaleToFill'
 		},
 		//是否开启懒加载
 		lazy: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		//图片加载失败
 		error: {
-			type: String as PropType<string | null>,
+			type: String,
 			default: null
 		}
 	})

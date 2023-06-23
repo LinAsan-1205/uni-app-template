@@ -20,11 +20,11 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { type PropType, toRefs, computed, useSlots } from "vue";
+	import { toRefs, computed, useSlots } from "vue";
 
 	const props = defineProps({
 		show: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		/**
@@ -32,77 +32,77 @@
 		 * @desc primary / success / warning / danger / info / text
 		 */
 		type: {
-			type: String as PropType<string>,
+			type: String,
 			default: "default",
 		},
 		//块状
 		block: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		//字体颜色
 		color: {
-			type: String as PropType<string>,
+			type: String,
 			default: "",
 		},
 		//内容
 		text: {
-			type: String as PropType<string>,
+			type: String,
 			default: "文本内容",
 		},
 		//跳转地址
 		href: {
-			type: String as PropType<string>,
+			type: String,
 			default: "",
 		},
 		//文本类型
 		mode: {
-			type: String as PropType<string>,
+			type: String,
 			default: "text",
 			validator: (value : string) => ["text", "phone", 'date', 'link', 'copy'].indexOf(value) >= 0,
 		},
 		//格式化
 		format: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		//超出n行隐藏
 		lines: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: null
 		},
 		//文字大小 xs sm md lg
 		size: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: null,
 		},
 		fontWeight: {
-			type: String as PropType<string>,
+			type: String,
 			default: "400",
 		},
-		//对齐方式
+		//对齐方式 "left" | "center" | "right"
 		align: {
-			type: String as PropType<"left" | "center" | "right">,
+			type: String,
 			default: "left",
 		},
-		//文本的修饰
+		//文本的修饰 "none" | "underline"
 		decoration: {
-			type: String as PropType<"none" | "underline">,
+			type: String,
 			default: "none",
 		},
 		//拨打电话
 		call: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		//复制成功信息
 		copySuccess: {
-			type: String as PropType<string>,
+			type: String,
 			default: "复制成功",
 		},
 		//复制失败信息
 		copyFail: {
-			type: String as PropType<string>,
+			type: String,
 			default: "复制失败",
 		}
 	});

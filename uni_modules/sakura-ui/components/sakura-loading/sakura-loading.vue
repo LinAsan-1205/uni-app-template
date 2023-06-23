@@ -21,22 +21,22 @@
 </script>
 <!-- #endif -->
 <script setup lang="ts">
-	import { computed, toRefs, PropType } from 'vue'
+	import { computed, toRefs } from 'vue'
 	const props = defineProps({
 		type: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'default'
 		},
 		mode: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'default'
 		},
 		text: {
-			type: String as PropType<string>,
+			type: String,
 			default: ''
 		},
 		size: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 60
 		},
 	})

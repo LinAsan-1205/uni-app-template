@@ -21,48 +21,49 @@
 	 * @property {Boolean} hairline 是否细线
 	 * @property {Boolean} vertical 是否垂直
 	 */
-	import { computed, PropType, toRefs } from "vue";
+	import { computed, toRefs } from "vue";
 
 	const props = defineProps({
 		text: {
-			type: String as PropType<string>
+			type: String
 		},
 		//虚线	
 		dashed: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		//是否细线
 		hairline: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		//是否垂直
 		vertical: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		//内容位置 //left right
 		position: {
-			type: String as PropType<string>
+			type: String
 		},
 		//文本大小
 		textSize: {
-			type: String as PropType<string>
+			type: String
 		},
 		//文本颜色
 		textColor: {
-			type: String as PropType<string>
+			type: String
 		},
 		//线条颜色
 		lineColor: {
-			type: String as PropType<string>
+			type: String
 		},
 		//距离
 		margin: {
-			type: [String, Number] as PropType<string | number>
+			type: [String, Number]
 		}
 	})
+
 
 	const { text, dashed, hairline, vertical, position, textSize, textColor, lineColor, margin } = toRefs(props)
 
@@ -73,7 +74,7 @@
 		[dashed.value, n('--dashed')],
 		[hairline.value, n('--hairline')],
 		[text.value, n('--with--text')],
-		[position.value === 'left' || position.value === 'right', n(`--${position.value}`)]
+		[position.value === 'left' || position.value === 'right' && !vertical.value, n(`--${position.value}`)]
 	))
 
 

@@ -28,11 +28,11 @@
 	// #endif
 	const props = defineProps({
 		name: {
-			type: String as PropType<string>,
+			type: String,
 			default: "",
 		},
 		color: {
-			type: String as PropType<string>,
+			type: String,
 			default: "#333333",
 		},
 		/**

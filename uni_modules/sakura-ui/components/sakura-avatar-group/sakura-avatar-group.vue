@@ -12,13 +12,13 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { computed, toRefs, type PropType } from 'vue'
+	import { computed, toRefs } from 'vue'
 	const props = defineProps({
 		offset: {
-			type: [Number, String] as PropType<number | string>,
+			type: [Number, String],
 		},
 		vertical: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 	})

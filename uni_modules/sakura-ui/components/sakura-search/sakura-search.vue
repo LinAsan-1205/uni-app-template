@@ -29,7 +29,7 @@
 </script>
 <!-- #endif -->
 <script setup lang="ts">
-	import { computed, toRefs, watch, ref, type PropType, nextTick } from 'vue'
+	import { computed, toRefs, watch, ref, nextTick } from 'vue'
 	const props = defineProps({
 		//占位符
 		placeholder: {
@@ -38,12 +38,12 @@
 		},
 		//背景颜色
 		bgColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: '#F8F8F8'
 		},
 		//圆角
 		radius: {
-			type: [Number, String] as PropType<number | string>,
+			type: [Number, String],
 			default: 5
 		},
 		//输入框最大长度
@@ -58,62 +58,62 @@
 		},
 		//是否显示清除图标
 		showClearIcon: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//是否显示右侧
 		showAction: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		//右侧文字
 		actionText: {
-			type: String as PropType<string>,
+			type: String,
 			default: '搜索'
 		},
 		//禁用
 		disabled: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		//左侧图标
 		searchIcon: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'search'
 		},
 		//左侧图标大小
 		searchIconSize: {
-			type: [Number, String] as PropType<number | string>,
+			type: [Number, String],
 			default: 18
 		},
 		//左侧图标颜色
 		searchIconColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: '#c0c4cc'
 		},
 		//输入框对齐方式
 		inputAlign: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'left'
 		},
 		//焦点
 		focus: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//输入框颜色
 		color: {
-			type: String as PropType<string>,
+			type: String,
 			default: '#606266'
 		},
 		//输入框占位符颜色
 		placeholderColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: '#CCCCCC'
 		},
 		//高度
 		height: {
-			type: [Number, String] as PropType<number | string>,
+			type: [Number, String],
 			default: '36px'
 		}
 	})

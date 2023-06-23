@@ -20,63 +20,63 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { ref, computed, toRefs, PropType, watch, onMounted, reactive } from "vue";
+	import { ref, computed, toRefs, watch, onMounted, reactive } from "vue";
 
 	const emit = defineEmits(['close', 'open'])
 
 	const props = defineProps({
 		show: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		overlay: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		position: {
-			type: String as PropType<string | any>,
+			type: String,
 			default: 'bottom'
 		},
 		width: {
-			type: String as PropType<string>,
+			type: String,
 			default: '400rpx'
 		},
 		duration: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: 300
 		},
 		zIndex: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: 10000
 		},
 		background: {
-			type: String as PropType<string>,
+			type: String,
 			default: '#fff'
 		},
 		closeOnClickOverlay: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		round: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		safeArea: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		maskBackground: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'rgba(0,0,0,.6)'
 		},
 		//适配自定义导航
 		customNavBar: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//自定义导航高度
 		customNavBarHeight: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: () => {
 				return uni.$sakura.config.navbar.height
 			}

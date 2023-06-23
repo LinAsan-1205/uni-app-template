@@ -38,7 +38,7 @@
 	const emit = defineEmits(['click', 'tap', 'getPhoneNumber', 'getUserInfo', 'contact', 'error']);
 	const props = defineProps({
 		text: {
-			type: String as PropType<string>,
+			type: String,
 			default: null
 		},
 		/**
@@ -46,7 +46,7 @@
 		 * @desc primary / success / warning / danger / info / text
 		 */
 		type: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'default'
 		},
 		/**
@@ -54,7 +54,7 @@
 		 * @desc false
 		 */
 		plain: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		/**
@@ -62,7 +62,7 @@
 		 * @desc false
 		 */
 		disabled: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		/**
@@ -70,96 +70,96 @@
 		 * @desc false
 		 */
 		disabledBackground: {
-			type: String as PropType<string>,
+			type: String,
 			default: null
 		},
 		//按钮禁用字体颜色
 		disabledColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: null
 		},
 		//阴影
 		shadow: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		//阴影颜色
 		shadowColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: null
 		},
 		//字体大小
 		fontSize: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 32
 		},
 		//字体颜色
 		color: {
-			type: String as PropType<string>,
+			type: String,
 			default: null
 		},
 		//圆角
 		round: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//圆角大小
 		roundSize: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 10
 		},
 		//自定义颜色
 		bgColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: ''
 		},
 		//加载
 		loading: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		loadingSize: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: 45
 		},
 		//高度
 		height: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 84
 		},
 		//宽度
 		width: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 		},
 		//将组件的宽度更改为父元素确定的可能总数。	
 		block: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 
 		//确定组件是否只包含一个图标，通过添加此属性组件具有相等的宽度和高度。
 		icon: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		//icon圆角
 		iconRadius: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 30
 		},
 		//icon大小
 		iconSize: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 60
 		},
 		//开放能力
 		openType: {
-			type: String as PropType<string>,
+			type: String,
 			default: ''
 		},
 		//触发form表单的事件类型
 		formType: {
-			type: String as PropType<string>,
+			type: String,
 			default: ''
 		}
 	});

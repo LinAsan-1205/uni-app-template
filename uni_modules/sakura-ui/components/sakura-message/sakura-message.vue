@@ -19,17 +19,17 @@
 </script>
 <!-- #endif -->
 <script setup lang="ts">
-	import { computed, ref, watch, PropType } from 'vue'
+	import { computed, ref, watch } from 'vue'
 
 	const props = defineProps({
 		//适配自定义导航
 		customNavBar: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//自定义导航高度
 		customNavBarHeight: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: () => {
 				return uni.$sakura.config.navbar.height
 			}

@@ -12,29 +12,29 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { computed, PropType, toRefs } from "vue";
+	import { computed, toRefs } from "vue";
 
 	const emit = defineEmits(['click'])
 
 	const props = defineProps({
 		show: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		zIndex: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 10000
 		},
 		duration: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: 300
 		},
 		opacity: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 0.5
 		},
 		background: {
-			type: String as PropType<string>,
+			type: String,
 		}
 
 	})

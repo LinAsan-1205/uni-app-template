@@ -17,36 +17,36 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { computed, ref, toRefs, type PropType } from "vue";
+	import { computed, ref, toRefs } from "vue";
 	const props = defineProps({
 		//类型，可选值为 default primary info success warning danger	
 		type: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'default',
 		},
 		//跳转地址
 		href: {
-			type: String as PropType<string>,
+			type: String,
 			default: "",
 		},
 		//文字
 		text: {
-			type: String as PropType<string>,
+			type: String,
 			default: "",
 		},
 		//显示下划线
 		underline: {
-			type: String as PropType<string | unknown>,
+			type: String,
 			default: 'always',
 		},
 		//禁用
 		disabled: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		//文字颜色
 		color: {
-			type: String as PropType<string>,
+			type: String,
 			default: null
 		},
 		//文字大小

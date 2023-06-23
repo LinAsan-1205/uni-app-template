@@ -51,124 +51,123 @@
 	const props = defineProps({
 		//标题
 		title: {
-			type: String as PropType<string>,
+			type: String,
 			default: null,
 		},
 		//标题剧中
 		titleCenter: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true,
 		},
 		//文字大小
 		fontSize: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: '12px',
 		},
 		//文字颜色
 		color: {
-			type: String as PropType<string>,
+			type: String,
 			default: '#fff',
 		},
 		//高
 		height: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: null
 		},
 		//背景颜色
 		bgColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'var(--sakura-navbar-background-color)',
 		},
 		//固定
 		fixed: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true,
 		},
 		//下边框
 		border: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false,
 		},
 		//首页图标
 		homeIcon: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'home',
 		},
 		isClickHome: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: () => uni.$sakura.config.navbar.isClickHome
 		},
 		isBack: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true,
 		},
 		//左侧图标
 		leftIcon: {
-			type: String as PropType<string>,
+			type: String,
 			default: 'arrow-left',
 		},
 		//左侧文字
 		leftText: {
-			type: String as PropType<string>,
-			default: '',
+			type: String,
 		},
 		//是否显示 如果home图标
 		showHomeIcon: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true,
 		},
 		//是否显示左侧图标
 		showLeftIcon: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true,
 		},
 		//左侧宽度
 		leftWidth: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 0,
 		},
 		//左侧颜色
 		leftColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: null,
 		},
 		//左侧图标大小
 		leftIconSize: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: '32rpx',
 		},
 		//是否显示右侧图标
 		showRightIcon: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true,
 		},
 		//右侧图标
 		rightIcon: {
-			type: String as PropType<string>,
+			type: String,
 			default: '',
 		},
 		//右侧文字
 		rightText: {
-			type: String as PropType<string>,
+			type: String,
 			default: '',
 		},
 		//右侧宽度
 		rightWidth: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: 0,
 		},
 		//右侧颜色
 		rightColor: {
-			type: String as PropType<string>,
+			type: String,
 			default: null,
 		},
 		//右侧图标大小
 		rightIconSize: {
-			type: [String, Number] as PropType<string | number>,
+			type: [String, Number],
 			default: '24px',
 		},
 		placeholder: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true,
 		}
 	});

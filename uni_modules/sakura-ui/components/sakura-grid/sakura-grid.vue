@@ -13,24 +13,24 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { ref, computed, PropType, toRefs, getCurrentInstance, onMounted, provide, Ref, watch } from "vue";
+	import { ref, computed, toRefs, provide, Ref } from "vue";
 
 	const emit = defineEmits(['change'])
 
 	const props = defineProps({
 		//列
 		col: {
-			type: Number as PropType<number>,
+			type: Number,
 			default: 3
 		},
 		//是否显示border
 		border: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//边框颜色
 		borderColor: {
-			type: String as PropType<string>
+			type: String
 		}
 	})
 
@@ -58,14 +58,9 @@
 		return 100 / col.value + '%'
 	})
 
-	provide<{
-		width : Ref<string>,
-		change : (name : any) => void
-		border : Ref<boolean>,
-		children : Ref<Array<any>>
-	}>('sakuraGrid', {
+	provide('sakuraGrid', {
 		width,
-		change: (name) => {
+		change: (name : string) => {
 			emit('change', name)
 		},
 		border,

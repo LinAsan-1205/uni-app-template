@@ -43,56 +43,56 @@
 
 		//单元格标题	
 		title: {
-			type: String as PropType<string>,
+			type: String,
 		},
 		//描述信息	
 		description: {
-			type: String as PropType<string>,
+			type: String,
 		},
 
 		//右侧的内容
 		value: {
-			type: String as PropType<string>,
+			type: String,
 		},
 
 		//是否显示下边框	
 		border: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//左侧icon
 		leftIcon: {
-			type: String as PropType<string>,
+			type: String,
 		},
 		//整体垂直居中
 		center: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: true
 		},
 		//是否展示右侧箭头
 		arrow: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		//右侧icon
 		rightIcon: {
-			type: String as PropType<string>,
+			type: String,
 		},
 		//右侧icon 点击事件
 		rightIconClick: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		isLink: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		},
 		//
 		url: {
-			type: String as PropType<string | any>,
+			type: String,
 		},
 		borderFull: {
-			type: Boolean as PropType<boolean>,
+			type: Boolean,
 			default: false
 		}
 	})

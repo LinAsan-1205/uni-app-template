@@ -59,11 +59,11 @@
 			default: '8rpx'
 		},
 		padding: {
-			type: [String, Array] as PropType<string | string[]>,
+			type: [String, Array],
 			default: () => []
 		},
 		margin: {
-			type: [String, Array] as PropType<string | string[]>,
+			type: [String, Array],
 			default: () => []
 		},
 		index: {
