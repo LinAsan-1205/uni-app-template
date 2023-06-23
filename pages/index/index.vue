@@ -33,6 +33,10 @@
 
 	const feedbackData = [
 		{
+			title: 'NoticeBar 通知栏',
+			path: '/notice/notice'
+		},
+		{
 			title: 'Popup 弹出层',
 			path: '/popup/popup'
 		},

@@ -1,3 +1,50 @@
 @use "../../libs/styles/design" as *;
+$notice: () !default;
+$notice: map-merge(
+	(
+		color: (
+			text: get-base-color-var('warning'),
+			background: get-css-var('color-warning-light-9')
+		),
+		left: (
+			margin-right: 10rpx
+		),
+		text: (
+			size: get-css-var('font-size-md')
+		),
+		right: (
+			margin-left: 10rpx
+		)
+	),
+	$notice
+);
 .#{$namespace}-notice {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex: 1;
+	align-items: center;
+	padding: get-css-var('notice-bar-padding');
+	color: get-css-var('notice-bar-color-text');
+	background-color: get-css-var('notice-bar-color-background');
+	&--var {
+		@include define-css-var('notice-bar-padding', 20rpx 24rpx);
+		@include define-map-all($notice, 'notice-bar');
+	}
+	&--content {
+		flex: 1;
+		font-size: get-css-var('notice-bar-text-size');
+	}
+	&--left {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		margin-right: get-css-var('notice-bar-left-margin-right');
+	}
+	&--right {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		margin-left: get-css-var('notice-bar-right-margin-left');
+	}
 }

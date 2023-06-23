@@ -154,6 +154,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "notice/notice",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "NoticeBar"
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {

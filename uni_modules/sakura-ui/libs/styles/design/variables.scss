@@ -72,9 +72,9 @@ $color-black: #000000 !default;
 $color-white: #ffffff !default;
 
 @each $type in $types {
-	@include define-level-colors($type, 9, 'light', $color-white);
+	@include define-level-colors($type, 10, 'light', $color-white);
 	@include define-level-colors($type, 2, 'dark', $color-black);
-	@include define-opacity-colors($type, 9);
+	@include define-opacity-colors($type, 10);
 }
 
 @mixin define-type-color($type) {
