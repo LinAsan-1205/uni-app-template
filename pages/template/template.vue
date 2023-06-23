@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<sakura-nav-bar title="模版" :showHomeIcon="false"></sakura-nav-bar>
 		<sakura-navigation></sakura-navigation>
 	</view>
 </template>

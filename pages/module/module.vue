@@ -1,5 +1,6 @@
 <template>
 	<view class="home">
+		<sakura-nav-bar title="工具" :showHomeIcon="false"></sakura-nav-bar>
 		<view class="home__list">
 			<view class="home__list__item" @click="onPage(item.path)" :style="{backgroundColor:item.bg}"
 				v-for="(item,index) in listData" :key="index">
