@@ -146,7 +146,15 @@
 				}
 
 			}
-		]
+		    ,{
+                    "path" : "grid/grid",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "Grid"
+                }
+                
+                }
+            ]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -1,0 +1,35 @@
+@use "../../libs/styles/design" as *;
+
+.#{$namespace}-grid-item {
+	/* #ifndef APP-NVUE */
+	height: 100%;
+	display: flex;
+	/* #endif */
+	position: relative;
+	/* #ifdef H5 */
+	cursor: pointer;
+	/* #endif */
+
+	&--content {
+		padding: 20rpx 0;
+		flex: 1;
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	&--border {
+		position: relative;
+		z-index: 1;
+		&::after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			border-right: 0.5px solid get-css-var('grid-border');
+		}
+	}
+}

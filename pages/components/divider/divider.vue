@@ -42,6 +42,7 @@
 		justify-content: center;
 		align-items: center;
 		color: #333;
+		font-size: 24rpx;
 	}
 
 	.text {

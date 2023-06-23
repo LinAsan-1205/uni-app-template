@@ -58,6 +58,7 @@
 		},
 		{
 			title: 'Grid 布局',
+			path: '/grid/grid'
 		},
 		{
 			title: 'Swiper 轮播图',

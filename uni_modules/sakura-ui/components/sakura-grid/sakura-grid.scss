@@ -1,0 +1,39 @@
+@use "../../libs/styles/design" as *;
+
+.#{$namespace}-grid {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex: 1;
+	flex-direction: column;
+	/* #ifdef H5 */
+	width: 100%;
+	/* #endif */
+	overflow: hidden;
+
+	&--var {
+		@include define-css-var('grid-border', get-css-var('color-info-light-3'));
+	}
+
+	&--wrap {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	&--border {
+		position: relative;
+		z-index: 1;
+		border-bottom: 0.5px solid get-css-var('grid-border');
+		border-top: 0.5px solid get-css-var('grid-border');
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			border-left: 0.5px solid get-css-var('grid-border');
+		}
+	}
+}
