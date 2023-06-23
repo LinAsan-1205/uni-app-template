@@ -77,4 +77,21 @@ $divider: map-merge(
 	&--dashed {
 		border-top-style: dashed;
 	}
+
+	&--left {
+		&::before {
+			flex: 0 0 60rpx;
+		}
+		&::after {
+			flex: 1 1 0;
+		}
+	}
+	&--right {
+		&::before {
+			flex: 1 1 0;
+		}
+		&::after {
+			flex: 0 0 60rpx;
+		}
+	}
 }

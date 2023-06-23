@@ -21,6 +21,12 @@
 			</sakura-divider>
 			<sakura-divider dashed text="自定义边距" :margin="30" textColor="#FFA41B" lineColor="#FFA41B"></sakura-divider>
 			<sakura-divider dashed text="自定义颜色" textColor="#FF2171" lineColor="#FF2171"></sakura-divider>
+
+			<sakura-divider dashed text="自定义位置" position="left" textColor="#FF2171"
+				lineColor="#FF2171"></sakura-divider>
+
+			<sakura-divider dashed text="自定义位置" position="right" textColor="#9575DE"
+				lineColor="#9575DE"></sakura-divider>
 		</sakura-space>
 	</view>
 </template>

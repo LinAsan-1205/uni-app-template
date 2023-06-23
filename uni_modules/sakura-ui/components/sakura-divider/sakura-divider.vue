@@ -42,6 +42,10 @@
 			type: Boolean as PropType<boolean>,
 			default: false,
 		},
+		//内容位置 //left right
+		position: {
+			type: String as PropType<string>
+		},
 		//文本大小
 		textSize: {
 			type: String as PropType<string>
@@ -60,7 +64,7 @@
 		}
 	})
 
-	const { text, dashed, hairline, vertical, textSize, textColor, lineColor, margin } = toRefs(props)
+	const { text, dashed, hairline, vertical, position, textSize, textColor, lineColor, margin } = toRefs(props)
 
 	const { n, classes, getVar } = uni.$sakura.utils.createNamespace('divider')
 
@@ -68,7 +72,8 @@
 		[vertical.value, n('--vertical')],
 		[dashed.value, n('--dashed')],
 		[hairline.value, n('--hairline')],
-		[text.value, n('--with--text')]
+		[text.value, n('--with--text')],
+		[position.value === 'left' || position.value === 'right', n(`--${position.value}`)]
 	))
 
 
