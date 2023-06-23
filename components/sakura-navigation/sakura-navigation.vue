@@ -30,8 +30,8 @@
 		},
 		{
 			pagePath: 'pages/module/module',
-			iconPath: '/static/image/navigation/template.png',
-			selectedIconPath: '/static/image/navigation/template-active.png',
+			iconPath: '/static/image/navigation/module.png',
+			selectedIconPath: '/static/image/navigation/module-active.png',
 			text: '工具'
 		},
 		{
