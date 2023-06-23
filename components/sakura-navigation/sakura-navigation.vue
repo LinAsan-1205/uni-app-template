@@ -29,7 +29,7 @@
 			text: '模版'
 		},
 		{
-			pagePath: 'pages/utils/utils',
+			pagePath: 'pages/module/module',
 			iconPath: '/static/image/navigation/template.png',
 			selectedIconPath: '/static/image/navigation/template-active.png',
 			text: '工具'
