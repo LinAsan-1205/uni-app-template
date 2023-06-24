@@ -33,6 +33,16 @@ $size: sx, sm, md, lg !default;
 			);
 		}
 	}
+	@for $i from 1 through 10 {
+		&--line--#{$i} {
+			display: -webkit-box !important;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			word-break: break-all;
+			-webkit-line-clamp: $i;
+			-webkit-box-orient: vertical !important;
+		}
+	}
 
 	display: inline-block;
 

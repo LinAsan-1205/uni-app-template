@@ -37,8 +37,6 @@ $notice: map-merge(
 		display: flex;
 		position: relative;
 		overflow: hidden;
-		flex-direction: row;
-		flex-wrap: nowrap;
 	}
 	&--wrapable {
 		align-items: baseline;

@@ -22,4 +22,12 @@
 		background: #fff;
 	}
 
+	.l-title {
+		padding: 32rpx 16rpx 16rpx;
+		font-size: 28rpx;
+		font-weight: 400;
+		width: 100%;
+		color: var(--sakura-color-text-sub-text)
+	}
+
 </style>

@@ -16,7 +16,10 @@
 			],
 			 [!scrollable,n('--text--single')],
 			 [!scrollable&&wrapable,n('--text--wrapable')]
-			)" :style="textStyle">
+			)" :style="{
+				...textStyle,
+				fontSize
+			}">
 				{{text}}
 			</view>
 		</view>
@@ -61,6 +64,11 @@
 		background: {
 			type: String
 		},
+		//文字大小
+		fontSize: {
+			type: String,
+		},
+
 		//显示左侧图标
 		showIcon: {
 			type: Boolean,
@@ -116,7 +124,7 @@
 		}
 	})
 
-	const { mode, text, color, background, showIcon, leftIcon, leftIconColor, rightIcon, rightIconColor, showRight, direction, startTime, speed, scrollable, wrapable } = toRefs(props)
+	const { mode, text, color, background, fontSize, showIcon, leftIcon, leftIconColor, rightIcon, rightIconColor, showRight, direction, startTime, speed, scrollable, wrapable } = toRefs(props)
 
 	const { n, classes, getVar } = uni.$sakura.utils.createNamespace('notice')
 

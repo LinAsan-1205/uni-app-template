@@ -67,9 +67,8 @@
 			default: false,
 		},
 		//超出n行隐藏
-		lines: {
-			type: Number,
-			default: null
+		line: {
+			type: Number
 		},
 		//文字大小 xs sm md lg
 		size: {
@@ -113,6 +112,7 @@
 		mode,
 		text,
 		size,
+		line,
 		color,
 		block,
 		fontWeight,
@@ -136,6 +136,9 @@
 		return uni.$sakura.utils.getVal(size.value)
 	})
 
+	const className = computed(() => classes(n(), n('--var'), [type.value && true, n(`--${type.value}`)], [block.value, n('--block')], [fontSizeType.includes(size.value), n(`--${size.value}`)],
+		[line.value & line.value > 0, n(`--line--${line.value}`)]
+	));
 
 	const styleName = computed(() => ({
 		fontSize: fontSize.value,
@@ -144,18 +147,20 @@
 		textAlign: align.value,
 		textDecoration: decoration.value,
 	}));
-	const className = computed(() => classes(n(), n('--var'), [type.value && true, n(`--${type.value}`)], [block.value, n('--block')], [fontSizeType.includes(size.value), n(`--${size.value}`)]));
+
 	const isMobile = computed(
 		() =>
 			mode.value === "phone" &&
 			/^(?:(?:\+|00)86)?1[3-9]\d{9}$/.test(text.value)
 	);
+
 	const getText = computed(() => {
 		if (isMobile.value && format.value) {
 			return text.value.replace(/^(\d{3})\d{4}(\d{4})$/, "$1****$2");
 		}
 		return text.value;
 	});
+
 	const handleClick = () => {
 		if (call.value && !isMobile.value) {
 			uni.showToast({
