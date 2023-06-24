@@ -6,6 +6,41 @@ export default {
 	description: '',
 	glyphs: [
 		{
+			icon_id: '13519527',
+			name: 'warning',
+			font_class: 'warning-fill',
+			unicode: 'e671',
+			unicode_decimal: 58993
+		},
+		{
+			icon_id: '34453007',
+			name: 'info-fill',
+			font_class: 'info-fill',
+			unicode: 'e83d',
+			unicode_decimal: 59453
+		},
+		{
+			icon_id: '34453015',
+			name: 'info',
+			font_class: 'info',
+			unicode: 'e83e',
+			unicode_decimal: 59454
+		},
+		{
+			icon_id: '10908039',
+			name: 'round_close_fill',
+			font_class: 'round-close-fill',
+			unicode: 'e635',
+			unicode_decimal: 58933
+		},
+		{
+			icon_id: '29941',
+			name: 'round_check_fill',
+			font_class: 'round-check-fill',
+			unicode: 'e656',
+			unicode_decimal: 58966
+		},
+		{
 			icon_id: '15432422',
 			name: '太阳',
 			font_class: 'sun',

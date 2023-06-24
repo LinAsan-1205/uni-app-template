@@ -1,0 +1,87 @@
+@use "../../libs/styles/design" as *;
+
+$alert: () !default;
+
+$alert: map-merge(
+	(
+		type: (
+			primary: get-css-var('color-primary-base'),
+			primary-light: get-css-var('color-primary-light-9'),
+			success: get-css-var('color-success-base'),
+			success-light: get-css-var('color-success-light-9'),
+			warning: get-css-var('color-warning-base'),
+			warning-light: get-css-var('color-warning-light-9'),
+			error: get-css-var('color-danger-base'),
+			error-light: get-css-var('color-danger-light-9'),
+			info: get-css-var('color-info-base'),
+			info-light: get-css-var('color-info-light-9')
+		),
+		font: (
+			size: get-css-var('font-size-md')
+		)
+	),
+	$alert
+);
+$alertType: primary, success, warning, error, info;
+.#{$namespace}-alert {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	overflow: hidden;
+	padding: get-css-var('alert-padding');
+	font-size: get-css-var('alert-font-size');
+	border-radius: get-css-var('alert-border-radius');
+	&--var {
+		@include define-css-var('alert-padding', 18rpx 22rpx);
+		@include define-css-var('alert-border-radius', 8rpx);
+		@include define-css-var('alert-icon-margin', 8rpx);
+		@include define-map-all($alert, 'alert');
+	}
+	@each $name in $alertType {
+		$color: get-css-var('alert-type-' + $name);
+		$light: get-css-var('alert-type-' + $name + '-light');
+		&--#{$name} {
+			background-color: $light;
+			color: $color;
+			.#{$namespace}-alert--text {
+				color: $color;
+			}
+			.#{$namespace}-alert--left,
+			.#{$namespace}-alert--right {
+				.#{$namespace}-icon {
+					color: $color !important;
+				}
+			}
+			.#{$namespace}-alert--left {
+				margin-right: get-css-var('alert-icon-margin');
+			}
+			.#{$namespace}-alert--right {
+				margin-left: get-css-var('alert-icon-margin');
+			}
+		}
+	}
+	&--left,
+	&--right {
+		display: flex;
+		align-items: center;
+	}
+	&--start {
+		align-items: baseline;
+	}
+	&--content {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		flex-direction: column;
+		flex: 1;
+	}
+	&--title {
+		font-weight: bold;
+		margin-bottom: 6rpx;
+		/* #ifdef H5 */
+		cursor: pointer;
+		/* #endif */
+	}
+	&--description {
+	}
+}

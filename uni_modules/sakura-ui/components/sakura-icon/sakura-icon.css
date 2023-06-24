@@ -1,3 +1,23 @@
+.sakura-warning-fill:before {
+	content: "\e671";
+}
+
+.sakura-info-fill:before {
+	content: "\e83d";
+}
+
+.sakura-info:before {
+	content: "\e83e";
+}
+
+.sakura-round-close-fill:before {
+	content: "\e635";
+}
+
+.sakura-round-check-fill:before {
+	content: "\e656";
+}
+
 .sakura-sun:before {
 	content: "\e6a1";
 }

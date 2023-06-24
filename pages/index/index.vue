@@ -97,6 +97,10 @@
 				title: 'Message 消息提示',
 				path: '/message/message'
 			},
+			{
+				title: 'Alert 警告提示',
+				path: '/alert/alert'
+			},
 		]
 	}
 

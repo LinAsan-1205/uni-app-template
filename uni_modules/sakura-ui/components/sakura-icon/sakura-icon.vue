@@ -15,10 +15,10 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { PropType, toRefs, computed } from "vue";
+	import { toRefs, computed } from "vue";
 	import icons from "./icon";
 
-	const iconUrl = 'https://at.alicdn.com/t/c/font_3519791_1p998g6ett1.ttf'
+	const iconUrl = 'https://at.alicdn.com/t/c/font_3519791_ntt7oqnazys.ttf'
 	// #ifdef APP-NVUE
 	var domModule = weex.requireModule("dom");
 	domModule.addRule("fontFace", {
@@ -40,11 +40,11 @@
 		 * @desc 可以使用字符串 例如32rpx 或者数字 32
 		 */
 		size: {
-			type: [Number, String] as PropType<number | string>,
+			type: [Number, String],
 			default: 16,
 		},
 		customPrefix: {
-			type: String as PropType<string>,
+			type: String,
 			default: "",
 		},
 	});
@@ -81,7 +81,7 @@
 
 	@font-face {
 		font-family: sakura;
-		src: url(https://at.alicdn.com/t/c/font_3519791_1p998g6ett1.ttf) format("truetype");
+		src: url(https://at.alicdn.com/t/c/font_3519791_ntt7oqnazys.ttf) format("truetype");
 	}
 
 	/* #endif */

@@ -162,6 +162,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "alert/alert",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "警告提示"
+                }
+                
+                }
             ]
 	}],
 	"globalStyle": {
