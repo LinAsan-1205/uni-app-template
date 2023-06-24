@@ -1,5 +1,5 @@
 <template>
-	<view :class="className" :style="stylesName" v-if="show">
+	<view :class="className" :style="stylesName" v-if="show" @click.stop="onClick">
 		<view :class="classes(n('--left'))" v-if="showIcon">
 			<sakura-icon :name="leftIcon" size="38rpx"></sakura-icon>
 		</view>
@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 	import { ref, computed, toRefs } from "vue";
 
-	const emit = defineEmits(['close'])
+	const emit = defineEmits(['close', 'click'])
 
 	const props = defineProps({
 		//标题
@@ -91,6 +91,10 @@
 		}[type.value]
 	})
 
+
+	const onClick = () => {
+		emit('click')
+	}
 	const onClose = () => {
 		show.value = false
 		emit('close')
