@@ -13,6 +13,9 @@
 
 			<sakura-notice-bar text="这是一个自定义颜色" color="#fff" background="#FF6969" rightIcon="arrow-right" showRight
 				mode="link" @click="onClick"></sakura-notice-bar>
+
+			<sakura-notice-bar text="自定义样式" color="#fff" left-icon="emoji" background="#ED2B2A" rightIcon="arrow-right"
+				showRight mode="link" @click="onClick"></sakura-notice-bar>
 		</sakura-space>
 	</view>
 </template>
