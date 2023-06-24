@@ -1,5 +1,8 @@
 <template>
-	<view :class="className">
+	<view v-if="show" :class="className" :style="{
+		color, 
+		background
+	}" @click="onClick">
 		<view :class="classes(n('--left'))">
 			<slot name="left">
 				<sakura-icon v-if="leftIcon&&showIcon" :name="leftIcon" :color="leftIconColor||getVar('-bar-color')"
@@ -12,21 +15,14 @@
 				n('--scrollable')
 			],
 			 [!scrollable,n('--single')]
-			)" :style="{
-						'animationDuration': animation.duration,
-						'-webkit-animationDuration': animation.duration,
-						animationPlayState: webviewHide ? 'paused' : animation.playState,
-						'-webkit-animationPlayState': webviewHide ? 'paused' : animation.playState,
-						animationDelay: animation.delay,
-						'-webkit-animationDelay': animation.delay
-					}">
+			)" :style="textStyle">
 				{{text}}
 			</view>
 		</view>
-		<view :class="classes(n('--right'))" v-if="showClose">
+		<view :class="classes(n('--right'))" v-if="showRight">
 			<slot name="right">
-				<sakura-icon v-if="rightIcon" :name="rightIcon" :color="rightIconColor||getVar('-bar-color')"
-					size="38rpx"></sakura-icon>
+				<sakura-icon v-if="rightIcon" @click.stop="onRgiht" :name="rightIcon"
+					:color="rightIconColor||getVar('-bar-color')" size="38rpx"></sakura-icon>
 			</slot>
 		</view>
 	</view>
@@ -43,16 +39,25 @@
 <script setup lang="ts">
 	import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, toRefs, getCurrentInstance } from "vue";
 
-	// #ifdef APP-NVUE
-	const dom = weex.requireModule('dom');
-	const ani = weex.requireModule('animation');
-	// #endif
-
 	const instance = getCurrentInstance()
 
+	const emit = defineEmits(['click'])
+
 	const props = defineProps({
+		mode: {
+			type: String,
+			default: 'closeable'
+		},
 		//内容
 		text: {
+			type: String
+		},
+		//文本颜色
+		color: {
+			type: String
+		},
+		//背景颜色
+		background: {
 			type: String
 		},
 		//显示左侧图标
@@ -69,8 +74,8 @@
 		leftIconColor: {
 			type: String
 		},
-		//显示关闭图标
-		showClose: {
+		//显示右侧图标
+		showRight: {
 			type: Boolean,
 			default: false
 		},
@@ -93,6 +98,7 @@
 			type: Number,
 			default: 1000
 		},
+		//速度
 		speed: {
 			type: Number,
 			default: 100
@@ -101,14 +107,21 @@
 		scrollable: {
 			type: Boolean,
 			default: false
+		},
+		//是否开启文本换行，只在禁用滚动时生效	
+		wrapable: {
+			type: Boolean,
+			default: false
 		}
 	})
 
-	const { text, showIcon, leftIcon, leftIconColor, rightIcon, rightIconColor, showClose, direction, startTime, speed, scrollable } = toRefs(props)
+	const { mode, text, color, background, showIcon, leftIcon, leftIconColor, rightIcon, rightIconColor, showRight, direction, startTime, speed, scrollable } = toRefs(props)
 
 	const { n, classes, getVar } = uni.$sakura.utils.createNamespace('notice')
 
 	const className = computed(() => classes(n(), n('--var')))
+
+	const show = ref(true)
 
 	const webviewHide = ref(false)
 
@@ -125,6 +138,18 @@
 	const stopAnimation = ref(false)
 	// #endif
 
+	const textStyle = computed(() => {
+		if (!scrollable.value && direction.value !== 'row') return {}
+		return {
+			'animationDuration': animation.duration,
+			'-webkit-animationDuration': animation.duration,
+			animationPlayState: webviewHide.value ? 'paused' : animation.playState,
+			'-webkit-animationPlayState': webviewHide.value ? 'paused' : animation.playState,
+			animationDelay: animation.delay,
+			'-webkit-animationDelay': animation.delay
+		}
+	})
+
 	const getWidth = (val : string) => {
 		return new Promise((resolve) => {
 			uni.createSelectorQuery()
@@ -139,22 +164,29 @@
 		})
 	}
 
-	const initSize = () => {
-		if (scrollable.value) {
-			// #ifndef APP-NVUE
+	const initAni = () => {
+		if (scrollable.value && direction.value === 'row') {
 
+			// #ifndef APP-NVUE
 			Promise.all([getWidth(n('--content')), getWidth(n('--text'))]).then((res : any) => {
-				console.log(res[1], '1')
 				animation.duration = `${res[1] / speed.value}s`
 				animation.delay = `-${res[0] / speed.value}s`
-
 				setTimeout(() => {
 					animation.playState = 'running'
 				}, startTime.value)
 			})
 			// #endif
+		}
 
+	}
 
+	const onClick = () => {
+		emit('click')
+	}
+	const onRgiht = () => {
+		if (mode.value === 'closeable') {
+			show.value = false
+			return
 		}
 	}
 
@@ -171,7 +203,7 @@
 		})
 		// #endif
 		nextTick(() => {
-			initSize()
+			initAni()
 		})
 	})
 	// #ifdef APP-NVUE
