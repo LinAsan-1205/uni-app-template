@@ -35,7 +35,7 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { computed, toRefs, PropType } from "vue";
+	import { computed, toRefs } from "vue";
 
 	const emit = defineEmits(['click', 'rightIcon'])
 
