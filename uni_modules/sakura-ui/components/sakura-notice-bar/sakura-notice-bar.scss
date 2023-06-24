@@ -40,8 +40,20 @@ $notice: map-merge(
 		flex-direction: row;
 		flex-wrap: nowrap;
 	}
+	&--wrapable {
+		align-items: baseline;
+	}
 	&--text {
 		font-size: get-css-var('notice-bar-text-size');
+		&--single {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		&--wrapable {
+			white-space: normal;
+			word-wrap: break-word;
+		}
 	}
 	&--left {
 		/* #ifndef APP-NVUE */
@@ -67,11 +79,6 @@ $notice: map-merge(
 		padding-left: 100%;
 		animation: notice 10s 0s linear infinite both;
 		/* #endif */
-	}
-	&--single {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 
 	@keyframes notice {

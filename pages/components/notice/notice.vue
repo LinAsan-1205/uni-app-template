@@ -14,8 +14,9 @@
 			<sakura-notice-bar text="这是一个自定义颜色" color="#fff" background="#FF6969" rightIcon="arrow-right" showRight
 				mode="link" @click="onClick"></sakura-notice-bar>
 
-			<sakura-notice-bar text="自定义样式" color="#fff" left-icon="emoji" background="#ED2B2A" rightIcon="arrow-right"
-				showRight mode="link" @click="onClick"></sakura-notice-bar>
+			<sakura-notice-bar text="不会回头的东西有四件：说出口的话、离弦的箭、逝去的生活和失去的机会。" color="#fff" left-icon="emoji"
+				background="#ED2B2A" rightIcon="arrow-right" showRight wrapable mode="link"
+				@click="onClick"></sakura-notice-bar>
 		</sakura-space>
 	</view>
 </template>

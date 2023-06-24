@@ -14,7 +14,8 @@
 				scrollable,
 				n('--scrollable')
 			],
-			 [!scrollable,n('--single')]
+			 [!scrollable,n('--text--single')],
+			 [!scrollable&&wrapable,n('--text--wrapable')]
 			)" :style="textStyle">
 				{{text}}
 			</view>
@@ -115,11 +116,13 @@
 		}
 	})
 
-	const { mode, text, color, background, showIcon, leftIcon, leftIconColor, rightIcon, rightIconColor, showRight, direction, startTime, speed, scrollable } = toRefs(props)
+	const { mode, text, color, background, showIcon, leftIcon, leftIconColor, rightIcon, rightIconColor, showRight, direction, startTime, speed, scrollable, wrapable } = toRefs(props)
 
 	const { n, classes, getVar } = uni.$sakura.utils.createNamespace('notice')
 
-	const className = computed(() => classes(n(), n('--var')))
+	const className = computed(() => classes(n(), n('--var'),
+		[!scrollable.value && wrapable.value, n('--wrapable')]
+	))
 
 	const show = ref(true)
 
