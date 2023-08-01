@@ -34,7 +34,7 @@
 <script lang="ts" setup>
 	import { computed, onMounted, reactive, ref, toRefs, watch } from 'vue'
 
-	const emit = defineEmits(['update:modelValue', 'change', 'confirm'])
+	const emit = defineEmits(['update:modelValue', 'change', 'confirm', 'close'])
 	const props = defineProps({
 		modelValue: {
 			type: Boolean,
@@ -190,15 +190,18 @@
 		}
 		popupRef.value.close()
 		emit('update:modelValue', false)
+		emit('close')
 		emit('confirm', itemCurrentData)
 	}
 	const onCancel = () => {
 		popupRef.value.close()
 		itemCurrentData.currentIndex = []
 		itemCurrentData.currentItem = []
+		emit('close')
 		emit('update:modelValue', false)
 	}
 	const onPopUpClose = () => {
+		emit('close')
 		emit('update:modelValue', false)
 	}
 
