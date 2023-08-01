@@ -185,6 +185,9 @@
 			popup.safeAreaInsets = 0
 		}
 	})
+	defineExpose({
+		close: onClose
+	})
 </script>
 
 <style lang="scss">

@@ -1,0 +1,60 @@
+@use 'sass:map';
+@use '../../libs/styles/design' as *;
+$picker: () !default;
+$picker: map.merge(
+	(
+		toolbar: (
+			height: 88rpx,
+			padding: 0 24rpx,
+			title-size: get-css-var('font-size-lg'),
+			title-color: get-base-color-var('dark'),
+			action-size: get-css-var('font-size-md'),
+			confirm-color: get-base-color-var('primary'),
+			cancel-color: get-css-var('color-dark-light-6'),
+		),
+	),
+	$picker
+);
+.#{$namespace}-picker {
+	position: relative;
+	background-color: #fff;
+	&--var {
+		@include define-map-all($picker, 'picker');
+	}
+	&--toolbar {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: get-css-var('picker-toolbar-height');
+		padding: get-css-var('picker-toolbar-padding');
+		font-size: get-css-var('picker-toolbar-action-size');
+		&--title {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate3d(-50%, -50%, 0);
+			max-width: 50%;
+			text-align: center;
+			color: get-css-var('picker-toolbar-title-color');
+			font-size: get-css-var('picker-toolbar-title-size');
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		&--cancel {
+			color: get-css-var('picker-toolbar-cancel-color');
+		}
+		&--confirm {
+			color: get-css-var('picker-toolbar-confirm-color');
+		}
+	}
+	&--column {
+		width: 750rpx;
+		&--item {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}

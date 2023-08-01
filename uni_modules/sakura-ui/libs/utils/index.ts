@@ -1,4 +1,4 @@
-import { number } from './test';
+import { number, object } from './test';
 
 export { default as dayjs } from './dayjs.js';
 
@@ -58,7 +58,7 @@ export const createNamespace = <C extends String>(name: C) => {
 		namespace,
 		n: createBEM,
 		classes,
-		getVar
+		getVar,
 	};
 };
 
@@ -81,4 +81,4 @@ export const getCustomDistance = (val: string | Array<string | number>) => {
 	return getVal(val);
 };
 
-export { number };
+export { number, object };

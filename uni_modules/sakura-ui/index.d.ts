@@ -1,6 +1,6 @@
 type ClassName = string | undefined | null;
 type Classes = (ClassName | [any, ClassName, ClassName?])[];
-interface SakuraUi {
+type SakuraUi = {
 	//全局配置
 	config: {
 		className: string;
@@ -25,8 +25,9 @@ interface SakuraUi {
 		getCustomDistance: () => string;
 		getVal: (val: number | string) => null | string;
 		getPx: (value: any, unit?: boolean) => string;
+		object: (val: any) => string;
 	};
-}
+};
 
 declare interface Uni {
 	$sakura: SakuraUi;

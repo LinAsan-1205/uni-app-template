@@ -34,7 +34,7 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { computed, onMounted, PropType, toRefs, useSlots } from 'vue';
+	import { computed, onMounted, toRefs, useSlots } from 'vue';
 	const emit = defineEmits(['click', 'tap', 'getPhoneNumber', 'getUserInfo', 'contact', 'error']);
 	const props = defineProps({
 		text: {
