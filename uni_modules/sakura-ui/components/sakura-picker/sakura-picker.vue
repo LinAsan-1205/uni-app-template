@@ -1,7 +1,7 @@
 <template>
 	<sakura-popup ref="popupRef" background="transparent" :closeOnClickOverlay="closeOnClickOverlay" position="bottom"
 		:duration="400" width="750rpx" :show="modelValue" @close="onPopUpClose">
-		<view :class="classes(n(),n('--var'))" @click.stop>
+		<view :class="classes(n(),n('--var'))" @click.stop :style="stylesName">
 			<view :class="n('--toolbar')" v-if="showToolbar">
 				<view :class="n('--toolbar--cancel')" :style="{color:cancelTextColor}" @click="onCancel"
 					v-if="cancelText">{{cancelText}}</view>
@@ -12,8 +12,10 @@
 			<picker-view :class="n('--column')" :style="{height:countHeight}" :value="currentIndex"
 				:indicator-style="indicatorStyle" @change="onColumnChange">
 				<picker-view-column v-for="(columnsData,index) in columnsViewData" :key="index">
-					<view :class="n('--column--item')" v-for="(columnsItem,childIndex) in columnsData"
-						:key="childIndex">
+					<view :class="classes(n('--column--item'),[
+						itemCurrentData.currentIndex[index]===childIndex,
+						n('--column--active')
+					])" v-for="(columnsItem,childIndex) in columnsData" :key="childIndex">
 						{{getItemText(columnsItem)}}
 					</view>
 				</picker-view-column>
@@ -30,7 +32,7 @@
 </script>
 <!-- #endif -->
 <script lang="ts" setup>
-	import { computed, reactive, ref, toRefs, watch } from 'vue'
+	import { computed, onMounted, reactive, ref, toRefs, watch } from 'vue'
 
 	const emit = defineEmits(['update:modelValue', 'change', 'confirm'])
 	const props = defineProps({
@@ -89,9 +91,13 @@
 		visibleItemCount: {
 			type: Number,
 			default: 5
+		},
+		roundSize: {
+			type: Number,
+			default: 0
 		}
 	})
-	const { modelValue, columns, showToolbar, labelName, itemHeight, title, confirmText, confirmTextColor, cancelTextColor, cancelText, defaultIndex, closeOnClickOverlay, visibleItemCount } = toRefs(props)
+	const { modelValue, columns, showToolbar, labelName, itemHeight, title, confirmText, confirmTextColor, cancelTextColor, cancelText, defaultIndex, closeOnClickOverlay, visibleItemCount, roundSize } = toRefs(props)
 
 	const { n, classes } = uni.$sakura.utils.createNamespace('picker')
 
@@ -110,12 +116,18 @@
 
 	const columnsViewData = ref(columns.value)
 
+	const stylesName = computed(() => ({
+		borderRadius: `${uni.$sakura.utils.getVal(roundSize.value || 0)} ${uni.$sakura.utils.getVal(roundSize.value || 0)} 0 0`
+	}))
+
 	const indicatorStyle = computed(() => `height:${uni.$sakura.utils.getVal(itemHeight.value)};`)
 
 	const countHeight = computed(() => uni.$sakura.utils.getVal(visibleItemCount.value * itemHeight.value))
 
 	watch(() => columns.value, () => {
 		columnsViewData.value = columns.value
+		//初始化选中
+		initCurrentIndex()
 	}, {
 		deep: true
 	})
@@ -128,13 +140,22 @@
 		})
 		columnsViewData.value[index] = data
 	}
+	//设置当前选中的index
 	const setItemCurrentData = (data : number[]) => {
+		currentIndex.value = data
 		itemCurrentData.currentIndex = data
 		const currentItem = []
 		data.forEach((current : number, index : number) => {
 			currentItem.push(columns.value[index][current])
 		})
 		itemCurrentData.currentItem = currentItem
+	}
+	const initCurrentIndex = () => {
+		if (defaultIndex.value.length === 0) {
+			setItemCurrentData(Array.from({ length: columnsViewData.value.length }, () => 0))
+			return
+		}
+		setItemCurrentData(defaultIndex.value as number[])
 	}
 
 	const getItemText = (val : any) => {
@@ -154,7 +175,6 @@
 				itemCurrentData.columnsIndex = index
 			}
 		})
-		itemCurrentData.currentIndex = Object.keys(lastIndex.value)
 		setItemCurrentData(value)
 		emit('change', itemCurrentData)
 	}
@@ -162,10 +182,10 @@
 	const onConfirm = () => {
 		//如果没有拖动并且没有默认索引
 		if (itemCurrentData.currentIndex.length === 0 && defaultIndex.value.length === 0) {
-			setItemCurrentData(Array.from({ length: columns.value.length }, () => 0))
+			setItemCurrentData(Array.from({ length: columnsViewData.value.length }, () => 0))
 		}
 		//没有拖动并且有默认索引切长度必须要和列长度相等
-		if (itemCurrentData.currentIndex.length === 0 && defaultIndex.value.length === columns.value.length) {
+		if (itemCurrentData.currentIndex.length === 0 && defaultIndex.value.length === columnsViewData.value.length) {
 			setItemCurrentData(defaultIndex.value as number[])
 		}
 		popupRef.value.close()
@@ -181,6 +201,11 @@
 	const onPopUpClose = () => {
 		emit('update:modelValue', false)
 	}
+
+	onMounted(() => {
+		//初始化选中
+		initCurrentIndex()
+	})
 
 	defineExpose({
 		setColumnValues

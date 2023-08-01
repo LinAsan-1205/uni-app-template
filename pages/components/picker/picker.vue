@@ -21,7 +21,7 @@
 		methods: {
 			onOne() {
 				this.columns = [
-					Array.from({ length: 20 }).map((_, index) => index + 1),
+					Array.from({ length: 20 }).map((_, index) => '测试' + index + 1),
 				]
 				this.showPicker = true
 			},

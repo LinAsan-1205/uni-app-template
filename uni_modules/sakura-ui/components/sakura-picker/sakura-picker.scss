@@ -12,6 +12,12 @@ $picker: map.merge(
 			confirm-color: get-base-color-var('primary'),
 			cancel-color: get-css-var('color-dark-light-6'),
 		),
+		column: (
+			bg-color: get-css-var('color-primary-light-8'),
+			border-color: get-css-var('color-primary-light-8'),
+			active-color: get-base-color-var('primary'),
+			font-bold: font-bold,
+		),
 	),
 	$picker
 );
@@ -51,10 +57,26 @@ $picker: map.merge(
 	}
 	&--column {
 		width: 750rpx;
+		position: relative;
 		&--item {
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			position: relative;
+			font-weight: get-css-var('picker-column-font-bold');
 		}
+		&--active {
+			color: get-css-var('picker-column-active-color');
+		}
+	}
+	.uni-picker-view-indicator {
+		background-color: get-css-var('picker-column-bg-color');
+		z-index: 0;
+	}
+	.uni-picker-view-indicator:before {
+		border-top: 1px solid get-css-var('picker-column-border-color');
+	}
+	.uni-picker-view-indicator:after {
+		border-bottom: 1px solid get-css-var('picker-column-border-color');
 	}
 }
