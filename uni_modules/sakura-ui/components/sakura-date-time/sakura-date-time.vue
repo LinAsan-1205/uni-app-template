@@ -1,10 +1,14 @@
 <template>
-	<sakura-picker v-model="modelValue" :columns="columns" :defaultIndex="defaultIndex"></sakura-picker>
+	<sakura-picker @close="onClose" :title="title" :modelValue="modelValue" :columns="columns"
+		:defaultIndex="defaultIndex"></sakura-picker>
 </template>
 
 <script lang="ts" setup>
 	import { ref, onMounted, toRefs } from 'vue'
 	import dayjs from '../../libs/utils/dayjs.js'
+
+	const emit = defineEmits(['update:modelValue', 'close'])
+
 	const props = defineProps({
 		modelValue: {
 			type: Boolean,
@@ -13,6 +17,10 @@
 		type: {
 			type: String,
 			default: 'date'
+		},
+		title: {
+			type: String,
+			default: null
 		},
 		minDate: {
 			type: Number,
@@ -23,7 +31,7 @@
 			default: null
 		}
 	})
-	const { modelValue, type, minDate, maxDate } = toRefs(props)
+	const { modelValue, type, title, minDate, maxDate } = toRefs(props)
 
 	const date = new Date()
 
@@ -74,6 +82,11 @@
 		if (type.value === 'date') {
 			columns.value = [getYears(), getMonths(), getDays()]
 		}
+	}
+
+	const onClose = () => {
+		emit('close')
+		emit('update:modelValue', false)
 	}
 
 	onMounted(() => {
