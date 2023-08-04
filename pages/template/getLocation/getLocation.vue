@@ -3,8 +3,10 @@
 		<sakura-nav-bar title="定位"></sakura-nav-bar>
 		<sakura-space vertical :size="20" :margin="[32,24]">
 			<sakura-button type="primary" @click="onGetLocation"> 普通定位</sakura-button>
+			<!-- #ifndef MP -->
 			<sakura-button type="primary" @click="onQQMap"> 腾讯地图定位</sakura-button>
 			<sakura-button type="primary"> 高德地图定位</sakura-button>
+			<!-- #endif -->
 		</sakura-space>
 	</view>
 </template>
