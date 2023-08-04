@@ -145,32 +145,35 @@
 					"navigationBarTitleText": "Divider 分割线"
 				}
 
+			}, {
+				"path": "grid/grid",
+				"style": {
+					"navigationBarTitleText": "Grid"
+				}
+
+			}, {
+				"path": "notice/notice",
+				"style": {
+					"navigationBarTitleText": "NoticeBar"
+				}
+
+			}, {
+				"path": "alert/alert",
+				"style": {
+					"navigationBarTitleText": "警告提示"
+				}
+
 			}
-		    ,{
-                    "path" : "grid/grid",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "Grid"
-                }
-                
-                }
-                ,{
-                    "path" : "notice/notice",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "NoticeBar"
-                }
-                
-                }
-                ,{
-                    "path" : "alert/alert",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "警告提示"
-                }
-                
-                }
-            ]
+		]
+	}, {
+		"root": "pages/template",
+		"pages": [{
+			"path": "getLocation/getLocation",
+			"style": {
+				"navigationBarTitleText": "定位"
+			}
+
+		}]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

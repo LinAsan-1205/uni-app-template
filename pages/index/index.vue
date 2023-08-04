@@ -161,8 +161,6 @@
 	}
 </script>
 <style lang="scss" scoped>
-	@use 'sass:color';
-
 	.home {
 		padding-bottom: 40rpx;
 
