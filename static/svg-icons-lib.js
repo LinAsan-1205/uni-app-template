@@ -6,7 +6,7 @@
  *
  * !!! DO NOT MODIFY MANUALLY !!!
  *
- * @datetime 2023/8/18 20:54:32
+ * @datetime 2023/8/19 01:56:08
  *
  */
 
@@ -46,6 +46,10 @@ export default {
     ],
     "flex": [
       "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"rgba(0,0,0,1)\" d=\"M5 8h14V5H5v3Zm9 11v-9H5v9h9Zm2 0h3v-9h-3v9ZM4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z\"/></svg>",
+      0
+    ],
+    "gps": [
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"rgba(0,0,0,1)\" d=\"M7.132 20.737A9.997 9.997 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10a9.997 9.997 0 0 1-5.132 8.737l-.896-1.791a8 8 0 1 0-7.945 0l-.895 1.791Zm1.792-3.584a6 6 0 1 1 6.151 0l-.898-1.797a4 4 0 1 0-4.354 0l-.899 1.797ZM12 16l3 6H9l3-6Z\"/></svg>",
       0
     ],
     "grid": [

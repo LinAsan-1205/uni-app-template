@@ -5,7 +5,7 @@
 				<sakura-avatar size="small" src="/static/image/avatar.jpg"></sakura-avatar>
 			</template>
 		</sakura-nav-bar>
-		<view class="home-row" v-for="(item,index) in listData" :key="index">
+		<view class="home-row" v-for="(item,index) in pageData" :key="index">
 			<view class="home-row-title">{{item.title}}</view>
 			<view class="home__list">
 				<view class="home__list__item" @click="onPage(item.path)" v-for="(item,index) in item.child"
@@ -25,10 +25,12 @@
 				</view>
 			</view>
 		</view>
-		<sakura-navigation></sakura-navigation>
+		<sakura-navigation v-model="active"></sakura-navigation>
 	</view>
 </template>
 <script setup lang="ts">
+	import { computed, ref } from 'vue'
+	const active = ref(0)
 	const basicsData = {
 		title: '基础组件',
 		child: [
@@ -219,9 +221,35 @@
 		feedbackData,
 		formData
 	]
+
+	const templateData = [
+		{
+			title: '地图',
+			child: [
+				{
+					title: '定位',
+					path: '/getLocation/getLocation',
+					desc: 'getLocation',
+					icon: 'gps'
+				}
+			]
+		}
+	]
+
+	const pageData = computed(() => {
+		return {
+			0: listData,
+			1: templateData
+		}[active.value]
+	})
+
 	const onPage = (url : string) => {
+		const urlCom = {
+			0: '/pages/components',
+			1: '/pages/other'
+		}[active.value]
 		uni.navigateTo({
-			url: '/pages/components' + url,
+			url: urlCom + url,
 			fail() {
 				uni.showToast({
 					icon: 'none',

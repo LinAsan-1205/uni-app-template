@@ -16,7 +16,18 @@
 	</view>
 </template>
 <script setup>
-	import { computed, nextTick, ref, getCurrentInstance, reactive } from "vue";
+	import { computed, nextTick, ref, getCurrentInstance, reactive, toRefs } from "vue";
+
+	const emit = defineEmits(['update:modelValue'])
+
+	const props = defineProps({
+		modelValue: {
+			type: Number,
+			default: 0
+		}
+	})
+
+	const { modelValue } = toRefs(props)
 	const navigationList = ref([{
 			pagePath: 'pages/index/index',
 			icon: 'home',
@@ -51,11 +62,11 @@
 		transition: null
 	})
 	const active = ref(0)
-	const path = computed(() => {
-		let currentPages = getCurrentPages();
-		let page = currentPages[currentPages.length - 1];
-		return page.route
-	})
+	// const path = computed(() => {
+	// 	let currentPages = getCurrentPages();
+	// 	let page = currentPages[currentPages.length - 1];
+	// 	return page.route
+	// })
 
 	const { screenHeight, safeArea, platform } = uni.getSystemInfoSync()
 
@@ -73,6 +84,7 @@
 	const onPages = (index) => {
 		active.value = index
 		activeState.transition = 'left .3s'
+		emit('update:modelValue', index)
 		getActive()
 	}
 
