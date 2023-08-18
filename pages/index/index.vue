@@ -11,15 +11,17 @@
 				<view class="home__list__item" @click="onPage(item.path)" v-for="(item,index) in item.child"
 					:key="index">
 					<view class="icon">
-						<zui-svg-icon v-if="item.icon" :icon="item.icon" :color="item.color" width="55rpx"
+						<zui-svg-icon v-if="item.icon" :icon="item.icon" :color="item.color" width="66rpx"
 							:spin="item.spin||false"></zui-svg-icon>
 					</view>
-					<view class="title">
-						<sakura-text :size="32" fontWeight="bold" :line="1">{{item.title}}</sakura-text>
-						<sakura-text class="desc" :size="28" color="rgba(0,0,0,.4)"
-							:line="1">{{item.desc}}</sakura-text>
+					<view class="right">
+						<view class="title">
+							<sakura-text :size="32" fontWeight="bold" :line="1">{{item.title}}</sakura-text>
+							<sakura-text customClass="desc" :size="28" color="rgba(0,0,0,.4)"
+								:line="1">{{item.desc}}</sakura-text>
+						</view>
+						<sakura-icon name="arrow-right" :size="12"></sakura-icon>
 					</view>
-					<sakura-icon name="arrow-right" :size="16"></sakura-icon>
 				</view>
 			</view>
 		</view>
@@ -141,17 +143,23 @@
 			{
 				title: '弹出层',
 				desc: 'Popup',
-				path: '/popup/popup'
+				path: '/popup/popup',
+				icon: 'pop',
+				color: [],
 			},
 			{
 				title: '消息提示',
 				desc: 'Message',
-				path: '/message/message'
+				path: '/message/message',
+				icon: 'message',
+				color: [],
 			},
 			{
 				title: '警告提示',
 				desc: 'Alert',
-				path: '/alert/alert'
+				path: '/alert/alert',
+				icon: 'alert',
+				color: [],
 			},
 		]
 	}
@@ -162,12 +170,16 @@
 			{
 				title: '多列选择器',
 				desc: 'Picker',
-				path: '/picker/picker'
+				path: '/picker/picker',
+				icon: 'picker',
+				color: [],
 			},
 			{
-				title: '选择器',
+				title: '时间选择器',
 				desc: 'DatetimePicker',
-				path: '/dateTime/dateTime'
+				path: '/dateTime/dateTime',
+				icon: 'datetimePicker',
+				color: [],
 			}
 		]
 	}
@@ -255,15 +267,14 @@
 			gap: 40rpx;
 
 			&__item {
-				// border-radius: 6rpx;
 				display: flex;
 				align-items: center;
 				// box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
 				justify-content: center;
-				height: 120rpx;
+				height: 110rpx;
 
 				.icon {
-					width: 120rpx;
+					width: 110rpx;
 					height: 100%;
 					background-color: #f3f3f3;
 					margin-right: 32rpx;
@@ -273,17 +284,23 @@
 					justify-content: center;
 				}
 
+				.right {
+					display: flex;
+					border-bottom: 2rpx solid #f3f3f3;
+					align-items: center;
+					flex: 1;
+					height: 100%;
+				}
+
 				.title {
 					flex: 1;
 					height: 100%;
 					display: flex;
 					font-size: 32rpx;
 					flex-direction: column;
-					justify-content: space-between;
-					border-bottom: 2rpx solid #f3f3f3;
 
-					.desc {
-						padding-bottom: 12rpx;
+					:deep(.desc) {
+						padding-top: 4rpx;
 					}
 				}
 			}

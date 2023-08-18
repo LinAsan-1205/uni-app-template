@@ -163,7 +163,7 @@
 			}
 		]
 	}, {
-		"root": "pages/template",
+		"root": "pages/other",
 		"pages": [{
 			"path": "getLocation/getLocation",
 			"style": {

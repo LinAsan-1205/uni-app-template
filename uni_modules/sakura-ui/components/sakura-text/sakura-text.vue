@@ -103,7 +103,12 @@
 		copyFail: {
 			type: String,
 			default: "复制失败",
+		},
+		customClass: {
+			type: String,
+			default: null
 		}
+
 	});
 	const emit = defineEmits(['click'])
 	const {
@@ -121,7 +126,8 @@
 		call,
 		format,
 		copySuccess,
-		copyFail
+		copyFail,
+		customClass
 	} = toRefs(props);
 	const slot = useSlots();
 
@@ -137,7 +143,8 @@
 	})
 
 	const className = computed(() => classes(n(), n('--var'), [type.value && true, n(`--${type.value}`)], [block.value, n('--block')], [fontSizeType.includes(size.value), n(`--${size.value}`)],
-		[line.value & line.value > 0, n(`--line--${line.value}`)]
+		[line.value & line.value > 0, n(`--line--${line.value}`)],
+		[customClass.value, customClass.value]
 	));
 
 	const styleName = computed(() => ({
