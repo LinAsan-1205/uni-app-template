@@ -1,22 +1,20 @@
 <template>
 	<view class="home">
-		<sakura-nav-bar height="50px" :showHomeIcon="false">
-			<template #left>
-				<sakura-icon name="github-circle-fill" color="#fff" :size="26" @click="onGithub"></sakura-icon>
-			</template>
-		</sakura-nav-bar>
-		<sakura-space :margin="[32,48,0]" vertical>
-			<view class="home__title">🌸 SAKURA</view>
-			<view class="home__desc">sakura-ui，全面兼容uni-app生态框架，拥有丰富的组件和便捷的工具模版</view>
-		</sakura-space>
+		<sakura-nav-bar height="50px"></sakura-nav-bar>
 		<view class="home-row" v-for="(item,index) in listData" :key="index">
-			<view class="l-title">{{item.title}}</view>
+			<view class="home-row-title">{{item.title}}</view>
 			<view class="home__list">
 				<view class="home__list__item" @click="onPage(item.path)" v-for="(item,index) in item.child"
 					:key="index">
-					<view class="title">
-						<sakura-text size="md" :line="1" color="#fff">{{item.title}}</sakura-text>
+					<view class="icon">
+						<sakura-icon name="arrow-right" :size="16"></sakura-icon>
 					</view>
+					<view class="title">
+						<sakura-text :size="32" fontWeight="bold" :line="1">{{item.title}}</sakura-text>
+						<sakura-text class="desc" :size="28" color="rgba(0,0,0,.4)"
+							:line="1">{{item.desc}}</sakura-text>
+					</view>
+					<sakura-icon name="arrow-right" :size="16"></sakura-icon>
 				</view>
 			</view>
 		</view>
@@ -28,42 +26,56 @@
 		title: '基础组件',
 		child: [
 			{
-				title: 'Flex 布局',
+				title: '配色',
+				desc: 'Color'
 			},
 			{
-				title: 'Grid 布局',
+				title: '布局',
+				desc: 'Flex'
+			},
+			{
+				title: '布局',
+				desc: 'Grid',
 				path: '/grid/grid'
 			},
 			{
-				title: 'Button 按钮',
+				title: '按钮',
+				desc: 'Button',
 				path: "/button/button"
 			},
 			{
-				title: 'Icon 图标',
+				title: '图标',
+				desc: 'Icon',
 				path: "/icon/icon"
 			},
 			{
-				title: 'Cell 单元格',
+				title: '单元格',
+				desc: 'Cell',
 				path: "/cell/cell"
 			},
 			{
-				title: 'Link 链接',
+				title: '链接',
+				desc: 'Link',
 				path: "/link/link"
 			},
 			{
-				title: 'Text 文本',
+				title: '文本',
+				desc: 'Text',
 				path: "/text/text"
 			},
 			{
-				title: 'Avatar 头像',
+				title: '头像',
+				desc: 'Avatar',
 				path: "/avatar/avatar"
 			},
 			{
-				title: 'Loading 加载',
+				title: '加载',
+				desc: 'Loading',
 				path: '/loading/loading'
 			},
 			{
-				title: 'Badge 微标',
+				title: '微标',
+				desc: 'Badge',
 				path: "/badge/badge"
 			},
 		]
@@ -72,11 +84,13 @@
 		title: '导航组件',
 		child: [
 			{
-				title: 'Search 搜索',
+				title: '搜索',
+				desc: 'Search',
 				path: '/search/search'
 			},
 			{
-				title: 'NavBar 导航',
+				title: '导航',
+				desc: 'NavBar',
 				path: '/navbar/navbar'
 			}
 		]
@@ -86,19 +100,23 @@
 		title: '反馈组件',
 		child: [
 			{
-				title: 'NoticeBar 通知栏',
+				title: '通知栏',
+				desc: 'NoticeBar',
 				path: '/notice/notice'
 			},
 			{
-				title: 'Popup 弹出层',
+				title: '弹出层',
+				desc: 'Popup',
 				path: '/popup/popup'
 			},
 			{
-				title: 'Message 消息提示',
+				title: '消息提示',
+				desc: 'Message',
 				path: '/message/message'
 			},
 			{
-				title: 'Alert 警告提示',
+				title: '警告提示',
+				desc: 'Alert',
 				path: '/alert/alert'
 			},
 		]
@@ -108,11 +126,13 @@
 		title: '表单组件',
 		child: [
 			{
-				title: 'Picker 多列选择器',
+				title: '多列选择器',
+				desc: 'Picker',
 				path: '/picker/picker'
 			},
 			{
-				title: 'DatetimePicker 选择器',
+				title: '选择器',
+				desc: 'DatetimePicker',
 				path: '/dateTime/dateTime'
 			}
 		]
@@ -122,16 +142,19 @@
 		title: '展示组件',
 		child: [
 			{
-				title: 'Swiper 轮播图',
+				title: '轮播图',
+				desc: 'Swiper',
 				path: '/swiper/swiper'
 			},
 
 			{
-				title: 'Divider 分割线',
+				title: '分割线',
+				desc: 'Divider',
 				path: "/divider/divider"
 			},
 			{
-				title: 'Tag 标签',
+				title: '标签',
+				desc: 'Tag',
 				path: "/tag/tag"
 			},
 		]
@@ -167,8 +190,11 @@
 		&-row {
 			padding: 0 20rpx;
 
-			.l-title {
-				font-size: 28rpx;
+			&-title {
+				font-size: 42rpx;
+				padding: 32rpx 16rpx 16rpx;
+				font-weight: bold;
+				color: #000;
 			}
 		}
 
@@ -184,21 +210,40 @@
 		&__list {
 			padding: 0 24rpx;
 			display: grid;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(1, minmax(0, 1fr));
 			gap: 40rpx;
-			margin-top: 10rpx;
 
 			&__item {
-				padding: 40rpx 32rpx;
-				border-radius: 8rpx;
+				// border-radius: 6rpx;
 				display: flex;
 				align-items: center;
-				background: rgb(26, 92, 255);
-				box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
+				// box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
 				justify-content: center;
+				height: 120rpx;
+
+				.icon {
+					width: 120rpx;
+					height: 100%;
+					background-color: #f3f3f3;
+					margin-right: 32rpx;
+					border-radius: 6rpx;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
 
 				.title {
-					font-size: 28rpx;
+					flex: 1;
+					height: 100%;
+					display: flex;
+					font-size: 32rpx;
+					flex-direction: column;
+					justify-content: space-between;
+					border-bottom: 2rpx solid #f3f3f3;
+
+					.desc {
+						padding-bottom: 12rpx;
+					}
 				}
 			}
 		}

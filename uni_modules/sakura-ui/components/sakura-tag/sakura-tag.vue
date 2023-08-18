@@ -56,7 +56,7 @@
 		//标签圆角值，单位rpx
 		radius: {
 			type: String,
-			default: '8rpx'
+			default: '6rpx'
 		},
 		padding: {
 			type: [String, Array],

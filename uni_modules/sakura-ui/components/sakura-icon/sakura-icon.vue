@@ -33,7 +33,7 @@
 		},
 		color: {
 			type: String,
-			default: "#333333",
+			default: "#000",
 		},
 		/**
 		 * 图标大小

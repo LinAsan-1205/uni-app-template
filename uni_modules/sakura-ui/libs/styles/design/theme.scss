@@ -3,40 +3,40 @@ $color-map: () !default;
 $color-map: map.deep-merge(
 	(
 		primary: (
-			base: #1a5cff
+			base: #0052d9,
 		),
 		info: (
-			base: #a4b0be
+			base: #a4b0be,
 		),
 		success: (
-			base: #46c93a
+			base: #2ba471,
 		),
 		warning: (
-			base: #ffba00
+			base: #e37318,
 		),
 		danger: (
-			base: #ff4757
+			base: #d54941,
 		),
 		dark: (
-			base: #1e1e1e
+			base: #1e1e1e,
 		),
 		purples: (
-			base: #6831ff
+			base: #6831ff,
 		),
 		black: (
-			base: #000000
+			base: #000000,
 		),
 		white: (
-			base: #ffffff
+			base: #ffffff,
 		),
 		link: (
-			base: #3742fa
+			base: #0052d9,
 		),
 		text: (
 			base: #2c2c2c,
 			sub-text: #646464,
-			disabled: #aaa
-		)
+			disabled: #aaa,
+		),
 	),
 	$color-map
 );

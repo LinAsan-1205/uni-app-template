@@ -46,7 +46,7 @@
 </script>
 <!-- #endif -->
 <script setup lang="ts">
-	import { computed, toRefs, onMounted, type PropType } from "vue";
+	import { computed, toRefs, onMounted } from "vue";
 	const whiteList = ['#FFF', '#fff', '#FFFFFF', '#ffffff', 'white', 'rgb(255,255,255)', 'rgba(255,255,255,1)'];
 	const props = defineProps({
 		//标题
@@ -114,7 +114,7 @@
 		//是否显示 如果home图标
 		showHomeIcon: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 		//是否显示左侧图标
 		showLeftIcon: {

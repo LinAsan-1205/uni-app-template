@@ -113,7 +113,7 @@
 
 				&-active {
 					justify-content: space-between;
-					background-color: #1a5cff;
+					background-color: #0052d9;
 
 					text {
 						color: #ffffff;

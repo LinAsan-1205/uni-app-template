@@ -13,14 +13,30 @@
 			<view class="l-title">自定义插槽</view>
 			<sakura-nav-bar :fixed="false" title="自定义插槽" rightIcon="all">
 				<template #left>
-					长沙市
+					<text class="name">长沙市</text>
 				</template>
-				插槽
+				<text class="name">标题文字</text>
 				<template #right>
-					芙蓉区
+					<text class="name">芙蓉区</text>
+				</template>
+			</sakura-nav-bar>
+			<sakura-nav-bar :fixed="false" rightIcon="all">
+				<template #left>
+					<sakura-search :radius="30" placeholder="请输入关键字"></sakura-search>
+				</template>
+				<template #right>
+					<text class="name">芙蓉区</text>
 				</template>
 			</sakura-nav-bar>
 		</sakura-space>
 	</view>
 </template>
 <script setup lang="ts"></script>
+
+<style lang="scss">
+	.name {
+		color: #fff;
+		font-size: 28rpx;
+	}
+
+</style>

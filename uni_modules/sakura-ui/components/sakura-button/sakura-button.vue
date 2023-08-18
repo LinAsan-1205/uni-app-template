@@ -91,7 +91,7 @@
 		//字体大小
 		fontSize: {
 			type: [String, Number],
-			default: 32
+			default: 28
 		},
 		//字体颜色
 		color: {
@@ -106,7 +106,7 @@
 		//圆角大小
 		roundSize: {
 			type: [String, Number],
-			default: 10
+			default: 6
 		},
 		//自定义颜色
 		bgColor: {
@@ -125,7 +125,7 @@
 		//高度
 		height: {
 			type: [String, Number],
-			default: 84
+			default: 80
 		},
 		//宽度
 		width: {
