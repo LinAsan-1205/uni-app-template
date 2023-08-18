@@ -24,10 +24,10 @@
 
 	.l-title {
 		padding: 32rpx 16rpx 16rpx;
-		font-size: 32rpx;
-		font-weight: 400;
+		font-size: 48rpx;
+		font-weight: bold;
 		width: 100%;
-		color: var(--sakura-color-text-sub-text)
+		color: #000;
 	}
 
 </style>

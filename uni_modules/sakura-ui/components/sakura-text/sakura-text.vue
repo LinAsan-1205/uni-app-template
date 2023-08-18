@@ -104,11 +104,11 @@
 			type: String,
 			default: "复制失败",
 		},
+		// 自定义class
 		customClass: {
 			type: String,
 			default: null
 		}
-
 	});
 	const emit = defineEmits(['click'])
 	const {

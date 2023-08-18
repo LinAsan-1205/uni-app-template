@@ -57,15 +57,16 @@
 		return page.route
 	})
 
-	const { screenHeight, safeArea } = uni.getSystemInfoSync()
+	const { screenHeight, safeArea, platform } = uni.getSystemInfoSync()
 
 	const activeStyle = computed(() => {
+		const isIos = platform === 'ios' ? uni.upx2px(screenHeight - safeArea.bottom) : 0
 		return {
 			width: activeState.width + 'px',
 			height: activeState.height + 'px',
 			left: activeState.left + 'px',
-			top: `calc(50% - ${uni.upx2px(screenHeight-safeArea.bottom)}px)`,
-			transform: ` translateY(-calc(50% - ${uni.upx2px(screenHeight-safeArea.bottom)}px))`,
+			top: `calc(50% - ${isIos}px)`,
+			transform: ` translateY(-calc(50% - ${isIos}px))`,
 			transition: activeState.transition
 		}
 	})

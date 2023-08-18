@@ -35,6 +35,7 @@
 			{
 				title: '配色',
 				desc: 'Color',
+				path: '/color/color',
 				icon: 'color',
 				color: []
 			},

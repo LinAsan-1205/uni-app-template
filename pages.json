@@ -21,6 +21,8 @@
 		}
 	}],
 	"tabBar": {
+		"borderStyle": "white",
+		"backgroundColor": "#ffffff",
 		"list": [{
 				"pagePath": "pages/index/index"
 			}, {
@@ -161,7 +163,15 @@
 				}
 
 			}
-		]
+		    ,{
+                    "path" : "color/color",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "颜色"
+                }
+                
+                }
+            ]
 	}, {
 		"root": "pages/other",
 		"pages": [{
