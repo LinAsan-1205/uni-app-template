@@ -2,7 +2,7 @@
 	<view class="home">
 		<sakura-nav-bar height="50px">
 			<template #left>
-				<sakura-avatar size="small" src="/static/image/avatar.png"></sakura-avatar>
+				<sakura-avatar size="small" src="/static/image/avatar.jpg"></sakura-avatar>
 			</template>
 		</sakura-nav-bar>
 		<view class="home-row" v-for="(item,index) in listData" :key="index">
