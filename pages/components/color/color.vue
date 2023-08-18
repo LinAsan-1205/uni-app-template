@@ -2,7 +2,7 @@
 	<view class="sakura">
 		<sakura-nav-bar title="配色"></sakura-nav-bar>
 		<view class="sakura-page pb-4">
-			<view class="l-title">浅色背景、深色背景</view>
+			<view class="l-title"><zui-svg-icon icon="color" width="54rpx"></zui-svg-icon>文字、背景</view>
 			<sakura-space vertical :size="20">
 				<view class="item">
 					<view :style="{background:'var(--sakura-color-primary-base)'}" class="bg"></view>
