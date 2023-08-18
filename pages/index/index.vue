@@ -1,13 +1,18 @@
 <template>
 	<view class="home">
-		<sakura-nav-bar height="50px"></sakura-nav-bar>
+		<sakura-nav-bar height="50px">
+			<template #left>
+				<sakura-avatar size="small" src="/static/image/avatar.png"></sakura-avatar>
+			</template>
+		</sakura-nav-bar>
 		<view class="home-row" v-for="(item,index) in listData" :key="index">
 			<view class="home-row-title">{{item.title}}</view>
 			<view class="home__list">
 				<view class="home__list__item" @click="onPage(item.path)" v-for="(item,index) in item.child"
 					:key="index">
 					<view class="icon">
-						<sakura-icon name="arrow-right" :size="16"></sakura-icon>
+						<zui-svg-icon v-if="item.icon" :icon="item.icon" :color="item.color" width="55rpx"
+							:spin="item.spin||false"></zui-svg-icon>
 					</view>
 					<view class="title">
 						<sakura-text :size="32" fontWeight="bold" :line="1">{{item.title}}</sakura-text>
@@ -27,56 +32,79 @@
 		child: [
 			{
 				title: '配色',
-				desc: 'Color'
+				desc: 'Color',
+				icon: 'color',
+				color: []
 			},
 			{
 				title: '布局',
-				desc: 'Flex'
+				desc: 'Flex',
+				icon: 'flex',
+				color: []
 			},
 			{
 				title: '布局',
 				desc: 'Grid',
-				path: '/grid/grid'
+				path: '/grid/grid',
+				icon: 'grid',
+				color: []
 			},
 			{
 				title: '按钮',
 				desc: 'Button',
-				path: "/button/button"
+				path: "/button/button",
+				icon: 'button',
+				color: []
 			},
 			{
 				title: '图标',
 				desc: 'Icon',
-				path: "/icon/icon"
+				path: "/icon/icon",
+				icon: 'icon',
+				color: []
 			},
 			{
 				title: '单元格',
 				desc: 'Cell',
-				path: "/cell/cell"
+				path: "/cell/cell",
+				icon: 'cell',
+				color: []
 			},
 			{
 				title: '链接',
 				desc: 'Link',
-				path: "/link/link"
+				path: "/link/link",
+				icon: 'links',
+				color: []
 			},
 			{
 				title: '文本',
 				desc: 'Text',
-				path: "/text/text"
+				path: "/text/text",
+				icon: 'text',
+				color: []
 			},
 			{
 				title: '头像',
 				desc: 'Avatar',
-				path: "/avatar/avatar"
+				path: "/avatar/avatar",
+				icon: 'avatar',
+				color: []
 			},
 			{
 				title: '加载',
 				desc: 'Loading',
-				path: '/loading/loading'
+				path: '/loading/loading',
+				icon: 'loading',
+				color: [],
+				spin: true
 			},
 			{
 				title: '微标',
 				desc: 'Badge',
-				path: "/badge/badge"
+				path: "/badge/badge",
+				icon: 'badge',
+				color: [],
 			},
 		]
 	}
@@ -86,12 +114,16 @@
 			{
 				title: '搜索',
 				desc: 'Search',
-				path: '/search/search'
+				path: '/search/search',
+				icon: 'search',
+				color: [],
 			},
 			{
 				title: '导航',
 				desc: 'NavBar',
-				path: '/navbar/navbar'
+				path: '/navbar/navbar',
+				icon: 'navbar',
+				color: [],
 			}
 		]
 	}
@@ -102,7 +134,9 @@
 			{
 				title: '通知栏',
 				desc: 'NoticeBar',
-				path: '/notice/notice'
+				path: '/notice/notice',
+				icon: 'noticeBar',
+				color: [],
 			},
 			{
 				title: '弹出层',
@@ -144,18 +178,24 @@
 			{
 				title: '轮播图',
 				desc: 'Swiper',
-				path: '/swiper/swiper'
+				path: '/swiper/swiper',
+				icon: 'image',
+				color: [],
 			},
 
 			{
 				title: '分割线',
 				desc: 'Divider',
-				path: "/divider/divider"
+				path: "/divider/divider",
+				icon: 'divider',
+				color: [],
 			},
 			{
 				title: '标签',
 				desc: 'Tag',
-				path: "/tag/tag"
+				path: "/tag/tag",
+				icon: 'tag',
+				color: [],
 			},
 		]
 	}
@@ -195,6 +235,7 @@
 				padding: 32rpx 16rpx 16rpx;
 				font-weight: bold;
 				color: #000;
+				margin-bottom: 24rpx;
 			}
 		}
 

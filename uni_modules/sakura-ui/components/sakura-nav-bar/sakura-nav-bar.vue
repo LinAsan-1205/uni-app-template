@@ -67,7 +67,7 @@
 		//文字颜色
 		color: {
 			type: String,
-			default: '#fff',
+			default: '#000',
 		},
 		//高
 		height: {
@@ -77,7 +77,7 @@
 		//背景颜色
 		bgColor: {
 			type: String,
-			default: 'var(--sakura-navbar-background-color)',
+			default: '#fff',
 		},
 		//固定
 		fixed: {
@@ -114,7 +114,7 @@
 		//是否显示 如果home图标
 		showHomeIcon: {
 			type: Boolean,
-			default: false,
+			default: true,
 		},
 		//是否显示左侧图标
 		showLeftIcon: {
@@ -129,7 +129,7 @@
 		//左侧颜色
 		leftColor: {
 			type: String,
-			default: null,
+			default: '#000',
 		},
 		//左侧图标大小
 		leftIconSize: {
@@ -159,7 +159,7 @@
 		//右侧颜色
 		rightColor: {
 			type: String,
-			default: null,
+			default: '#000',
 		},
 		//右侧图标大小
 		rightIconSize: {
