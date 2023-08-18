@@ -24,7 +24,7 @@
 
 	.l-title {
 		padding: 32rpx 16rpx 16rpx;
-		font-size: 44rpx;
+		font-size: 34rpx;
 		font-weight: bold;
 		width: 100%;
 		color: #000;

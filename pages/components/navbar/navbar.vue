@@ -8,10 +8,10 @@
 			<sakura-nav-bar :fixed="false" leftColor="#fff" title="渐变色"
 				bgColor="linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)" color="#fff"></sakura-nav-bar>
 			<view class="l-title">自定义图标</view>
-			<sakura-nav-bar :fixed="false" title="个人中心" leftColor="#fff" rightIcon="all" bgColor="#8338ec"
-				color="#fff"></sakura-nav-bar>
-			<sakura-nav-bar :fixed="false" title="购物车" leftColor="#fff" rightIcon="all" bgColor="#2ec4b6"
-				color="#fff"></sakura-nav-bar>
+			<sakura-nav-bar :fixed="false" title="个人中心" leftColor="#fff" rightIcon="all" bgColor="#8338ec" color="#fff"
+				rightColor="#fff"></sakura-nav-bar>
+			<sakura-nav-bar :fixed="false" title="购物车" leftColor="#fff" rightIcon="all" bgColor="#2ec4b6" color="#fff"
+				rightColor="#fff"></sakura-nav-bar>
 			<view class="l-title">自定义插槽</view>
 			<sakura-nav-bar :fixed="false" title="自定义插槽" rightIcon="all">
 				<template #left>

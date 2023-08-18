@@ -83,7 +83,7 @@
 	})
 	const onPages = (index) => {
 		active.value = index
-		activeState.transition = 'left .3s'
+		activeState.transition = 'left .2s'
 		emit('update:modelValue', index)
 		getActive()
 	}

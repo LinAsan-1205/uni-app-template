@@ -3,8 +3,8 @@
 		<sakura-nav-bar fixed title="Icon"></sakura-nav-bar>
 		<view class="icon__list">
 			<view class="icon__list__item" v-for="(item,index) in icons.glyphs" :key="index">
-				<sakura-icon color="#909399" :size="30" :name="item.font_class"></sakura-icon>
-				<sakura-text color="#909399">{{item.font_class}}</sakura-text>
+				<sakura-icon color="#000" :size="30" :name="item.font_class"></sakura-icon>
+				<sakura-text color="#000">{{item.font_class}}</sakura-text>
 			</view>
 		</view>
 	</view>
