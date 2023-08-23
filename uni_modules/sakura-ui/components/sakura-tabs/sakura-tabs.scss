@@ -1,0 +1,65 @@
+@use 'sass:map';
+@use '../../libs/styles/design' as *;
+$tabs: () !default;
+$tabs: map.merge(
+	(
+		color: (
+			bg: get-css-var('color-white-base'),
+			active: get-css-var('color-primary-base'),
+		),
+		item: (
+			height: 48px,
+		),
+		line: (
+			height: 3px,
+		),
+	),
+	$tabs
+);
+.#{$namespace}-tabs {
+	position: relative;
+	background-color: get-css-var('tabs-color-bg');
+	&--var {
+		@include define-map-all($tabs, 'tabs');
+	}
+	&--list {
+		display: flex;
+		align-items: center;
+		&--item {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: 1;
+			font-weight: 400;
+			// padding: 0 16px;
+			overflow: hidden;
+			white-space: nowrap;
+			/* #ifdef H5 */
+			cursor: pointer;
+			/* #endif */
+			height: get-css-var('tabs-item-height');
+
+			&-content {
+				display: flex;
+				align-items: center;
+			}
+			&--icon {
+				margin-left: 2px;
+			}
+		}
+		&--active {
+			color: get-css-var('tabs-color-active');
+			font-weight: bold;
+		}
+	}
+	&--line {
+		position: absolute;
+		left: 0;
+		height: get-css-var('tabs-line-height');
+		background-color: get-css-var('tabs-color-active');
+		width: 39px;
+		bottom: 0;
+		border-radius: 6rpx;
+	}
+}

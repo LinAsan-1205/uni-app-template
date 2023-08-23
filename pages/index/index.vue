@@ -97,7 +97,7 @@
 				color: []
 			},
 			{
-				title: '加载',
+				title: '加载中',
 				desc: 'Loading',
 				path: '/loading/loading',
 				icon: 'loading',
@@ -128,6 +128,13 @@
 				desc: 'NavBar',
 				path: '/navbar/navbar',
 				icon: 'navbar',
+				color: [],
+			},
+			{
+				title: '选项卡',
+				desc: 'Tabs',
+				path: '/tabs/tabs',
+				icon: 'tabs',
 				color: [],
 			}
 		]

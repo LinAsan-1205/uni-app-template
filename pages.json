@@ -171,6 +171,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "tabs/tabs",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "选项卡"
+                }
+                
+                }
             ]
 	}, {
 		"root": "pages/other",

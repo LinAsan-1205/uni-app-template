@@ -95,7 +95,6 @@
 			activeState.width = data.width
 			activeState.height = data.height
 			activeState.left = data.left
-			// activeState.top = data.top - 
 		}).exec();
 	}
 
