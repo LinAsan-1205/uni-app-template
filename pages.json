@@ -179,6 +179,14 @@
                 }
                 
                 }
+                ,{
+                    "path" : "fullscreenLoading/fullscreenLoading",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "全屏加载"
+                }
+                
+                }
             ]
 	}, {
 		"root": "pages/other",

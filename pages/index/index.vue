@@ -105,6 +105,14 @@
 				spin: true
 			},
 			{
+				title: '全屏加载',
+				desc: 'FullscreenLoading',
+				path: '/fullscreenLoading/fullscreenLoading',
+				icon: 'loading',
+				color: [],
+				spin: true
+			},
+			{
 				title: '微标',
 				desc: 'Badge',
 				path: "/badge/badge",
