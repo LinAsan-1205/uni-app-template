@@ -26,11 +26,14 @@
 			</view>
 		</view>
 		<sakura-navigation v-model="active"></sakura-navigation>
+
+		<sakura-fullscreen-loading :loading="loading" background="rgba(255,255,255)"></sakura-fullscreen-loading>
 	</view>
 </template>
 <script setup lang="ts">
-	import { computed, ref } from 'vue'
+	import { computed, ref, watch } from 'vue'
 	const active = ref(0)
+	const loading = ref(false)
 	const basicsData = {
 		title: '基础组件',
 		child: [
@@ -256,6 +259,13 @@
 			0: listData,
 			1: templateData
 		}[active.value]
+	})
+
+	watch(() => active.value, () => {
+		loading.value = true
+		setTimeout(() => {
+			loading.value = false
+		}, 800)
 	})
 
 	const onPage = (url : string) => {
