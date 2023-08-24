@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use '../../libs/styles/design' as *;
+$loading: () !default;
+$loading: map.merge(
+	(
+		type: (
+			primary: get-css-var('color-primary-base'),
+			success: get-css-var('color-success-base'),
+			warning: get-css-var('color-warning-base'),
+			error: get-css-var('color-danger-base'),
+			info: get-css-var('color-info-base'),
+		),
+	),
+	$loading
+);
+.#{$namespace}-fullscreen-loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
