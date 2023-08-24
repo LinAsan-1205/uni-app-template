@@ -5,8 +5,9 @@
 				<view :class="classes(n('--list--item'),[item.value==modelValue,n('--list--active')])"
 					v-for="(item,index) in list" :key="index" @click="onClick(item,index)">
 					<view :id="'tabs-'+index" :class="n('--list--item--content')">
-						<sakura-icon v-if="item.icon&&item.icon.name" v-bind="item.icon"></sakura-icon>
-						<text :class="classes([item.icon&&item.icon.name,n('--list-item-icon')])">
+						<sakura-icon :color="item.value===modelValue?activeColorValue:null"
+							v-if="item.icon&&item.icon.name" v-bind="item.icon"></sakura-icon>
+						<text :class="classes([item.icon&&item.icon.name,n('--list--item--icon')])">
 							{{item.label}}
 						</text>
 					</view>
@@ -56,17 +57,22 @@
 			type: Boolean,
 			default: false
 		},
+		activeColor: {
+			type: String,
+			default: null
+		}
 	})
 
-	const { modelValue, list, lineHeight, lineWidth, scrollable, animation, duration } = toRefs(props)
+	const { modelValue, list, lineHeight, lineWidth, scrollable, animation, duration, activeColor } = toRefs(props)
 
-	const { n, classes } = uni.$sakura.utils.createNamespace('tabs')
+	const { n, classes, getVar } = uni.$sakura.utils.createNamespace('tabs')
 
 	const instance = getCurrentInstance()
 
-	const { screenHeight, safeArea, platform } = uni.getSystemInfoSync()
 
 	const className = computed(() => classes([n(), n('--var')]))
+
+	const activeColorValue = computed(() => activeColor.value || `var(${getVar('color-active')})`)
 
 	const line = reactive({
 		left: 0,
@@ -75,13 +81,10 @@
 	})
 
 	const lineStyles = computed(() => {
-		// const isIos = platform === 'ios' ? uni.upx2px(screenHeight - safeArea.bottom) : 0
 		return {
 			left: line.left + 'px',
 			height: uni.$sakura.utils.getVal(lineHeight.value),
 			width: lineWidth.value ? uni.$sakura.utils.getVal(lineWidth.value) : line.width + 'px',
-			// top: `calc(50% - ${isIos}px)`,
-			// transform: ` translateY(-calc(50% - ${isIos}px))`,
 			transition: line.transition
 		}
 	})
@@ -90,7 +93,7 @@
 	const onUpdateLineHeight = () => {
 		const query = uni.createSelectorQuery().in(instance);
 		const index = list.value.findIndex(item => item.value == modelValue.value)
-		query.select(`#tabs-${index}`).boundingClientRect(data => {
+		query.select(`#tabs-${index}`).boundingClientRect((data : { width : number, left : number }) => {
 			line.width = data.width
 			line.left = data.left
 		}).exec();

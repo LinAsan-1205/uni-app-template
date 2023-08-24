@@ -40,12 +40,13 @@ $tabs: map.merge(
 			/* #endif */
 			height: get-css-var('tabs-item-height');
 
-			&-content {
+			&--content {
 				display: flex;
 				align-items: center;
+				position: relative;
 			}
 			&--icon {
-				margin-left: 2px;
+				margin-left: 4px;
 			}
 		}
 		&--active {
