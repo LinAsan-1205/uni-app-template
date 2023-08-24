@@ -23,13 +23,19 @@
 	}
 
 	.l-title {
-		padding: 32rpx 16rpx 16rpx;
+		padding: 32rpx 16rpx 16rpx 0;
 		font-size: 34rpx;
 		font-weight: bold;
 		width: 100%;
 		color: #000;
 		display: flex;
 		align-items: center;
+	}
+
+	.l-desc {
+		font-size: 24rpx;
+		color: #999;
+		margin-bottom: 24rpx;
 	}
 
 </style>
