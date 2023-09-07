@@ -6,7 +6,7 @@
  *
  * !!! DO NOT MODIFY MANUALLY !!!
  *
- * @datetime 2023/9/7 11:20:49
+ * @datetime 2023/9/7 14:54:46
  *
  */
 
@@ -129,7 +129,7 @@ export default {
       "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path fill=\"rgba(0,0,0,1)\" d=\"M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10Zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm-5-8h2a3 3 0 1 0 6 0h2a5 5 0 0 1-10 0Z\"/></svg>",
       0
     ],
-    "weixin-mini": [
+    "weixinMini": [
       "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"none\" viewBox=\"0 0 48 48\"><path stroke=\"#000\" stroke-width=\"4\" d=\"M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4 4 12.954 4 24s8.954 20 20 20Z\"/><path stroke=\"#000\" stroke-width=\"4\" d=\"M29 24a5 5 0 1 0-5-5v10a5 5 0 1 1-5-5\"/></svg>",
       3
     ]
