@@ -13,7 +13,7 @@
 				<sakura-button @click="onClose" bgColor="#f3f3f3" width="239rpx" :roundSize="39">
 					取消</sakura-button>
 				<sakura-button width="239rpx" id="agree-btn" open-type="agreePrivacyAuthorization" :roundSize="39"
-					type="primary" @click="onOk"> 同意</sakura-button>
+					type="primary" @agreeprivacyauthorization="onOk"> 同意</sakura-button>
 			</view>
 		</view>
 	</sakura-popup>
@@ -50,6 +50,16 @@
 				resolvePrivacyAuthorization = resolve
 			})
 		}
+		wx.getPrivacySetting({
+			success: res => {
+				if (res.needAuthorization) {
+					open()
+				}
+				privacyContractName.value = res.privacyContractName
+			},
+			fail: () => {},
+			complete: () => {}
+		})
 		// #endif
 	})
 	const onClose = () => {
@@ -60,10 +70,6 @@
 	}
 	const onOk = () => {
 		showModal.value = false;
-		resolvePrivacyAuthorization({
-			event: 'agree',
-			buttonId: 'agree-btn'
-		})
 	}
 
 </script>

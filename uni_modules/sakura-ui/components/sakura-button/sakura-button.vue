@@ -36,7 +36,7 @@
 <!-- #endif -->
 <script lang="ts" setup>
 	import { computed, onMounted, toRefs, useSlots } from 'vue';
-	const emit = defineEmits(['click', 'tap', 'getPhoneNumber', 'getUserInfo', 'contact', 'error']);
+	const emit = defineEmits(['click', 'tap', 'getPhoneNumber', 'getUserInfo', 'contact', 'error', 'agreeprivacyauthorization']);
 	const props = defineProps({
 		text: {
 			type: String,
@@ -224,7 +224,7 @@
 		emit('getUserInfo', detail);
 	};
 	const agreeprivacyauthorization = ({ detail = {} } = {}) => {
-		console.log(detail, 'detail')
+		emit('agreeprivacyauthorization', detail);
 	}
 	const bindContact = ({ detail = {} } = {}) => {
 		emit('contact', detail);
