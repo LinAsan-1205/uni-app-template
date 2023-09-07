@@ -6,19 +6,22 @@
 			</template>
 		</sakura-nav-bar>
 		<view class="home-row" v-for="(item,index) in pageData" :key="index">
-			<view class="home-row-title">{{item.title}}</view>
+			<view class="home-row-title">
+				<zui-svg-icon v-if="item.icon" :icon="item.icon" :color="item.color" width="66rpx"></zui-svg-icon>
+				<text class="title">{{item.title}}</text>
+			</view>
 			<view class="home__list">
-				<view class="home__list__item" @click="onPage(item.path)" v-for="(item,index) in item.child"
+				<view class="home__list__item" @click="onPage(child.path)" v-for="(child,index) in item.child"
 					:key="index">
 					<view class="icon">
-						<zui-svg-icon v-if="item.icon" :icon="item.icon" :color="item.color" width="66rpx"
-							:spin="item.spin||false"></zui-svg-icon>
+						<zui-svg-icon v-if="child.icon" :icon="child.icon" :color="child.color" width="66rpx"
+							:spin="child.spin||false"></zui-svg-icon>
 					</view>
 					<view class="right">
 						<view class="title">
-							<sakura-text :size="32" fontWeight="bold" :line="1">{{item.title}}</sakura-text>
+							<sakura-text :size="32" fontWeight="bold" :line="1">{{child.title}}</sakura-text>
 							<sakura-text customClass="desc" :size="28" color="rgba(0,0,0,.4)"
-								:line="1">{{item.desc}}</sakura-text>
+								:line="1">{{child.desc}}</sakura-text>
 						</view>
 						<sakura-icon name="arrow-right" :size="12"></sakura-icon>
 					</view>
@@ -251,6 +254,17 @@
 					icon: 'gps'
 				}
 			]
+		},
+		{
+			title: '微信小程序',
+			child: [
+				{
+					title: '小程序隐私协议弹窗',
+					path: '/requirePrivacyAuthorize/requirePrivacyAuthorize',
+					desc: 'requirePrivacyAuthorize',
+					icon: 'spy'
+				}
+			]
 		}
 	]
 
@@ -302,6 +316,12 @@
 				font-weight: bold;
 				color: #000;
 				margin-bottom: 24rpx;
+				display: flex;
+				align-items: center;
+
+				.title {
+					margin-left: 8rpx;
+				}
 			}
 		}
 

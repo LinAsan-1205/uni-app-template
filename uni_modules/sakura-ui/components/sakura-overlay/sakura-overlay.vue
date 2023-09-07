@@ -35,16 +35,20 @@
 		},
 		background: {
 			type: String,
+		},
+		top: {
+			type: [Number, String],
+			default: 0
 		}
 
 	})
 
-	const { show, zIndex, duration, opacity, background } = toRefs(props)
+	const { show, zIndex, duration, opacity, background, top } = toRefs(props)
 
 	const maskStyle = computed(() => ({
 		position: 'fixed',
 		bottom: 0,
-		top: 0,
+		top: top.value,
 		left: 0,
 		right: 0,
 		backgroundColor: !background.value ? `rgba(0, 0, 0, ${opacity.value})` : background.value,

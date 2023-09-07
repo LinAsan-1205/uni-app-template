@@ -1,12 +1,13 @@
 <template>
 	<view :class="className" v-if="popup.showPopup">
 		<sakura-overlay :background="maskBackground" @click="onOverlay" :show="popup.showTrans" :zIndex="zIndex"
-			:duration="duration" v-if="overlay"></sakura-overlay>
+			:duration="duration" v-if="overlay" :top="customNavTop"></sakura-overlay>
 		<sakura-transition @change="onChange" :show="popup.showTrans" :mode-class="modeClass" :styles="{
 				...transClass,
-				...customNavTop,
+
 			}" :duration="duration" :custom-class="customClass">
-			<view :class="classes(n('--content'))" :style="{background: background}" @click="onClose">
+			<view :class="classes(n('--content'),[round, n(`--${position}--round`)])" :style="{background: background}"
+				@click="onClose">
 				<slot></slot>
 			</view>
 		</sakura-transition>
@@ -144,11 +145,8 @@
 	}
 
 	const customNavTop = computed(() => {
-		const isbottom = position.value !== 'bottom'
-		if (!isbottom || !customNavBar.value) return {}
-		return {
-			top: uni.$sakura.utils.getCustomNavTop(customNavBarHeight.value)
-		}
+		if (!customNavBar.value) return 0
+		return uni.$sakura.utils.getCustomNavTop(customNavBarHeight.value)
 	})
 
 

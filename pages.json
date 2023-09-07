@@ -196,7 +196,15 @@
 				"navigationBarTitleText": "定位"
 			}
 
-		}]
+		}    ,{
+                    "path" : "requirePrivacyAuthorize/requirePrivacyAuthorize",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "小程序隐私协议弹窗"
+                }
+                
+                }
+            ]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

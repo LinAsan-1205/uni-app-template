@@ -1,12 +1,12 @@
-@use "sass:map";
-@use "../../libs/styles/design" as *;
+@use 'sass:map';
+@use '../../libs/styles/design' as *;
 $navbar: () !default;
 $navbar: map.merge(
 	(
 		background-color: get-base-color-var('primary'),
 		font-size: get-css-var($fontSizeMd),
 		border-color: #eef,
-		height: 44px
+		height: 44px,
 	),
 	$navbar
 );
@@ -92,7 +92,7 @@ $navbar: map.merge(
 		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 9998;
+		z-index: 999;
 	}
 
 	&--placeholder,
