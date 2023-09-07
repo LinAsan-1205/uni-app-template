@@ -4,6 +4,7 @@
 			:duration="duration" v-if="overlay" :top="customNavTop"></sakura-overlay>
 		<sakura-transition @change="onChange" :show="popup.showTrans" :mode-class="modeClass" :styles="{
 				...transClass,
+				...customTransitionNavTop
 
 			}" :duration="duration" :custom-class="customClass">
 			<view :class="classes(n('--content'),[round, n(`--${position}--round`)])" :style="{background: background}"
@@ -48,7 +49,7 @@
 		},
 		zIndex: {
 			type: Number,
-			default: 10000
+			default: 1000
 		},
 		background: {
 			type: String,
@@ -147,6 +148,13 @@
 	const customNavTop = computed(() => {
 		if (!customNavBar.value) return 0
 		return uni.$sakura.utils.getCustomNavTop(customNavBarHeight.value)
+	})
+
+	const customTransitionNavTop = computed(() => {
+		if (!customNavBar.value || position.value === 'bottom') return {}
+		return {
+			top: customNavTop.value
+		}
 	})
 
 
