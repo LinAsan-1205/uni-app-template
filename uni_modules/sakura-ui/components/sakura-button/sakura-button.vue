@@ -11,7 +11,8 @@
 		[block, n('--block')],
 		[icon, n('--icon')]
 	)" :style="stylesName" :openType="openType" @tap="bindClick" @getphonenumber="bindGetPhoneNumber"
-		@getuserinfo="bindGetuserinfo" @contact="bindContact" @error="bindError">
+		@agreeprivacyauthorization="agreeprivacyauthorization" @getuserinfo="bindGetuserinfo" @contact="bindContact"
+		@error="bindError">
 		<view class="sakura-button-content" :style="contentStyle">
 			<template v-if="slots.default">
 				<slot />
@@ -222,6 +223,9 @@
 	const bindGetuserinfo = ({ detail = {} } = {}) => {
 		emit('getUserInfo', detail);
 	};
+	const agreeprivacyauthorization = ({ detail = {} } = {}) => {
+		console.log(detail, 'detail')
+	}
 	const bindContact = ({ detail = {} } = {}) => {
 		emit('contact', detail);
 	};
