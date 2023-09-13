@@ -162,32 +162,26 @@
 					"navigationBarTitleText": "警告提示"
 				}
 
+			}, {
+				"path": "color/color",
+				"style": {
+					"navigationBarTitleText": "颜色"
+				}
+
+			}, {
+				"path": "tabs/tabs",
+				"style": {
+					"navigationBarTitleText": "选项卡"
+				}
+
+			}, {
+				"path": "fullscreenLoading/fullscreenLoading",
+				"style": {
+					"navigationBarTitleText": "全屏加载"
+				}
+
 			}
-		    ,{
-                    "path" : "color/color",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "颜色"
-                }
-                
-                }
-                ,{
-                    "path" : "tabs/tabs",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "选项卡"
-                }
-                
-                }
-                ,{
-                    "path" : "fullscreenLoading/fullscreenLoading",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "全屏加载"
-                }
-                
-                }
-            ]
+		]
 	}, {
 		"root": "pages/other",
 		"pages": [{
@@ -196,22 +190,20 @@
 				"navigationBarTitleText": "定位"
 			}
 
-		}    ,{
-                    "path" : "requirePrivacyAuthorize/requirePrivacyAuthorize",
-                    "style" :                                                                                    
-                {
-                    "navigationBarTitleText": "小程序隐私协议弹窗"
-                }
-                
-                }
-            ]
+		}, {
+			"path": "requirePrivacyAuthorize/requirePrivacyAuthorize",
+			"style": {
+				"navigationBarTitleText": "小程序隐私协议弹窗"
+			}
+
+		}]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "sakura-ui",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
-		"navigationStyle": "custom"
+		"navigationStyle": "custom",
 	},
 	"uniIdRouter": {}
 }
