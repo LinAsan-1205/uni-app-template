@@ -1,0 +1,7 @@
+@use '../../libs/styles/design' as *;
+$stepper: () !default;
+.#{$namespace}-stepper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
