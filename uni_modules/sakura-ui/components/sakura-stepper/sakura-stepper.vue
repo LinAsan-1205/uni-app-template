@@ -1,8 +1,12 @@
 <template>
 	<view :class="className">
-		<slot name="min"></slot>
+		<slot name="min">
+			<view :class="n('--left')"></view>
+		</slot>
 
-		<slot name="max"></slot>
+		<slot name="max">
+			<view :class="n('--right')"></view>
+		</slot>
 	</view>
 </template>
 
