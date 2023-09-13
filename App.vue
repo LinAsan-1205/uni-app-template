@@ -18,6 +18,14 @@
 	/*每个页面公共css */
 	@import '@/uni_modules/sakura-ui/index.scss';
 
+	// #ifdef H5
+	body::-webkit-scrollbar,
+	html::-webkit-scrollbar {
+		display: none;
+	}
+
+	// #endif
+
 	page {
 		background: #fff;
 	}
