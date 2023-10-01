@@ -3,7 +3,7 @@
 	<sakura-space vertical :size="20" :margin="[32,24]">
 		<sakura-button type="primary" @click="open"> 打开隐私</sakura-button>
 	</sakura-space>
-	<sakura-popup :show="showModal" :customNavBar="false" @close="showModal=false" round>
+	<sakura-popup :closeOnClickOverlay="false" :show="showModal" :customNavBar="false" round>
 		<view class="privacy">
 			<view class="privacy-title">用户隐私保护提示</view>
 			<view class="privacy-content">使用前请阅读<sakura-text type="primary" size="28rpx" :text="privacyContractName"
@@ -23,7 +23,6 @@
 	import { ref } from 'vue'
 	import { onLoad } from "@dcloudio/uni-app"
 
-	let resolvePrivacyAuthorization = null
 
 	const showModal = ref(false)
 	const privacyContractName = ref('')
@@ -44,12 +43,6 @@
 	}
 	onLoad(() => {
 		// #ifdef MP-WEIXIN
-		if (wx.onNeedPrivacyAuthorization) {
-			wx.onNeedPrivacyAuthorization((resolve) => {
-				open()
-				resolvePrivacyAuthorization = resolve
-			})
-		}
 		wx.getPrivacySetting({
 			success: res => {
 				if (res.needAuthorization) {
@@ -63,12 +56,13 @@
 		// #endif
 	})
 	const onClose = () => {
-		showModal.value = false;
-		resolvePrivacyAuthorization({
-			event: 'disagree'
+		uni.showToast({
+			title: '必须同意后才可以继续使用当前小程序',
+			icon: 'none'
 		})
 	}
 	const onOk = () => {
+		console.log(2)
 		showModal.value = false;
 	}
 

@@ -8,7 +8,7 @@
 
 			}" :duration="duration" :custom-class="customClass">
 			<view :class="classes(n('--content'),[round, n(`--${position}--round`)])" :style="{background: background}"
-				@click="onClose">
+				@click="onOverlay">
 				<slot></slot>
 			</view>
 		</sakura-transition>
@@ -160,6 +160,7 @@
 
 	watch(() => show.value, () => {
 		if (!show.value) {
+			onClose()
 			return
 		}
 		transClass.value = {
